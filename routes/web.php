@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\ShopComponent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/', HomeComponent::class)->name('home');
+Route::get('/shop', ShopComponent::class)->name('shop');
