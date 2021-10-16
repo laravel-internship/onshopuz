@@ -11,3 +11,6 @@ class HomeComponent extends Component
         return view('livewire.home-component')->layout('layouts.base');
     }
 }
+
+
+     
