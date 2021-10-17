@@ -3,16 +3,17 @@
 namespace Database\Factories;
 
 use App\Models\Model;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ProductsFactory extends Factory
+class ProductFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Model::class;
+    protected $model = Product::class;
 
     /**
      * Define the model's default state.
@@ -28,15 +29,15 @@ class ProductsFactory extends Factory
         $quentity = $this->faker->numberBetween(1, 1000);
         $image = $this->faker->imageUrl(300, 300);
         $status = $this->faker->numberBetween(0, 1);
-        $data = ['Name' => $name, 'Price' => $price];
         return [
             'name' => $name,
             'price' => $price,
-            'quentity' => $quentity,
+            'quatity' => $quentity,
+            'category_id'=>$quentity,
             'image' => $image,
             'images' => $image,
             'status' => $status,
-            'data' => $data,
+            'data'=>$name,
             'slug' => $slug
         ];
     }
