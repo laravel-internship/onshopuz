@@ -83,10 +83,7 @@
                         <div class="collapsible-body">
                             <ul>
                                 <li>
-                                    <a href="../cart/cart-v1.html" class="waves-effect">Cart V.1</a>
-                                </li>
-                                <li>
-                                    <a href="../cart/cart-v2.html" class="waves-effect">Cart V.2</a>
+                                    <a href="{{route('cart')}}" class="waves-effect">Cart</a>
                                 </li>
                             </ul>
                         </div>
@@ -99,16 +96,7 @@
                         <div class="collapsible-body">
                             <ul>
                                 <li>
-                                    <a href="../category/category-v1.html" class="waves-effect">Category V.1</a>
-                                </li>
-                                <li>
-                                    <a href="../category/category-v2.html" class="waves-effect">Category V.2</a>
-                                </li>
-                                <li>
-                                    <a href="../category/category-v3.html" class="waves-effect">Category V.3</a>
-                                </li>
-                                <li>
-                                    <a href="../category/category-v4.html" class="waves-effect">Category V.4</a>
+                                    <a href="{{route('detail')}}" class="waves-effect">Category</a>
                                 </li>
                             </ul>
                         </div>
@@ -122,13 +110,7 @@
                         <div class="collapsible-body">
                             <ul>
                                 <li>
-                                    <a href="../homepage/homepage-v1.html" class="waves-effect">Homepage V.1</a>
-                                </li>
-                                <li>
-                                    <a href="../homepage/homepage-v2.html" class="waves-effect">Homepage V.2</a>
-                                </li>
-                                <li>
-                                    <a href="../homepage/homepage-v3.html" class="waves-effect">Homepage V.3</a>
+                                    <a href="{{route('home')}}" class="waves-effect">Homepage</a>
                                 </li>
                             </ul>
                         </div>
@@ -141,10 +123,7 @@
                         <div class="collapsible-body">
                             <ul>
                                 <li>
-                                    <a href="../product/product-v1.html" class="waves-effect">Product V.1</a>
-                                </li>
-                                <li>
-                                    <a href="../product/product-v2.html" class="waves-effect">Product V.2</a>
+                                    <a href="{{route('shop')}}" class="waves-effect">Product</a>
                                 </li>
                             </ul>
                         </div>

@@ -16,11 +16,16 @@ class Category extends Model
         return $this->hasMany(Product::class, 'category_id', 'id');
     }
 
+    public function property()
+    {
+        return $this->hasMany(Property::class, 'category_id', 'id');
+    }
+
 
     //product model
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class, 'category_id', 'id');
-    }
+    // public function category()
+    // {
+    //     return $this->belongsTo(Category::class, 'category_id', 'id');
+    // }
 }

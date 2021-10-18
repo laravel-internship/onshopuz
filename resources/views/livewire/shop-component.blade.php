@@ -340,7 +340,7 @@
 
                 </div>
                 @endforeach
-                @endif
+                @endif    
                 <!--Grid row-->
 
                 {{-- <!-- Grid row -->

@@ -17,6 +17,9 @@ class Product extends Model
         'quatity',
         'image',
         'images',
+        'discount',
+        'about',
+        'description',
         'status',
         'data',
         'slug'
