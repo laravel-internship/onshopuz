@@ -19,10 +19,10 @@ class CreateProductsTable extends Migration
             $table->integer('category_id');
             $table->double('price');
             $table->integer('quatity');
-            $table->string('image');
-            $table->string('images');
+            $table->string('image')->nullable();
+            $table->string('images')->nullable();
             $table->boolean('status');
-            $table->string('data');
+            $table->string('data')->nullable();
             $table->string('slug');
             $table->timestamps();
         });
