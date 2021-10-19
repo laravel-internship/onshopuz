@@ -14,9 +14,9 @@ class AddDiscountColumnToProductsTable extends Migration
     public function up()
     {
         Schema::table('products', function (Blueprint $table) {
-            $table->string('discount');
-            $table->text('about');
-            $table->text('description');
+            $table->string('discount')->nullable();
+            $table->text('about')->nullable();
+            $table->text('description')->nullable();
 
         });
     }

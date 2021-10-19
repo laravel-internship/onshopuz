@@ -181,10 +181,8 @@
 
             <!-- Products Grid -->
             <section class="section pt-4">
-                @if ($products)
-                @foreach ($products as $item)
-                <!-- Grid row -->
                 <div class="row">
+<<<<<<< HEAD
 
                     <!--Grid column-->
 
@@ -442,116 +440,16 @@
                         <!--Grid column-->
 
                         <!--Grid column-->
-                        <div class="col-lg-4 col-md-6 mb-4">
-
-                            <!--Card-->
-                            <div class="card card-ecommerce">
-
-                                <!--Card image-->
-                                <div class="view overlay">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
-                                    <a>
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
-                                </div>
-                                <!--Card image-->
-
-                                <!--Card content-->
-                                <div class="card-body">
-                                    <!--Category & Title-->
-
-                                    <h5 class="card-title mb-1"><strong><a href="" class="dark-grey-text">Dell V-964i</a></strong></h5><span class="badge badge-info mb-2">new</span>
-                                    <!-- Rating -->
-                                    <ul class="rating">
-                                        <li><i class="fas fa-star blue-text"></i></li>
-                                        <li><i class="fas fa-star blue-text"></i></li>
-                                        <li><i class="fas fa-star blue-text"></i></li>
-                                        <li><i class="fas fa-star blue-text"></i></li>
-                                        <li><i class="fas fa-star blue-text"></i></li>
-                                    </ul>
-
-                                    <!--Card footer-->
-                                    <div class="card-footer pb-0">
-                                        <div class="row mb-0">
-                                            <span class="float-left"><strong>1439$</strong></span>
-                                            <span class="float-right">
-
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-shopping-cart ml-3"></i></a>
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!--Card content-->
-
-                            </div>
-                            <!--Card-->
-
-                        </div>
-                        <!--Grid column-->
-
-                    </div>
-                    <!--Grid row-->
-
-                    <!-- Grid row -->
-                    <div class="row mb-3">
-
-                        <!--Grid column-->
-                        <div class="col-lg-4 col-md-12 mb-4">
-
-                            <!--Card-->
-                            <div class="card card-ecommerce">
-
-                                <!--Card image-->
-                                <div class="view overlay">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/8.jpg" class="img-fluid" alt="">
-                                    <a>
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
-                                </div>
-                                <!--Card image-->
-
-                                <!--Card content-->
-                                <div class="card-body">
-                                    <!--Category & Title-->
-
-                                    <h5 class="card-title mb-1"><strong><a href="" class="dark-grey-text">Samsung V54</a></strong></h5><span class="badge grey mb-2">best rated</span>
-                                    <!-- Rating -->
-                                    <ul class="rating">
-                                        <li><i class="fas fa-star blue-text"></i></li>
-                                        <li><i class="fas fa-star blue-text"></i></li>
-                                        <li><i class="fas fa-star blue-text"></i></li>
-                                        <li><i class="fas fa-star blue-text"></i></li>
-                                        <li><i class="fas fa-star blue-text"></i></li>
-                                    </ul>
-
-                                    <!--Card footer-->
-                                    <div class="card-footer pb-0">
-                                        <div class="row mb-0">
-                                            <span class="float-left"><strong>1439$</strong></span>
-                                            <span class="float-right">
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-shopping-cart ml-3"></i></a>
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!--Card content-->
-
-                            </div>
-                            <!--Card-->
-
-                        </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
+=======
+                    @foreach ($products as $item)
+>>>>>>> 5166eee1fb9f438aab10879b045f2fae2ec9e381
                         <div class="col-lg-4 col-md-6 mb-4">
                             <!--Card-->
                             <div class="card card-ecommerce">
 
                                 <!--Card image-->
                                 <div class="view overlay">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/7.jpg" class="img-fluid" alt="">
+                                    <img src="{{$item->image}}" class="img-fluid" alt="{{$item->name}}">
                                     <a>
                                         <div class="mask rgba-white-slight"></div>
                                     </a>
@@ -562,55 +460,7 @@
                                 <div class="card-body">
                                     <!--Category & Title-->
 
-                                    <h5 class="card-title mb-1"><strong><a href="" class="dark-grey-text">Dell 786i</a></strong></h5><span class="badge badge-info mb-2">new</span>
-                                    <!-- Rating -->
-                                    <ul class="rating">
-                                        <li><i class="fas fa-star blue-text"></i></li>
-                                        <li><i class="fas fa-star blue-text"></i></li>
-                                        <li><i class="fas fa-star blue-text"></i></li>
-                                        <li><i class="fas fa-star blue-text"></i></li>
-                                        <li><i class="fas fa-star grey-text"></i></li>
-                                    </ul>
-
-                                    <!--Card footer-->
-                                    <div class="card-footer pb-0">
-                                        <div class="row mb-0">
-                                            <span class="float-left"><strong>1439$</strong></span>
-                                            <span class="float-right">
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-shopping-cart ml-3"></i></a>
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!--Card content-->
-
-                            </div>
-                            <!--Card-->
-
-                        </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-lg-4 col-md-6 mb-4">
-
-                            <!--Card-->
-                            <div class="card card-ecommerce">
-
-                                <!--Card image-->
-                                <div class="view overlay">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/9.jpg" class="img-fluid" alt="">
-                                    <a>
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
-                                </div>
-                                <!--Card image-->
-
-                                <!--Card content-->
-                                <div class="card-body">
-                                    <!--Category & Title-->
-
-                                    <h5 class="card-title mb-1"><strong><a href="" class="dark-grey-text">Canon 675-D</a></strong></h5><span class="badge badge-info mb-2">new</span>
+                                    <h5 class="card-title mb-1"><strong><a href="" class="dark-grey-text">{{$item->name}}</a></strong></h5><span class="badge badge-info mb-2">new</span>
                                     <!-- Rating -->
                                     <ul class="rating">
                                         <li><i class="fas fa-star blue-text"></i></li>
@@ -623,10 +473,11 @@
                                     <!--Card footer-->
                                     <div class="card-footer pb-0">
                                         <div class="row mb-0">
-                                            <span class="float-left"><strong>1439$</strong></span>
+                                            <span class="float-left"><strong>{{$item->price}}$</strong></span>
                                             <span class="float-right">
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-shopping-cart ml-3"></i></a>
-                                            </span>
+
+                                                <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-shopping-cart ml-3"></i></a>
+                                                </span>
                                         </div>
                                     </div>
 
@@ -637,12 +488,10 @@
                             <!--Card-->
 
                         </div>
-                        <!--Grid column-->
+                    @endforeach
+                </div>
 
-                    </div> --}}
-                <!--Grid row-->
 
-                <!--Grid row-->
                 <div class="row justify-content-center mb-4">
 
                     <!--Pagination -->
@@ -654,10 +503,10 @@
                                     class="page-link waves-effect waves-effect">First</a></li>
 
                             <!--Arrow left-->
-                            <li class="page-item disabled">
+                            <li class="page-item ">
                                 <a class="page-link waves-effect waves-effect" aria-label="Previous">
-                                    <span aria-hidden="true">«</span>
-                                    <span class="sr-only">Previous</span>
+                                    <span aria-hidden="true" wire:click="previousPage">«</span>
+                                    <span class="sr-only" >Previous</span>
                                 </a>
                             </li>
 
@@ -671,14 +520,14 @@
                             <!--Arrow right-->
                             <li class="page-item">
                                 <a class="page-link waves-effect waves-effect" aria-label="Next">
-                                    <span aria-hidden="true">»</span>
-                                    <span class="sr-only">Next</span>
+                                    <span aria-hidden="true" wire:click="nextPage">»</span>
+                                    <span class="sr-only" >Next</span>
                                 </a>
                             </li>
 
                             <!--First-->
                             <li class="page-item clearfix d-none d-md-block"><a
-                                    class="page-link waves-effect waves-effect">Last</a></li>
+                                    class="page-link waves-effect waves-effect" wire:click="gotoPage(2)">Last</a></li>
 
                         </ul>
                     </nav>
