@@ -25,30 +25,14 @@
                             <div class="divider"></div>
 
                             <!--Radio group-->
-                            <div class="form-group ">
-                                <input class="form-check-input" name="group100" type="radio" id="radio100">
-                                <label for="radio100" class="form-check-label dark-grey-text">All</label>
-                            </div>
+                            @foreach ($categories as $category)
+                                <div class="form-group">
+                                    <input class="form-control"  type="input"  wire:model="category_id" value="{{$category->id}}">
+                                    {{-- <label for="radio10" class="form-check-label dark-grey-text">{{$category->name}}</label> --}}
+                                </div>
+                            @endforeach
 
-                            <div class="form-group">
-                                <input class="form-check-input" name="group100" type="radio" id="radio101" checked>
-                                <label for="radio101" class="form-check-label dark-grey-text">Laptop</label>
-                            </div>
 
-                            <div class="form-group">
-                                <input class="form-check-input" name="group100" type="radio" id="radio102">
-                                <label for="radio102" class="form-check-label dark-grey-text">Smartphone</label>
-                            </div>
-
-                            <div class="form-group">
-                                <input class="form-check-input" name="group100" type="radio" id="radio103">
-                                <label for="radio103" class="form-check-label dark-grey-text">Tablet</label>
-                            </div>
-
-                            <div class="form-group">
-                                <input class="form-check-input" name="group100" type="radio" id="radio104">
-                                <label for="radio104" class="form-check-label dark-grey-text">Headphones</label>
-                            </div>
                             <!--Radio group-->
                     </div>
                     <!-- /Filter by category-->
