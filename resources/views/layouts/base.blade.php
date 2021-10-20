@@ -83,10 +83,10 @@
                         <div class="collapsible-body">
                             <ul>
                                 <li>
-                                    <a href="../cart/cart-v1.html" class="waves-effect">Cart V.1</a>
+                                    <a href="{{asset('assets/cart/cart-v1.html" class="waves-effect')}}">Cart V.1</a>
                                 </li>
                                 <li>
-                                    <a href="../cart/cart-v2.html" class="waves-effect">Cart V.2</a>
+                                    <a href="{{asset('assets/cart/cart-v2.html" class="waves-effect')}}">Cart V.2</a>
                                 </li>
                             </ul>
                         </div>
@@ -150,7 +150,7 @@
                         </div>
                     </li>
                     <li>
-                        <a href="../contact/contact.html" class="collapsible-header waves-effect">
+                        <a href="{{route('contact')}}" class="collapsible-header waves-effect">
                             <i class="fas fa-envelope"></i> Contact</a>
                     </li>
 

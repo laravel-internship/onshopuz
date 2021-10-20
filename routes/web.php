@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\CartComponent;
+use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\DetailComonent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\ShopComponent;
@@ -29,4 +30,5 @@ Route::get('/', HomeComponent::class)->name('home');
 Route::get('/shop', ShopComponent::class)->name('shop');
 Route::get('/cart', CartComponent::class)->name('cart');
 Route::get('/detail', DetailComonent::class)->name('detail');
+Route::get('/contact', ContactComponent::class)->name('contact');
 
