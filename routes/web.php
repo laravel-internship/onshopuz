@@ -28,5 +28,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/', HomeComponent::class)->name('home');
 Route::get('/shop', ShopComponent::class)->name('shop');
 Route::get('/cart', CartComponent::class)->name('cart');
-Route::get('/detail', DetailComonent::class)->name('detail');
+Route::get('/detail/{detail}', DetailComonent::class)->name('detail');
 
