@@ -25,11 +25,18 @@
                             <div class="divider"></div>
 
                             <!--Radio group-->
-                            @foreach ($categories as $category)
-                                <div class="form-group">
-                                    <input class="form-control"  type="input"  wire:model="category_id" value="{{$category->id}}">
-                                    {{-- <label for="radio10" class="form-check-label dark-grey-text">{{$category->name}}</label> --}}
-                                </div>
+                            @foreach ($categories as $key => $category)
+                                <div class="form-check">
+                                    <input
+                                      class="form-check-input"
+                                      type="radio"
+                                      name="category_id"
+                                      wire:model="category_id"
+                                      value="{{$category->id}}"
+                                      id="flexRadioDefault{{$key}}"
+                                    />
+                                    <label class="form-check-label" for="flexRadioDefault{{$key}}">{{$category->name}} </label>
+                                  </div>
                             @endforeach
 
 
