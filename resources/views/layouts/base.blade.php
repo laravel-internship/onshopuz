@@ -96,7 +96,7 @@
                         <div class="collapsible-body">
                             <ul>
                                 <li>
-                                    <a href="{{route('detail')}}" class="waves-effect">Category</a>
+                                    <a href="{{route('detail')}}" class="waves-effect">Detail</a>
                                 </li>
                             </ul>
                         </div>
