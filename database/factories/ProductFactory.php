@@ -24,21 +24,27 @@ class ProductFactory extends Factory
     {
 
         $name = $this->faker->unique()->words($nb = 4, $asText = true);
+        $about = $this->faker->unique()->words($nb = 10, $asText = true);
+        $description = $this->faker->unique()->words($nb = 80, $asText = true);
         $slug = \Str::slug($name);
         $price = $this->faker->numberBetween(1000, 100000000);
         $quentity = $this->faker->numberBetween(1, 1000);
-        $category_id = $this->faker->numberBetween(1, 10);
+        $discount = $this->faker->numberBetween(1, 800);
+        $category=$this->faker->numberBetween(1, 10);
         $image = $this->faker->imageUrl(300, 300);
         $status = $this->faker->numberBetween(0, 1);
         return [
             'name' => $name,
             'price' => $price,
             'quatity' => $quentity,
-            'category_id'=>$category_id,
+            'category_id'=>$category,
             'image' => $image,
             'images' => $image,
             'status' => $status,
             'data'=>$name,
+            'discount'=>$discount,
+            'about'=>$about,
+            'description'=>$description,
             'slug' => $slug
         ];
     }

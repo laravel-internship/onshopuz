@@ -1,4 +1,5 @@
 <div>
+@if ($product)
 
     <!-- Section: product details -->
     <section id="productDetails" class="pb-5">
@@ -9,18 +10,22 @@
                 <div class="col-lg-6">
                     <div class="row mx-2">
                         <!--Carousel Wrapper-->
-                        <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails mb-5 pb-4" data-ride="carousel">
+                        <div id="carousel-thumb" class="carousel slide carousel-fade carousel-thumbnails mb-5 pb-4"
+                            data-ride="carousel">
 
                             <!--Slides-->
                             <div class="carousel-inner text-center text-md-left" role="listbox">
                                 <div class="carousel-item active">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg" alt="First slide" class="img-fluid">
+                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg"
+                                        alt="First slide" class="img-fluid">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/2.jpg" alt="Second slide" class="img-fluid">
+                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/2.jpg"
+                                        alt="Second slide" class="img-fluid">
                                 </div>
                                 <div class="carousel-item">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/20.jpg" alt="Third slide" class="img-fluid">
+                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/20.jpg"
+                                        alt="Third slide" class="img-fluid">
                                 </div>
                             </div>
                             <!--/.Slides-->
@@ -52,9 +57,11 @@
                                 <!--Grid column-->
                                 <figure class="col-md-4">
                                     <!--Large image-->
-                                    <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg" data-size="1600x1067">
+                                    <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg"
+                                        data-size="1600x1067">
                                         <!-- Thumbnail-->
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg" class="img-fluid">
+                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg"
+                                            class="img-fluid">
                                     </a>
                                 </figure>
                                 <!--Grid column-->
@@ -62,9 +69,11 @@
                                 <!--Grid column-->
                                 <figure class="col-md-4">
                                     <!--Large image-->
-                                    <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/2.jpg" data-size="1600x1067">
+                                    <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/2.jpg"
+                                        data-size="1600x1067">
                                         <!-- Thumbnail-->
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/2.jpg" class="img-fluid">
+                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/2.jpg"
+                                            class="img-fluid">
                                     </a>
                                 </figure>
                                 <!--Grid column-->
@@ -72,9 +81,11 @@
                                 <!--Grid column-->
                                 <figure class="col-md-4">
                                     <!--Large image-->
-                                    <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/20.jpg" data-size="1600x1067">
+                                    <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/20.jpg"
+                                        data-size="1600x1067">
                                         <!-- Thumbnail-->
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/20.jpg" class="img-fluid">
+                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/20.jpg"
+                                            class="img-fluid">
                                     </a>
                                 </figure>
                                 <!--Grid column-->
@@ -84,39 +95,33 @@
                     <!--Grid row-->
                 </div>
                 <div class="col-lg-5 mr-3 text-center text-md-left">
-                    <h2 class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4">
-                        <strong>iPad PRO </strong>
+                    <h2
+                        class="h2-responsive text-center text-md-left product-name font-weight-bold dark-grey-text mb-1 ml-xl-0 ml-4">
+                        <strong>{{$product->name}} </strong>
                     </h2>
-                    <span class="badge badge-danger product mb-4 ml-xl-0 ml-4">bestseller</span>
+                    <span class="badge badge-danger product mb-4 ml-xl-0 ml-4">{{$product->status==1?'Active':'noActive'}}</span>
                     </strong>
                     </h2>
-                    <span class="badge badge-success product mb-4 ml-2">SALE</span>
+                    <span class="badge badge-success product mb-4 ml-2">{{$product->status==1?'Sale':'noSale'}}</span>
                     <h3 class="h3-responsive text-center text-md-left mb-5 ml-xl-0 ml-4">
                         <span class="red-text font-weight-bold">
-                            <strong>$1449</strong>
+                            <strong>${{$product->price}}</strong>
                         </span>
                         <span class="grey-text">
                             <small>
-                                <s>$1789</s>
+                                <s>${{$product->discount??"0"}}</s>
                             </small>
                         </span>
                     </h3>
 
-                    <p class="ml-xl-0 ml-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente nesciunt atque nemo neque ut officiis
-                        nostrum incidunt maiores, magni optio et sunt suscipit iusto nisi totam quis, nobis mollitia
-                        necessitatibus.
+                    <p class="ml-xl-0 ml-4">{{$product->about}}
                     </p>
                     <p class="ml-xl-0 ml-4">
-                        <strong>Storage: </strong>64GB</p>
-                    <p class="ml-xl-0 ml-4">
-                        <strong>Size: </strong>9.6-inch</p>
-                    <p class="ml-xl-0 ml-4">
-                        <strong>Resolution: </strong>2048 x 1536</p>
-                    <p class="ml-xl-0 ml-4">
-                        <strong>Availability: </strong>In stock</p>
+                        <strong>Data: </strong>{{$product->data}}
+                    </p>
 
                     <!-- Add to Cart -->
-                    <section class="color">
+                    {{-- <section class="color">
                         <div class="mt-5">
                             <p class="grey-text">Choose your color</p>
                             <div class="row text-center text-md-left">
@@ -124,7 +129,8 @@
                                 <div class="col-md-4 col-12 ">
                                     <!--Radio group-->
                                     <div class="form-group">
-                                        <input class="form-check-input" name="group100" type="radio" id="radio100" checked="checked">
+                                        <input class="form-check-input" name="group100" type="radio" id="radio100"
+                                            checked="checked">
                                         <label for="radio100" class="form-check-label dark-grey-text">White</label>
                                     </div>
                                 </div>
@@ -151,7 +157,7 @@
                                 </div>
                             </div>
                         </div>
-                    </section>
+                    </section> --}}
                     <!-- /.Add to Cart -->
                 </div>
             </div>
@@ -172,22 +178,29 @@
             <table class="table table-responsive-md">
                 <thead>
                     <tr>
+
                         <th>
-                            <strong>Feature</strong>
+                            <strong>category</strong>
                         </th>
                         <th>
-                            <strong>12.9-inch iPad Pro</strong>
+                            <strong>price</strong>
                         </th>
                         <th>
-                            <strong>10.5-inch iPad Pro</strong>
+                            <strong>quatity</strong>
                         </th>
                         <th>
-                            <strong>iPad mini 4</strong>
+                            <strong>description</strong>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
+                        <td>{{$product->category->name}}</td>
+                        <td>{{$product->price}}</td>
+                        <td>{{$product->quatity}}</td>
+                        <td>{{$product->description}}</td>
+                    </tr>
+                    {{-- <tr>
                         <th scope="row">Storage</th>
                         <td>64GB</td>
                         <td>64GB</td>
@@ -222,13 +235,14 @@
                         <td>4K HD video recording </td>
                         <td>4K HD video recording </td>
                         <td>1080p HD video recording</td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
 
         </div>
 
     </div>
+    @endif
     <!--Table-->
 
     <!-- Product Reviews -->
@@ -247,7 +261,8 @@
             <div class="row mb-5">
                 <!--Image column-->
                 <div class="col-sm-2 col-12 mb-3">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (8).jpg" alt="sample image" class="avatar rounded-circle z-depth-1-half">
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (8).jpg" alt="sample image"
+                        class="avatar rounded-circle z-depth-1-half">
                 </div>
                 <!--/.Image column-->
 
@@ -277,11 +292,14 @@
                     <div class="card-data">
                         <ul class="list-unstyled mb-1">
                             <li class="comment-date font-small grey-text">
-                                <i class="far fa-clock-o"></i> 05/10/2015</li>
+                                <i class="far fa-clock-o"></i> 05/10/2015
+                            </li>
                         </ul>
                     </div>
-                    <p class="dark-grey-text article">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    <p class="dark-grey-text article">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat
                         nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
                 </div>
                 <!--/.Content column-->
@@ -292,7 +310,8 @@
             <div class="row mb-5">
                 <!--Image column-->
                 <div class="col-sm-2 col-12 mb-3">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (30).jpg" alt="sample image" class="avatar rounded-circle z-depth-1-half">
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (30).jpg" alt="sample image"
+                        class="avatar rounded-circle z-depth-1-half">
                 </div>
                 <!--/.Image column-->
 
@@ -322,11 +341,14 @@
                     <div class="card-data">
                         <ul class="list-unstyled mb-1">
                             <li class="comment-date font-small grey-text">
-                                <i class="far fa-clock-o"></i> 05/10/2015</li>
+                                <i class="far fa-clock-o"></i> 05/10/2015
+                            </li>
                         </ul>
                     </div>
-                    <p class="dark-grey-text article">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    <p class="dark-grey-text article">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                        nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat
                         nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
                 </div>
                 <!--/.Content column-->
@@ -337,7 +359,8 @@
             <div class="row mb-5">
                 <!--Image column-->
                 <div class="col-sm-2 col-12 mb-3">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (28).jpg" alt="sample image" class="avatar rounded-circle z-depth-1-half">
+                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (28).jpg" alt="sample image"
+                        class="avatar rounded-circle z-depth-1-half">
                 </div>
                 <!--/.Image column-->
                 <!--Content column-->
@@ -366,11 +389,14 @@
                     <div class="card-data">
                         <ul class="list-unstyled mb-1">
                             <li class="comment-date font-small grey-text">
-                                <i class="far fa-clock-o"></i> 05/10/2015</li>
+                                <i class="far fa-clock-o"></i> 05/10/2015
+                            </li>
                         </ul>
                     </div>
-                    <p class="dark-grey-text article">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    <p class="dark-grey-text article">Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                        fugiat
                         nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
                 </div>
                 <!--/.Content column-->
@@ -390,7 +416,8 @@
         </h4>
         <hr class="mb-5">
 
-        <p class="text-center w-responsive mx-auto mb-5 dark-grey-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, error amet numquam iure provident voluptate
+        <p class="text-center w-responsive mx-auto mb-5 dark-grey-text">Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Fugit, error amet numquam iure provident voluptate
             esse quasi, veritatis totam voluptas nostrum quisquam eum porro a pariatur accusamus veniam.</p>
 
         <!--Carousel Wrapper-->
@@ -409,7 +436,8 @@
 
             <!--Indicators-->
             <ol class="carousel-indicators">
-                <li class="primary-color" data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+                <li class="primary-color" data-target="#multi-item-example" data-slide-to="0" class="active">
+                </li>
                 <li class="primary-color" data-target="#multi-item-example" data-slide-to="1"></li>
                 <li class="primary-color" data-target="#multi-item-example" data-slide-to="2"></li>
             </ol>
@@ -428,7 +456,8 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg" class="img-fluid" alt="">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/14.jpg"
+                                    class="img-fluid" alt="">
                                 <a>
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -472,7 +501,8 @@
                                         </span>
                                         <span class="float-right">
 
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
                                         </span>
@@ -494,7 +524,8 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg"
+                                    class="img-fluid" alt="">
                                 <a>
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -537,7 +568,8 @@
                                             <strong>1439$</strong>
                                         </span>
                                         <span class="float-right">
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
                                         </span>
@@ -559,7 +591,8 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/9.jpg" class="img-fluid" alt="">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/9.jpg"
+                                    class="img-fluid" alt="">
                                 <a>
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -602,7 +635,8 @@
                                             <strong>1439$</strong>
                                         </span>
                                         <span class="float-right">
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
                                         </span>
@@ -630,7 +664,8 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/8.jpg" class="img-fluid" alt="">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/8.jpg"
+                                    class="img-fluid" alt="">
                                 <a>
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -673,7 +708,8 @@
                                             <strong>1439$</strong>
                                         </span>
                                         <span class="float-right">
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
                                         </span>
@@ -695,7 +731,8 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/5.jpg" class="img-fluid" alt="">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/5.jpg"
+                                    class="img-fluid" alt="">
                                 <a>
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -739,7 +776,8 @@
                                         </span>
                                         <span class="float-right">
 
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
                                         </span>
@@ -761,7 +799,8 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg" class="img-fluid" alt="">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg"
+                                    class="img-fluid" alt="">
                                 <a>
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -804,7 +843,8 @@
                                             <strong>1439$</strong>
                                         </span>
                                         <span class="float-right">
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
                                         </span>
@@ -832,7 +872,8 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg"
+                                    class="img-fluid" alt="">
                                 <a>
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -875,7 +916,8 @@
                                             <strong>1439$</strong>
                                         </span>
                                         <span class="float-right">
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
                                         </span>
@@ -897,7 +939,8 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/7.jpg" class="img-fluid" alt="">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/7.jpg"
+                                    class="img-fluid" alt="">
                                 <a>
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -940,7 +983,8 @@
                                             <strong>1439$</strong>
                                         </span>
                                         <span class="float-right">
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
                                         </span>
@@ -962,7 +1006,8 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/10.jpg" class="img-fluid" alt="">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/10.jpg"
+                                    class="img-fluid" alt="">
                                 <a>
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -1006,7 +1051,8 @@
                                         </span>
                                         <span class="float-right">
 
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
                                         </span>
