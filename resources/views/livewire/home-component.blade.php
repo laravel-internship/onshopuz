@@ -125,7 +125,7 @@
                                 <div class="row">
                                     @foreach ($product1 as $item)
                                     <!--Grid column-->
-                                    <div class="col-lg-4 col-md-12 mb-4">   
+                                    <div class="col-lg-4 col-md-12 mb-4">
 
                                         <!--Card-->
                                         <div class="card card-ecommerce">

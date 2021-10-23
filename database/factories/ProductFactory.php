@@ -29,15 +29,23 @@ class ProductFactory extends Factory
         $slug = \Str::slug($name);
         $price = $this->faker->numberBetween(1000, 100000000);
         $quentity = $this->faker->numberBetween(1, 1000);
+<<<<<<< HEAD
         $discount = $this->faker->numberBetween(1, 800);
         $category=$this->faker->numberBetween(1, 10);
+=======
+        $category_id = $this->faker->numberBetween(1, 10);
+>>>>>>> 15c829fa3340994f1f072b16d33e5104f9178a29
         $image = $this->faker->imageUrl(300, 300);
         $status = $this->faker->numberBetween(0, 1);
         return [
             'name' => $name,
             'price' => $price,
             'quatity' => $quentity,
+<<<<<<< HEAD
             'category_id'=>$category,
+=======
+            'category_id'=>$category_id,
+>>>>>>> 15c829fa3340994f1f072b16d33e5104f9178a29
             'image' => $image,
             'images' => $image,
             'status' => $status,
