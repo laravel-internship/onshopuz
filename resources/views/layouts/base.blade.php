@@ -88,19 +88,7 @@
                             </ul>
                         </div>
                     </li>
-                    <li>
-                        <a class="collapsible-header waves-effect arrow-r">
-                            <i class="far fa-hand-pointer"></i> Category page
-                            <i class="fas fa-angle-down rotate-icon"></i>
-                        </a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li>
-                                    <a href="{{route('detail')}}" class="waves-effect">Detail</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
+                    
 
                     <li>
                         <a class="collapsible-header waves-effect arrow-r">
