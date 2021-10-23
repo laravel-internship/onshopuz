@@ -14,7 +14,13 @@ class DetailComonent extends Component
         $slug=request('slug');
         // dd($slug);
         $product=Product::with('category')->where('slug',$slug)->first();
-        // dd($product);
-        return view('livewire.detail-comonent',['product'=>$product])->layout('layouts.base');
+
+        $images=explode(',',$product->images);
+
+
+
+        $products=Product::with('category')->where('category_id',$product->category_id)->paginate(9);
+        // dd($products);
+        return view('livewire.detail-comonent',['product'=>$product,'products'=>$products,'images'=>$images])->layout('layouts.base');
     }
 }

@@ -16,17 +16,17 @@
                             <!--Slides-->
                             <div class="carousel-inner text-center text-md-left" role="listbox">
                                 <div class="carousel-item active">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg"
-                                        alt="First slide" class="img-fluid">
+                                    <img src="{{asset('assets/img/products/'.$product->image)}}"
+                                        alt="First slide" class="img-fluid" >
                                 </div>
+                                @foreach ($images as $image)
+
                                 <div class="carousel-item">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/2.jpg"
+                                    <img src="{{asset('assets/img/products/'.$image)}}"
                                         alt="Second slide" class="img-fluid">
                                 </div>
-                                <div class="carousel-item">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/20.jpg"
-                                        alt="Third slide" class="img-fluid">
-                                </div>
+                                @endforeach
+
                             </div>
                             <!--/.Slides-->
 
@@ -55,19 +55,22 @@
                             <div class="mdb-lightbox no-margin">
 
                                 <!--Grid column-->
+                                @foreach ($images as $image)
+
                                 <figure class="col-md-4">
                                     <!--Large image-->
-                                    <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg"
+                                    <a href="{{asset('assets/img/products/'.$image)}}"
                                         data-size="1600x1067">
                                         <!-- Thumbnail-->
-                                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg"
+                                        <img src="{{asset('assets/img/products/'.$image)}}"
                                             class="img-fluid">
                                     </a>
                                 </figure>
+                                @endforeach
                                 <!--Grid column-->
 
                                 <!--Grid column-->
-                                <figure class="col-md-4">
+                                {{-- <figure class="col-md-4">
                                     <!--Large image-->
                                     <a href="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/2.jpg"
                                         data-size="1600x1067">
@@ -87,7 +90,7 @@
                                         <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/20.jpg"
                                             class="img-fluid">
                                     </a>
-                                </figure>
+                                </figure> --}}
                                 <!--Grid column-->
                             </div>
                         </div>

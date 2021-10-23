@@ -132,7 +132,7 @@
 
                                             <!--Card image-->
                                             <div class="view overlay">
-                                                <img src="{{$item->image}}" class="img-fluid" alt="sample image">
+                                                <img src="{{asset('assets/img/products/'.$item->image)}}" class="img-fluid" alt="sample image">
                                                 <a  href="{{route('detail', ['slug' => $item->slug])}}" >
                                                     <div class="mask rgba-white-slight"></div>
                                                 </a>
@@ -172,7 +172,7 @@
                                                 <div class="card-footer pb-0">
                                                     <div class="row mb-0">
                                                         <span class="float-left">
-                                                            <strong>{{$item->price}}</strong>
+                                                            <strong>{{$item->price}}$</strong>
                                                         </span>
                                                         <span class="float-right">
                                                             <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"  href="{{route('cart')}}">
@@ -356,7 +356,7 @@
 
                                             <!--Card image-->
                                             <div class="view overlay">
-                                                <img src="{{$item->image}}" class="img-fluid" alt="sample image">
+                                                <img src="{{asset('assets/img/products/'.$item->image)}}" class="img-fluid" alt="sample image">
                                                 <a  href="{{route('detail', ['slug' => $item->slug])}}">
                                                     <div class="mask rgba-white-slight"></div>
                                                 </a>
@@ -396,7 +396,7 @@
                                                 <div class="card-footer pb-0">
                                                     <div class="row mb-0">
                                                         <span class="float-left">
-                                                            <strong>{{$item->price}}</strong>
+                                                            <strong>{{$item->price}}$</strong>
                                                         </span>
                                                         <span class="float-right">
                                                             <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"  href="{{route('cart')}}">
@@ -577,7 +577,7 @@
 
                                             <!--Card image-->
                                             <div class="view overlay">
-                                                <img src="{{$item->image}}" class="img-fluid" alt="sample image">
+                                                <img src="{{asset('assets/img/products/'.$item->image)}}" class="img-fluid" alt="sample image">
                                                 <a  href="{{route('detail', ['slug' => $item->slug])}}">
                                                     <div class="mask rgba-white-slight"></div>
                                                 </a>
@@ -617,7 +617,7 @@
                                                 <div class="card-footer pb-0">
                                                     <div class="row mb-0">
                                                         <span class="float-left">
-                                                            <strong>{{$item->price}}</strong>
+                                                            <strong>{{$item->price}}$</strong>
                                                         </span>
                                                         <span class="float-right">
                                                             <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"  href="{{route('cart')}}">

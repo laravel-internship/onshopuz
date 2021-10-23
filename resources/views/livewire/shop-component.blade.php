@@ -84,7 +84,7 @@
 
                                 <!-- Grid column -->
                                 <div class="col-md-6 text-right">
-                                    <p class="dark-grey-text"><strong id="clientPrice">319$</strong></p>
+                                    <p class="dark-grey-text"><strong id="clientPrice">1000$</strong></p>
                                 </div>
                                 <!-- Grid column -->
                             </div>
