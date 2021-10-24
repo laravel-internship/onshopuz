@@ -16,13 +16,13 @@
                             <!--Slides-->
                             <div class="carousel-inner text-center text-md-left" role="listbox">
                                 <div class="carousel-item active">
-                                    <img src="{{asset('assets/img/products/'.$product->image)}}"
+                                    <img src="{{asset($product->image)}}"
                                         alt="First slide" class="img-fluid" >
                                 </div>
                                 @foreach ($images as $image)
 
                                 <div class="carousel-item">
-                                    <img src="{{asset('assets/img/products/'.$image)}}"
+                                    <img src="{{asset($image)}}"
                                         alt="Second slide" class="img-fluid">
                                 </div>
                                 @endforeach
@@ -59,10 +59,10 @@
 
                                 <figure class="col-md-4">
                                     <!--Large image-->
-                                    <a href="{{asset('assets/img/products/'.$image)}}"
+                                    <a href="{{asset($image)}}"
                                         data-size="1600x1067">
                                         <!-- Thumbnail-->
-                                        <img src="{{asset('assets/img/products/'.$image)}}"
+                                        <img src="{{asset($image)}}"
                                             class="img-fluid">
                                     </a>
                                 </figure>

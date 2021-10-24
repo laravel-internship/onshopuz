@@ -183,7 +183,7 @@
 
                                 <!--Card image-->
                                 <div class="view overlay">
-                                    <img src="{{asset('assets/img/products/'.$item->image)}}" class="img-fluid" alt="{{$item->name}}">
+                                    <img src="{{asset($item->image)}}" class="img-fluid" alt="{{$item->name}}">
                                     <a>
                                         <div class="mask rgba-white-slight"></div>
                                     </a>

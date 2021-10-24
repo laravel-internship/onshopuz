@@ -17,15 +17,17 @@
                         <section class="section">
 
                             <ul class="list-group z-depth-1">
+@foreach ($category as $son)
 
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a class="dark-grey-text font-small">
-                                        <i class="fas fa-laptop dark-grey-text mr-2" aria-hidden="true"></i> Laptops</a>
-                                    <a href=""></a>
-                                    <span class="badge badge-danger badge-pill">43</span>
-                                    </a>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+<li class="list-group-item d-flex justify-content-between align-items-center">
+    <a class="dark-grey-text font-small">
+        <i  aria-hidden="true"></i> {{$son->name}}</a>
+    <a href=""></a>
+    <span class="badge badge-danger badge-pill">43</span>
+    </a>
+</li>
+@endforeach
+                                {{-- <li class="list-group-item d-flex justify-content-between align-items-center">
                                     <a class="dark-grey-text font-small">
                                         <i class="fas fa-mobile-alt dark-grey-text mr-3" aria-hidden="true"></i> Smartphone</a>
                                     <span class="badge badge-danger badge-pill">32</span>
@@ -54,7 +56,7 @@
                                     <a class="dark-grey-text font-small">
                                         <i class="fas fa-tv dark-grey-text mr-3" aria-hidden="true"></i>TV</a>
                                     <span class="badge badge-danger badge-pill">2</span>
-                                </li>
+                                </li> --}}
                             </ul>
                         </section>
                         <!-- Section: Categories -->
@@ -132,7 +134,7 @@
 
                                             <!--Card image-->
                                             <div class="view overlay">
-                                                <img src="{{asset('assets/img/products/'.$item->image)}}" class="img-fluid" alt="sample image">
+                                                <img src="{{asset($item->image)}}" class="img-fluid" alt="sample image">
                                                 <a  href="{{route('detail', ['slug' => $item->slug])}}" >
                                                     <div class="mask rgba-white-slight"></div>
                                                 </a>
@@ -356,7 +358,7 @@
 
                                             <!--Card image-->
                                             <div class="view overlay">
-                                                <img src="{{asset('assets/img/products/'.$item->image)}}" class="img-fluid" alt="sample image">
+                                                <img src="{{asset($item->image)}}" class="img-fluid" alt="sample image">
                                                 <a  href="{{route('detail', ['slug' => $item->slug])}}">
                                                     <div class="mask rgba-white-slight"></div>
                                                 </a>
@@ -577,7 +579,7 @@
 
                                             <!--Card image-->
                                             <div class="view overlay">
-                                                <img src="{{asset('assets/img/products/'.$item->image)}}" class="img-fluid" alt="sample image">
+                                                <img src="{{asset($item->image)}}" class="img-fluid" alt="sample image">
                                                 <a  href="{{route('detail', ['slug' => $item->slug])}}">
                                                     <div class="mask rgba-white-slight"></div>
                                                 </a>

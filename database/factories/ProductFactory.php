@@ -31,8 +31,8 @@ class ProductFactory extends Factory
         $quentity = $this->faker->numberBetween(1, 100);
         $discount = $this->faker->numberBetween(1, 100);
         $category=$this->faker->numberBetween(1, 10);
-        $image = 'digital_'.str_pad($this->faker->numberBetween(1,22), 2, 0, STR_PAD_LEFT).'.jpg';
-        $images = ['digital_'.str_pad($this->faker->numberBetween(1,22), 2, 0, STR_PAD_LEFT).'.jpg', 'digital_'.str_pad($this->faker->numberBetween(1,22), 2, 0, STR_PAD_LEFT).'.jpg', 'digital_'.str_pad($this->faker->numberBetween(1,22), 2, 0, STR_PAD_LEFT).'.jpg'];
+        $image = 'assets/img/products/digital_'.str_pad($this->faker->numberBetween(1,22), 2, 0, STR_PAD_LEFT).'.jpg';
+        $images = ['assets/img/products/digital_'.str_pad($this->faker->numberBetween(1,22), 2, 0, STR_PAD_LEFT).'.jpg', 'assets/img/products/digital_'.str_pad($this->faker->numberBetween(1,22), 2, 0, STR_PAD_LEFT).'.jpg', 'assets/img/products/digital_'.str_pad($this->faker->numberBetween(1,22), 2, 0, STR_PAD_LEFT).'.jpg'];
         $status = $this->faker->numberBetween(0, 1);
         $images = implode(',', $images);
         return [
