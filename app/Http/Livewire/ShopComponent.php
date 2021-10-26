@@ -41,7 +41,7 @@ class ShopComponent extends Component
             // $products = $products->orderBy('price', 'asc');
         }
         $products = $products->paginate($this->paginate);
-        // dd($products);
+        // dd($products->lastPage());
         $categories = Category::get();
         return view('livewire.shop-component', ['products' => $products, 'categories' => $categories])->layout('layouts.base');
     }
