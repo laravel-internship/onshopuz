@@ -11,12 +11,26 @@
                         <!-- Panel -->
                         <h5 class="font-weight-bold dark-grey-text"><strong>Order By</strong></h3>
                             <div class="divider"></div>
-
-                            <p class="blue-text"><a>Default</a></p>
-                            <p class="dark-grey-text"><a>Popularity</a></p>
-                            <p class="dark-grey-text"><a>Average rating</a></p>
-                            <p class="dark-grey-text"><a>Price: low to high</a></p>
-                            <p class="dark-grey-text"><a>Price: high to low</a></p>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="orderBy"  wire:model="orderBy" value="default" id="flexRadioDefault1"/>
+                                <label class="form-check-label" for="flexRadioDefaultOrder1">Default </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="orderBy"  wire:model="orderBy" value="asc" id="flexRadioDefaultOrder2"/>
+                                <label class="form-check-label" for="flexRadioDefaultOrder2">Price: low to high </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="orderBy"  wire:model="orderBy" value="desc" id="flexRadioDefaultOrder3"/>
+                                <label class="form-check-label" for="flexRadioDefaultOrder3">Price: high to low </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="orderBy"  wire:model="orderBy" value="newless" id="flexRadioDefaultOrder4"/>
+                                <label class="form-check-label" for="flexRadioDefaultOrder4">Newless </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="orderBy"  wire:model="orderBy" value="popularity" id="flexRadioDefaultOrder5"/>
+                                <label class="form-check-label" for="flexRadioDefaultOrder5"> Popularity </label>
+                            </div>
                     </div>
 
                     <!-- Filter by category-->
@@ -25,11 +39,18 @@
                             <div class="divider"></div>
 
                             <!--Radio group-->
-                            @foreach ($categories as $category)
-                                <div class="form-group">
-                                    <input class="form-control"  type="input"  wire:model="category_id" value="{{$category->id}}">
-                                    {{-- <label for="radio10" class="form-check-label dark-grey-text">{{$category->name}}</label> --}}
-                                </div>
+                            @foreach ($categories as $key => $category)
+                                <div class="form-check">
+                                    <input
+                                      class="form-check-input"
+                                      type="radio"
+                                      name="category_id"
+                                      wire:model="category_id"
+                                      value="{{$category->id}}"
+                                      id="flexRadioDefault{{$key}}"
+                                    />
+                                    <label class="form-check-label" for="flexRadioDefault{{$key}}">{{$category->name}} </label>
+                                  </div>
                             @endforeach
 
 
@@ -48,8 +69,8 @@
                             <div class="divider"></div>
 
                             <form class="range-field mt-3">
-                                <input id="calculatorSlider" class="no-border" type="range" value="0" min="0"
-                                    max="30" />
+                                <input id="calculatorSlider" class="no-border" type="range" value="1" min="1" wire:model="price"
+                                    max="1000" />
                             </form>
 
                             <!-- Grid row -->
@@ -63,7 +84,7 @@
 
                                 <!-- Grid column -->
                                 <div class="col-md-6 text-right">
-                                    <p class="dark-grey-text"><strong id="clientPrice">319$</strong></p>
+                                    <p class="dark-grey-text"><strong id="clientPrice">1000$</strong></p>
                                 </div>
                                 <!-- Grid column -->
                             </div>
@@ -138,25 +159,14 @@
                 <div class="col-md-4 mt-3">
 
                     <!-- Sort by -->
-                    <select class="mdb-select grey-text md-form" multiple>
+                    <select class="mdb-select grey-text md-form" wire:model="paginate">
                         <option value="" disabled selected>Choose your option</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                        <option value="3">Option 3</option>
+                        <option value="6">X6</option>
+                        <option value="9">X9</option>
+                        <option value="12">X12</option>
                     </select>
-                    <label>Example label</label>
-                    <button class="btn-save btn btn-primary btn-sm">Save</button>
+
                     <!-- /.Sort by -->
-
-                </div>
-                <div class="col-md-8 text-right">
-
-                    <!-- View Switcher -->
-                    <a class="btn btn-blue-grey btn-sm"><i class="fas fa-th mr-2" aria-hidden="true"></i><strong>
-                            Grid</strong></a>
-                    <a class="btn btn-blue-grey btn-sm"><i class="fas fa-th-list mr-2" aria-hidden="true"></i><strong>
-                            List</strong></a>
-                    <!-- /.View Switcher -->
 
                 </div>
 
@@ -173,7 +183,7 @@
 
                                 <!--Card image-->
                                 <div class="view overlay">
-                                    <img src="{{$item->image}}" class="img-fluid" alt="{{$item->name}}">
+                                    <img src="{{asset($item->image)}}" class="img-fluid" alt="{{$item->name}}">
                                     <a>
                                         <div class="mask rgba-white-slight"></div>
                                     </a>
@@ -251,7 +261,7 @@
 
                             <!--First-->
                             <li class="page-item clearfix d-none d-md-block"><a
-                                    class="page-link waves-effect waves-effect" wire:click="gotoPage(2)">Last</a></li>
+                                    class="page-link waves-effect waves-effect" wire:click="gotoPage({{$products['lastpage']}})">Last</a></li>
 
                         </ul>
                     </nav>

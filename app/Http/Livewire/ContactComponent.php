@@ -11,3 +11,5 @@ class ContactComponent extends Component
         return view('livewire.contact-component')->layout('layouts.base');
     }
 }
+
+

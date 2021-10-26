@@ -17,15 +17,17 @@
                         <section class="section">
 
                             <ul class="list-group z-depth-1">
+@foreach ($category as $son)
 
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a class="dark-grey-text font-small">
-                                        <i class="fas fa-laptop dark-grey-text mr-2" aria-hidden="true"></i> Laptops</a>
-                                    <a href=""></a>
-                                    <span class="badge badge-danger badge-pill">43</span>
-                                    </a>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
+<li class="list-group-item d-flex justify-content-between align-items-center">
+    <a class="dark-grey-text font-small">
+        <i  aria-hidden="true"></i> {{$son->name}}</a>
+    <a href=""></a>
+    <span class="badge badge-danger badge-pill">43</span>
+    </a>
+</li>
+@endforeach
+                                {{-- <li class="list-group-item d-flex justify-content-between align-items-center">
                                     <a class="dark-grey-text font-small">
                                         <i class="fas fa-mobile-alt dark-grey-text mr-3" aria-hidden="true"></i> Smartphone</a>
                                     <span class="badge badge-danger badge-pill">32</span>
@@ -54,7 +56,7 @@
                                     <a class="dark-grey-text font-small">
                                         <i class="fas fa-tv dark-grey-text mr-3" aria-hidden="true"></i>TV</a>
                                     <span class="badge badge-danger badge-pill">2</span>
-                                </li>
+                                </li> --}}
                             </ul>
                         </section>
                         <!-- Section: Categories -->
@@ -106,7 +108,7 @@
                         <!-- Nav tabs -->
                         <ul class="nav md-tabs nav-justified grey lighten-3 mx-0" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active dark-grey-text font-weight-bold" data-toggle="tab" href="#panel5" role="tab"> Bestsellers</a>
+                                <a class="nav-link active dark-grey-text font-weight-bold" data-toggle="tab" href="#panel5" role="tab"> Best sellers</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link dark-grey-text font-weight-bold" data-toggle="tab" href="#panel6" role="tab">Top offers</a>
@@ -123,7 +125,7 @@
                                 <br>
                                 <!-- Grid row -->
                                 <div class="row">
-
+                                    @foreach ($product1 as $item)
                                     <!--Grid column-->
                                     <div class="col-lg-4 col-md-12 mb-4">
 
@@ -132,8 +134,8 @@
 
                                             <!--Card image-->
                                             <div class="view overlay">
-                                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" class="img-fluid" alt="sample image">
-                                                <a>
+                                                <img src="{{asset($item->image)}}" class="img-fluid" alt="sample image">
+                                                <a  href="{{route('detail', ['slug' => $item->slug])}}" >
                                                     <div class="mask rgba-white-slight"></div>
                                                 </a>
                                             </div>
@@ -145,10 +147,10 @@
 
                                                 <h5 class="card-title mb-1">
                                                     <strong>
-                                                        <a href="" class="dark-grey-text">Asus CT-567</a>
+                                                        <a class="dark-grey-text"  href="{{route('detail', ['slug' => $item->slug])}}">{{$item->name}}</a>
                                                     </strong>
                                                 </h5>
-                                                <span class="badge badge-danger mb-2">bestseller</span>
+                                                <span class="badge badge-danger mb-2">{{$item->status==1?'Activ':'noActive'}}</span>
                                                 <!-- Rating -->
                                                 <ul class="rating">
                                                     <li>
@@ -172,10 +174,10 @@
                                                 <div class="card-footer pb-0">
                                                     <div class="row mb-0">
                                                         <span class="float-left">
-                                                            <strong>1439$</strong>
+                                                            <strong>{{$item->price}}$</strong>
                                                         </span>
                                                         <span class="float-right">
-                                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"  href="{{route('cart')}}">
                                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                                             </a>
                                                         </span>
@@ -189,7 +191,8 @@
                                         <!--Card-->
 
                                     </div>
-                                    <!--Grid column-->
+                                    @endforeach
+                                    {{-- <!--Grid column-->
 
                                     <!--Grid column-->
                                     <div class="col-lg-4 col-md-6 mb-4">
@@ -332,7 +335,7 @@
                                         <!--Card-->
 
                                     </div>
-                                    <!--Grid column-->
+                                    <!--Grid column--> --}}
 
                                 </div>
                                 <!--Grid row-->
@@ -346,6 +349,7 @@
                                 <!-- Grid row -->
                                 <div class="row mb-3">
 
+                                    @foreach ($product2 as $item)
                                     <!--Grid column-->
                                     <div class="col-lg-4 col-md-12 mb-4">
 
@@ -354,8 +358,8 @@
 
                                             <!--Card image-->
                                             <div class="view overlay">
-                                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/8.jpg" class="img-fluid" alt="sample image">
-                                                <a>
+                                                <img src="{{asset($item->image)}}" class="img-fluid" alt="sample image">
+                                                <a  href="{{route('detail', ['slug' => $item->slug])}}">
                                                     <div class="mask rgba-white-slight"></div>
                                                 </a>
                                             </div>
@@ -367,10 +371,10 @@
 
                                                 <h5 class="card-title mb-1">
                                                     <strong>
-                                                        <a href="" class="dark-grey-text">Samsung V54</a>
+                                                        <a class="dark-grey-text"  href="{{route('detail', ['slug' => $item->slug])}}">{{$item->name}}</a>
                                                     </strong>
                                                 </h5>
-                                                <span class="badge grey mb-2">best rated</span>
+                                                <span class="badge badge-danger mb-2">{{$item->status==1?'Activ':'noActive'}}</span>
                                                 <!-- Rating -->
                                                 <ul class="rating">
                                                     <li>
@@ -394,10 +398,10 @@
                                                 <div class="card-footer pb-0">
                                                     <div class="row mb-0">
                                                         <span class="float-left">
-                                                            <strong>1439$</strong>
+                                                            <strong>{{$item->price}}$</strong>
                                                         </span>
                                                         <span class="float-right">
-                                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"  href="{{route('cart')}}">
                                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                                             </a>
                                                         </span>
@@ -411,10 +415,11 @@
                                         <!--Card-->
 
                                     </div>
+                                    @endforeach
                                     <!--Grid column-->
 
                                     <!--Grid column-->
-                                    <div class="col-lg-4 col-md-6 mb-4">
+                                    {{-- <div class="col-lg-4 col-md-6 mb-4">
                                         <!--Card-->
                                         <div class="card card-ecommerce">
 
@@ -553,7 +558,7 @@
                                         <!--Card-->
 
                                     </div>
-                                    <!--Grid column-->
+                                    <!--Grid column--> --}}
 
                                 </div>
                                 <!--Grid row-->
@@ -565,7 +570,7 @@
                                 <br>
                                 <!-- Grid row -->
                                 <div class="row">
-
+                                    @foreach ($product3 as $item)
                                     <!--Grid column-->
                                     <div class="col-lg-4 col-md-12 mb-4">
 
@@ -574,8 +579,8 @@
 
                                             <!--Card image-->
                                             <div class="view overlay">
-                                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/10.jpg" class="img-fluid" alt="sample image">
-                                                <a>
+                                                <img src="{{asset($item->image)}}" class="img-fluid" alt="sample image">
+                                                <a  href="{{route('detail', ['slug' => $item->slug])}}">
                                                     <div class="mask rgba-white-slight"></div>
                                                 </a>
                                             </div>
@@ -587,10 +592,10 @@
 
                                                 <h5 class="card-title mb-1">
                                                     <strong>
-                                                        <a href="" class="dark-grey-text">Headphones</a>
+                                                        <a class="dark-grey-text" href="{{route('detail', ['slug' => $item->slug])}}">{{$item->name}}</a>
                                                     </strong>
                                                 </h5>
-                                                <span class="badge badge-danger mb-2">bestseller</span>
+                                                <span class="badge badge-danger mb-2">{{$item->status==1?'Activ':'noActive'}}</span>
                                                 <!-- Rating -->
                                                 <ul class="rating">
                                                     <li>
@@ -614,10 +619,10 @@
                                                 <div class="card-footer pb-0">
                                                     <div class="row mb-0">
                                                         <span class="float-left">
-                                                            <strong>1439$</strong>
+                                                            <strong>{{$item->price}}$</strong>
                                                         </span>
                                                         <span class="float-right">
-                                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"  href="{{route('cart')}}">
                                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                                             </a>
                                                         </span>
@@ -631,9 +636,10 @@
                                         <!--Card-->
 
                                     </div>
+                                    @endforeach
                                     <!--Grid column-->
 
-                                    <!--Grid column-->
+                                    {{-- <!--Grid column-->
                                     <div class="col-lg-4 col-md-6 mb-4">
                                         <!--Card-->
                                         <div class="card card-ecommerce">
@@ -764,7 +770,7 @@
                                         <!--Card-->
 
                                     </div>
-                                    <!--Grid column-->
+                                    <!--Grid column--> --}}
 
                                 </div>
                                 <!--Grid row-->
@@ -830,6 +836,7 @@
                             <strong>New Products</strong>
                         </h5>
                         <hr>
+
                         <!-- First row -->
                         <div class="row mt-5 py-2 mb-4 hoverable align-items-center">
 
@@ -1308,6 +1315,7 @@
                 <!-- Grid row -->
                 <div class="row">
 
+
                     <!--Grid column-->
                     <div class="col-lg-3 col-md-6 mb-4">
 
@@ -1374,6 +1382,7 @@
                         <!--Card-->
 
                     </div>
+
                     <!--Grid column-->
 
                     <!--Grid column-->
