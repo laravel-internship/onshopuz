@@ -1,4 +1,5 @@
 <div>
+    
     <div class="row pt-4">
 
         <!-- Content -->
@@ -18,45 +19,14 @@
 
                             <ul class="list-group z-depth-1">
                                 @foreach ($category as $son)
-
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         <a class="dark-grey-text font-small">
                                             <i aria-hidden="true"></i> {{ $son->name }}</a>
                                         <a href=""></a>
-                                        <span class="badge badge-danger badge-pill">43</span>
+                                        <span class="badge badge-danger badge-pill">{{ $son->product->count() }}</span>
                                         </a>
                                     </li>
                                 @endforeach
-                                {{-- <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a class="dark-grey-text font-small">
-                                        <i class="fas fa-mobile-alt dark-grey-text mr-3" aria-hidden="true"></i> Smartphone</a>
-                                    <span class="badge badge-danger badge-pill">32</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a class="dark-grey-text font-small">
-                                        <i class="fas fa-tablet-alt dark-grey-text mr-3" aria-hidden="true"></i> Tablet</a>
-                                    <span class="badge badge-danger badge-pill">18</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a class="dark-grey-text font-small">
-                                        <i class="fas fa-headphones-alt dark-grey-text mr-3" aria-hidden="true"></i>Heahphones</a>
-                                    <span class="badge badge-danger badge-pill">37</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a class="dark-grey-text font-small">
-                                        <i class="fas fa-camera-retro dark-grey-text mr-3" aria-hidden="true"></i>Camera</a>
-                                    <span class="badge badge-danger badge-pill">15</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a class="dark-grey-text font-small">
-                                        <i class="fas fa-suitcase dark-grey-text mr-3" aria-hidden="true"></i>Accesories</a>
-                                    <span class="badge badge-danger badge-pill">64</span>
-                                </li>
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <a class="dark-grey-text font-small">
-                                        <i class="fas fa-tv dark-grey-text mr-3" aria-hidden="true"></i>TV</a>
-                                    <span class="badge badge-danger badge-pill">2</span>
-                                </li> --}}
                             </ul>
                         </section>
                         <!-- Section: Categories -->

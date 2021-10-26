@@ -67,7 +67,7 @@
             <li>
                 <form class="search-form" role="search">
                     <div class="form-group md-form mt-0 pt-1 waves-light">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Search" >
                     </div>
                 </form>
             </li>
@@ -76,45 +76,22 @@
             <li>
                 <ul class="collapsible collapsible-accordion">
                     <li>
-                        <a class="collapsible-header waves-effect arrow-r">
+                        <a class="collapsible-header waves-effect arrow-r" href="{{route('cart')}}" >
                             <i class="fas fa-shopping-cart"></i> Cart page
-                            <i class="fas fa-angle-down rotate-icon"></i>
                         </a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li>
-                                    <a href="{{route('cart')}}" class="waves-effect">Cart</a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
-                    
+
 
                     <li>
-                        <a class="collapsible-header waves-effect arrow-r">
+                        <a class="collapsible-header waves-effect arrow-r"href="{{route('home')}}">
                             <i class="far fa-bookmark"></i> Homepage
-                            <i class="fas fa-angle-down rotate-icon"></i>
                         </a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li>
-                                    <a href="{{route('home')}}" class="waves-effect">Homepage</a>
-                                </li>
-                            </ul>
-                        </div>
+
                     </li>
                     <li>
-                        <a class="collapsible-header waves-effect arrow-r">
+                        <a class="collapsible-header waves-effect arrow-r" href="{{route('shop')}}">
                             <i class="fas fa-camera-retro"></i> Product page
-                            <i class="fas fa-angle-down rotate-icon"></i>
                         </a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li>
-                                    <a href="{{route('shop')}}" class="waves-effect">Product</a>
-                                </li>
-                            </ul>
-                        </div>
                     </li>
                     <li>
                         <a href="{{route('contact')}}" class="collapsible-header waves-effect">

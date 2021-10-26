@@ -1,14 +1,19 @@
 <div>
+@if ($product)
+
 
 
       <!-- Section cart -->
       <section class="section my-5 pb-5">
 
         <div class="card card-ecommerce">
-          <div class="card-body">
 
-            <!-- Shopping Cart table -->
-            <div class="table-responsive">
+
+            <div class="card-body">
+
+                <!-- Shopping Cart table -->
+                <div class="table-responsive">
+                {{-- @foreach ($product as $item) --}}
 
               <table class="table product-table">
 
@@ -19,15 +24,12 @@
                     <th class="font-weight-bold">
                       <strong>Product</strong>
                     </th>
-                    <th class="font-weight-bold">
-                      <strong>Color</strong>
-                    </th>
                     <th></th>
                     <th class="font-weight-bold">
                       <strong>Price</strong>
                     </th>
                     <th class="font-weight-bold">
-                      <strong>QTY</strong>
+                      <strong>Quentity</strong>
                     </th>
                     <th class="font-weight-bold">
                       <strong>Amount</strong>
@@ -43,27 +45,29 @@
                   <!-- First row -->
                   <tr>
                     <th scope="row">
-                      <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" alt="" class="img-fluid z-depth-0">
+                      <img src="{{$product->image}}" alt="" class="img-fluid z-depth-0">
                     </th>
                     <td>
                       <h5 class="mt-3">
-                        <strong>iPhone</strong>
+                        <strong>{{$product->name}}</strong>
                       </h5>
-                      <p class="text-muted">Apple</p>
+                      {{-- <p class="text-muted">Apple</p> --}}
                     </td>
-                    <td>White</td>
+                    {{-- <td>White</td> --}}
                     <td></td>
-                    <td>$800</td>
+                    <td>{{$product->price}}$</td>
                     <td class="text-center text-md-left">
-                      <span class="qty">1 </span>
+                        @for ($i=0;$i<=$product->quentity;$i++)
+                         <span class="qty">{{$i}}</span>
                       <div class="btn-group radio-group ml-2" data-toggle="buttons">
                         <label class="btn btn-sm btn-primary btn-rounded">
                           <input type="radio" name="options" id="option1">&mdash;
                         </label>
                         <label class="btn btn-sm btn-primary btn-rounded">
-                          <input type="radio" name="options" id="option2">+
+                          <input type="radio" name="options" id="option2" value="">+
                         </label>
                       </div>
+                      @endfor
                     </td>
                     <td class="font-weight-bold">
                       <strong>$800</strong>
@@ -76,7 +80,7 @@
                   </tr>
                   <!-- /.First row -->
 
-                  <!-- Second row -->
+                  {{-- <!-- Second row -->
                   <tr>
                     <th scope="row">
                       <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/6.jpg" alt="" class="img-fluid z-depth-0">
@@ -167,18 +171,18 @@
                       </button>
                     </td>
                   </tr>
-                  <!-- Fourth row -->
+                  <!-- Fourth row --> --}}
 
                 </tbody>
                 <!-- /.Table body -->
 
               </table>
 
+              {{-- @endforeach --}}
             </div>
             <!-- /.Shopping Cart table -->
 
           </div>
-
         </div>
 
       </section>
@@ -783,4 +787,5 @@
 
       </section>
       <!-- Section products -->
+      @endif
 </div>

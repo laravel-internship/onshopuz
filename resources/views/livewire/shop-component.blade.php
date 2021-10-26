@@ -233,8 +233,8 @@
                         <ul class="pagination pagination-circle pg-blue mb-0">
 
                             <!--First-->
-                            <li class="page-item disabled clearfix d-none d-md-block"><a
-                                    class="page-link waves-effect waves-effect">First</a></li>
+                            <li class="page-item clearfix d-none d-md-block"><a
+                                    class="page-link waves-effect waves-effect" wire:click="resetPage">First</a></li>
 
                             <!--Arrow left-->
                             <li class="page-item ">
@@ -245,11 +245,14 @@
                             </li>
 
                             <!--Numbers-->
-                            <li class="page-item active"><a class="page-link waves-effect waves-effect">1</a></li>
-                            <li class="page-item"><a class="page-link waves-effect waves-effect">2</a></li>
-                            <li class="page-item"><a class="page-link waves-effect waves-effect">3</a></li>
-                            <li class="page-item"><a class="page-link waves-effect waves-effect">4</a></li>
-                            <li class="page-item"><a class="page-link waves-effect waves-effect">5</a></li>
+                            @for ($i = 1; $i<=$products->lastPage(); $i++)
+                                @if ($products->currentPage() == $i)
+                                    <li class="page-item active"><a class="page-link waves-effect waves-effect" wire:click="gotoPage({{$i}})">{{$i}}</a></li>
+                                @else
+                                    <li class="page-item"><a class="page-link waves-effect waves-effect" wire:click="gotoPage({{$i}})">{{$i}}</a></li>
+                                @endif
+
+                            @endfor
 
                             <!--Arrow right-->
                             <li class="page-item">
@@ -261,7 +264,7 @@
 
                             <!--First-->
                             <li class="page-item clearfix d-none d-md-block"><a
-                                    class="page-link waves-effect waves-effect" wire:click="gotoPage({{$products['lastpage']}})">Last</a></li>
+                                    class="page-link waves-effect waves-effect" wire:click="gotoPage({{$products->lastPage()}})">Last</a></li>
 
                         </ul>
                     </nav>
