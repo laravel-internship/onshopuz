@@ -17,16 +17,16 @@
                         <section class="section">
 
                             <ul class="list-group z-depth-1">
-@foreach ($category as $son)
+                                @foreach ($category as $son)
 
-<li class="list-group-item d-flex justify-content-between align-items-center">
-    <a class="dark-grey-text font-small">
-        <i  aria-hidden="true"></i> {{$son->name}}</a>
-    <a href=""></a>
-    <span class="badge badge-danger badge-pill">43</span>
-    </a>
-</li>
-@endforeach
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a class="dark-grey-text font-small">
+                                            <i aria-hidden="true"></i> {{ $son->name }}</a>
+                                        <a href=""></a>
+                                        <span class="badge badge-danger badge-pill">43</span>
+                                        </a>
+                                    </li>
+                                @endforeach
                                 {{-- <li class="list-group-item d-flex justify-content-between align-items-center">
                                     <a class="dark-grey-text font-small">
                                         <i class="fas fa-mobile-alt dark-grey-text mr-3" aria-hidden="true"></i> Smartphone</a>
@@ -69,7 +69,8 @@
                         <!--Image -->
                         <div class="view zoom z-depth-1">
 
-                            <img src="https://mdbootstrap.com/img/Photos/Others/product1.jpg" class="img-fluid" alt="sample image">
+                            <img src="https://mdbootstrap.com/img/Photos/Others/product1.jpg" class="img-fluid"
+                                alt="sample image">
                             <div class="mask rgba-white-light">
                                 <div class="dark-grey-text  pt-4 ml-3 pl-3">
                                     <div>
@@ -79,8 +80,10 @@
                                         <h2 class="card-title font-weight-bold pt-2">
                                             <strong>This is news title</strong>
                                         </h2>
-                                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
-                                        <a class="btn btn-danger btn-sm btn-rounded clearfix d-none d-md-inline-block">Read more</a>
+                                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                            elit. </p>
+                                        <a class="btn btn-danger btn-sm btn-rounded clearfix d-none d-md-inline-block">Read
+                                            more</a>
                                     </div>
                                 </div>
                             </div>
@@ -108,13 +111,16 @@
                         <!-- Nav tabs -->
                         <ul class="nav md-tabs nav-justified grey lighten-3 mx-0" role="tablist">
                             <li class="nav-item">
-                                <a class="nav-link active dark-grey-text font-weight-bold" data-toggle="tab" href="#panel5" role="tab"> Best sellers</a>
+                                <a class="nav-link active dark-grey-text font-weight-bold" data-toggle="tab"
+                                    href="#panel5" role="tab"> Best sellers</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link dark-grey-text font-weight-bold" data-toggle="tab" href="#panel6" role="tab">Top offers</a>
+                                <a class="nav-link dark-grey-text font-weight-bold" data-toggle="tab" href="#panel6"
+                                    role="tab">Top offers</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link dark-grey-text font-weight-bold" data-toggle="tab" href="#panel7" role="tab">
+                                <a class="nav-link dark-grey-text font-weight-bold" data-toggle="tab" href="#panel7"
+                                    role="tab">
                                     </i>Best rated</a>
                             </li>
                         </ul>
@@ -126,71 +132,76 @@
                                 <!-- Grid row -->
                                 <div class="row">
                                     @foreach ($product1 as $item)
-                                    <!--Grid column-->
-                                    <div class="col-lg-4 col-md-12 mb-4">
+                                        <!--Grid column-->
+                                        <div class="col-lg-4 col-md-12 mb-4">
 
-                                        <!--Card-->
-                                        <div class="card card-ecommerce">
+                                            <!--Card-->
+                                            <div class="card card-ecommerce">
 
-                                            <!--Card image-->
-                                            <div class="view overlay">
-                                                <img src="{{asset($item->image)}}" class="img-fluid" alt="sample image">
-                                                <a  href="{{route('detail', ['slug' => $item->slug])}}" >
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </a>
-                                            </div>
-                                            <!--Card image-->
-
-                                            <!--Card content-->
-                                            <div class="card-body">
-                                                <!--Category & Title-->
-
-                                                <h5 class="card-title mb-1">
-                                                    <strong>
-                                                        <a class="dark-grey-text"  href="{{route('detail', ['slug' => $item->slug])}}">{{$item->name}}</a>
-                                                    </strong>
-                                                </h5>
-                                                <span class="badge badge-danger mb-2">{{$item->status==1?'Activ':'noActive'}}</span>
-                                                <!-- Rating -->
-                                                <ul class="rating">
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                </ul>
-
-                                                <!--Card footer-->
-                                                <div class="card-footer pb-0">
-                                                    <div class="row mb-0">
-                                                        <span class="float-left">
-                                                            <strong>{{$item->price}}$</strong>
-                                                        </span>
-                                                        <span class="float-right">
-                                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"  href="{{route('cart')}}">
-                                                                <i class="fas fa-shopping-cart ml-3"></i>
-                                                            </a>
-                                                        </span>
-                                                    </div>
+                                                <!--Card image-->
+                                                <div class="view overlay">
+                                                    <img src="{{ asset($item->image) }}" class="img-fluid"
+                                                        alt="sample image">
+                                                    <a href="{{ route('detail', ['slug' => $item->slug]) }}">
+                                                        <div class="mask rgba-white-slight"></div>
+                                                    </a>
                                                 </div>
+                                                <!--Card image-->
+
+                                                <!--Card content-->
+                                                <div class="card-body">
+                                                    <!--Category & Title-->
+
+                                                    <h5 class="card-title mb-1">
+                                                        <strong>
+                                                            <a class="dark-grey-text"
+                                                                href="{{ route('detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a>
+                                                        </strong>
+                                                    </h5>
+                                                    <span
+                                                        class="badge badge-danger mb-2">{{ $item->status == 1 ? 'Activ' : 'noActive' }}</span>
+                                                    <!-- Rating -->
+                                                    <ul class="rating">
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                    </ul>
+
+                                                    <!--Card footer-->
+                                                    <div class="card-footer pb-0">
+                                                        <div class="row mb-0">
+                                                            <span class="float-left">
+                                                                <strong>{{ $item->price }}$</strong>
+                                                            </span>
+                                                            <span class="float-right">
+                                                                <a class="" data-toggle="tooltip"
+                                                                    data-placement="top" title="Add to Cart"
+                                                                    href="{{ route('cart') }}">
+                                                                    <i class="fas fa-shopping-cart ml-3"></i>
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!--Card content-->
 
                                             </div>
-                                            <!--Card content-->
+                                            <!--Card-->
 
                                         </div>
-                                        <!--Card-->
-
-                                    </div>
                                     @endforeach
                                     {{-- <!--Grid column-->
 
@@ -350,71 +361,76 @@
                                 <div class="row mb-3">
 
                                     @foreach ($product2 as $item)
-                                    <!--Grid column-->
-                                    <div class="col-lg-4 col-md-12 mb-4">
+                                        <!--Grid column-->
+                                        <div class="col-lg-4 col-md-12 mb-4">
 
-                                        <!--Card-->
-                                        <div class="card card-ecommerce">
+                                            <!--Card-->
+                                            <div class="card card-ecommerce">
 
-                                            <!--Card image-->
-                                            <div class="view overlay">
-                                                <img src="{{asset($item->image)}}" class="img-fluid" alt="sample image">
-                                                <a  href="{{route('detail', ['slug' => $item->slug])}}">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </a>
-                                            </div>
-                                            <!--Card image-->
-
-                                            <!--Card content-->
-                                            <div class="card-body">
-                                                <!--Category & Title-->
-
-                                                <h5 class="card-title mb-1">
-                                                    <strong>
-                                                        <a class="dark-grey-text"  href="{{route('detail', ['slug' => $item->slug])}}">{{$item->name}}</a>
-                                                    </strong>
-                                                </h5>
-                                                <span class="badge badge-danger mb-2">{{$item->status==1?'Activ':'noActive'}}</span>
-                                                <!-- Rating -->
-                                                <ul class="rating">
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                </ul>
-
-                                                <!--Card footer-->
-                                                <div class="card-footer pb-0">
-                                                    <div class="row mb-0">
-                                                        <span class="float-left">
-                                                            <strong>{{$item->price}}$</strong>
-                                                        </span>
-                                                        <span class="float-right">
-                                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"  href="{{route('cart')}}">
-                                                                <i class="fas fa-shopping-cart ml-3"></i>
-                                                            </a>
-                                                        </span>
-                                                    </div>
+                                                <!--Card image-->
+                                                <div class="view overlay">
+                                                    <img src="{{ asset($item->image) }}" class="img-fluid"
+                                                        alt="sample image">
+                                                    <a href="{{ route('detail', ['slug' => $item->slug]) }}">
+                                                        <div class="mask rgba-white-slight"></div>
+                                                    </a>
                                                 </div>
+                                                <!--Card image-->
+
+                                                <!--Card content-->
+                                                <div class="card-body">
+                                                    <!--Category & Title-->
+
+                                                    <h5 class="card-title mb-1">
+                                                        <strong>
+                                                            <a class="dark-grey-text"
+                                                                href="{{ route('detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a>
+                                                        </strong>
+                                                    </h5>
+                                                    <span
+                                                        class="badge badge-danger mb-2">{{ $item->status == 1 ? 'Activ' : 'noActive' }}</span>
+                                                    <!-- Rating -->
+                                                    <ul class="rating">
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                    </ul>
+
+                                                    <!--Card footer-->
+                                                    <div class="card-footer pb-0">
+                                                        <div class="row mb-0">
+                                                            <span class="float-left">
+                                                                <strong>{{ $item->price }}$</strong>
+                                                            </span>
+                                                            <span class="float-right">
+                                                                <a class="" data-toggle="tooltip"
+                                                                    data-placement="top" title="Add to Cart"
+                                                                    href="{{ route('cart') }}">
+                                                                    <i class="fas fa-shopping-cart ml-3"></i>
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!--Card content-->
 
                                             </div>
-                                            <!--Card content-->
+                                            <!--Card-->
 
                                         </div>
-                                        <!--Card-->
-
-                                    </div>
                                     @endforeach
                                     <!--Grid column-->
 
@@ -571,71 +587,76 @@
                                 <!-- Grid row -->
                                 <div class="row">
                                     @foreach ($product3 as $item)
-                                    <!--Grid column-->
-                                    <div class="col-lg-4 col-md-12 mb-4">
+                                        <!--Grid column-->
+                                        <div class="col-lg-4 col-md-12 mb-4">
 
-                                        <!--Card-->
-                                        <div class="card card-ecommerce">
+                                            <!--Card-->
+                                            <div class="card card-ecommerce">
 
-                                            <!--Card image-->
-                                            <div class="view overlay">
-                                                <img src="{{asset($item->image)}}" class="img-fluid" alt="sample image">
-                                                <a  href="{{route('detail', ['slug' => $item->slug])}}">
-                                                    <div class="mask rgba-white-slight"></div>
-                                                </a>
-                                            </div>
-                                            <!--Card image-->
-
-                                            <!--Card content-->
-                                            <div class="card-body">
-                                                <!--Category & Title-->
-
-                                                <h5 class="card-title mb-1">
-                                                    <strong>
-                                                        <a class="dark-grey-text" href="{{route('detail', ['slug' => $item->slug])}}">{{$item->name}}</a>
-                                                    </strong>
-                                                </h5>
-                                                <span class="badge badge-danger mb-2">{{$item->status==1?'Activ':'noActive'}}</span>
-                                                <!-- Rating -->
-                                                <ul class="rating">
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                    <li>
-                                                        <i class="fas fa-star blue-text"></i>
-                                                    </li>
-                                                </ul>
-
-                                                <!--Card footer-->
-                                                <div class="card-footer pb-0">
-                                                    <div class="row mb-0">
-                                                        <span class="float-left">
-                                                            <strong>{{$item->price}}$</strong>
-                                                        </span>
-                                                        <span class="float-right">
-                                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"  href="{{route('cart')}}">
-                                                                <i class="fas fa-shopping-cart ml-3"></i>
-                                                            </a>
-                                                        </span>
-                                                    </div>
+                                                <!--Card image-->
+                                                <div class="view overlay">
+                                                    <img src="{{ asset($item->image) }}" class="img-fluid"
+                                                        alt="sample image">
+                                                    <a href="{{ route('detail', ['slug' => $item->slug]) }}">
+                                                        <div class="mask rgba-white-slight"></div>
+                                                    </a>
                                                 </div>
+                                                <!--Card image-->
+
+                                                <!--Card content-->
+                                                <div class="card-body">
+                                                    <!--Category & Title-->
+
+                                                    <h5 class="card-title mb-1">
+                                                        <strong>
+                                                            <a class="dark-grey-text"
+                                                                href="{{ route('detail', ['slug' => $item->slug]) }}">{{ $item->name }}</a>
+                                                        </strong>
+                                                    </h5>
+                                                    <span
+                                                        class="badge badge-danger mb-2">{{ $item->status == 1 ? 'Activ' : 'noActive' }}</span>
+                                                    <!-- Rating -->
+                                                    <ul class="rating">
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                        <li>
+                                                            <i class="fas fa-star blue-text"></i>
+                                                        </li>
+                                                    </ul>
+
+                                                    <!--Card footer-->
+                                                    <div class="card-footer pb-0">
+                                                        <div class="row mb-0">
+                                                            <span class="float-left">
+                                                                <strong>{{ $item->price }}$</strong>
+                                                            </span>
+                                                            <span class="float-right">
+                                                                <a class="" data-toggle="tooltip"
+                                                                    data-placement="top" title="Add to Cart"
+                                                                    href="{{ route('cart') }}">
+                                                                    <i class="fas fa-shopping-cart ml-3"></i>
+                                                                </a>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!--Card content-->
 
                                             </div>
-                                            <!--Card content-->
+                                            <!--Card-->
 
                                         </div>
-                                        <!--Card-->
-
-                                    </div>
                                     @endforeach
                                     <!--Grid column-->
 
@@ -798,7 +819,8 @@
                         <!--Image -->
                         <div class="view  z-depth-1">
 
-                            <img src="https://mdbootstrap.com/img/Photos/Others/ecommerce5.jpg" class="img-fluid" alt="sample image">
+                            <img src="https://mdbootstrap.com/img/Photos/Others/ecommerce5.jpg" class="img-fluid"
+                                alt="sample image">
                             <div class="mask rgba-stylish-slight">
                                 <div class="dark-grey-text text-right pt-lg-5 pt-md-1 mr-5 pr-md-4 pr-0">
                                     <div>
@@ -809,8 +831,10 @@
                                             <strong>Sale from 20% to 50% on every tablet!
                                             </strong>
                                         </h2>
-                                        <p class="pb-lg-3 pb-md-1 clearfix d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
-                                        <a class="btn mr-0 btn-primary btn-rounded clearfix d-none d-md-inline-block">Read more</a>
+                                        <p class="pb-lg-3 pb-md-1 clearfix d-none d-md-block">Lorem ipsum dolor sit
+                                            amet, consectetur adipisicing elit. </p>
+                                        <a class="btn mr-0 btn-primary btn-rounded clearfix d-none d-md-inline-block">Read
+                                            more</a>
                                     </div>
                                 </div>
                             </div>
@@ -842,7 +866,8 @@
 
                             <div class="col-6">
                                 <a>
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg" class="img-fluid">
+                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg"
+                                        class="img-fluid">
                                 </a>
                             </div>
                             <div class="col-6">
@@ -886,7 +911,8 @@
 
                             <div class="col-6">
                                 <a>
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/10.jpg" class="img-fluid">
+                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/10.jpg"
+                                        class="img-fluid">
                                 </a>
                             </div>
                             <div class="col-6">
@@ -935,7 +961,8 @@
 
                             <div class="col-6">
                                 <a>
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/3.jpg" class="img-fluid">
+                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/3.jpg"
+                                        class="img-fluid">
                                 </a>
                             </div>
                             <div class="col-6">
@@ -996,7 +1023,8 @@
 
                             <div class="col-6">
                                 <a>
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/4.jpg" class="img-fluid">
+                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/4.jpg"
+                                        class="img-fluid">
                                 </a>
                             </div>
                             <div class="col-6">
@@ -1045,7 +1073,8 @@
 
                             <div class="col-6">
                                 <a>
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/5.jpg" class="img-fluid">
+                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/5.jpg"
+                                        class="img-fluid">
                                 </a>
                             </div>
                             <div class="col-6">
@@ -1094,7 +1123,8 @@
 
                             <div class="col-6">
                                 <a>
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/6.jpg" class="img-fluid">
+                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/6.jpg"
+                                        class="img-fluid">
                                 </a>
                             </div>
                             <div class="col-6">
@@ -1155,7 +1185,8 @@
 
                             <div class="col-6">
                                 <a>
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/7.jpg" class="img-fluid">
+                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/7.jpg"
+                                        class="img-fluid">
                                 </a>
                             </div>
                             <div class="col-6">
@@ -1204,7 +1235,8 @@
 
                             <div class="col-6">
                                 <a>
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/8.jpg" class="img-fluid">
+                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/8.jpg"
+                                        class="img-fluid">
                                 </a>
                             </div>
                             <div class="col-6">
@@ -1253,7 +1285,8 @@
 
                             <div class="col-6">
                                 <a>
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/9.jpg" class="img-fluid">
+                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/9.jpg"
+                                        class="img-fluid">
                                 </a>
                             </div>
                             <div class="col-6">
@@ -1324,7 +1357,8 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid" alt="sample image">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg"
+                                    class="img-fluid" alt="sample image">
                                 <a>
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -1368,7 +1402,8 @@
                                         </span>
                                         <span class="float-right">
 
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
                                         </span>
@@ -1393,7 +1428,8 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/16.jpg" class="img-fluid" alt="sample image">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/16.jpg"
+                                    class="img-fluid" alt="sample image">
                                 <a>
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -1437,7 +1473,8 @@
                                         </span>
                                         <span class="float-right">
 
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
                                         </span>
@@ -1460,7 +1497,8 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg" class="img-fluid" alt="sample image">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/11.jpg"
+                                    class="img-fluid" alt="sample image">
                                 <a>
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -1504,7 +1542,8 @@
                                         </span>
                                         <span class="float-right">
 
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
                                         </span>
@@ -1528,7 +1567,8 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/3.jpg" class="img-fluid" alt="sample image">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/3.jpg"
+                                    class="img-fluid" alt="sample image">
                                 <a>
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -1572,7 +1612,8 @@
                                         </span>
                                         <span class="float-right">
 
-                                            <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart">
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
                                         </span>
