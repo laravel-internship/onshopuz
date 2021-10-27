@@ -94,7 +94,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('contact')}}" class="collapsible-header waves-effect">
+                        <a href="{{route('contact')}}" class="collapsible-header waves-effect">Contact</a>
                             <i class="fas fa-envelope"></i> Contact</a>
                     </li>
 
