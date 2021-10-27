@@ -184,7 +184,7 @@
                                 <!--Card image-->
                                 <div class="view overlay">
                                     <img src="{{asset($item->image)}}" class="img-fluid" alt="{{$item->name}}">
-                                    <a>
+                                    <a href="{{route('detail',['slug' => $item->slug])}}">
                                         <div class="mask rgba-white-slight"></div>
                                     </a>
                                 </div>
@@ -194,7 +194,7 @@
                                 <div class="card-body">
                                     <!--Category & Title-->
 
-                                    <h5 class="card-title mb-1"><strong><a href="" class="dark-grey-text">{{$item->name}}</a></strong></h5><span class="badge badge-info mb-2">new</span>
+                                    <h5 class="card-title mb-1"><strong><a href="{{route('detail',['slug' => $item->slug])}}" class="dark-grey-text">{{$item->name}}</a></strong></h5><span class="badge badge-info mb-2">new</span>
                                     <!-- Rating -->
                                     <ul class="rating">
                                         <li><i class="fas fa-star blue-text"></i></li>

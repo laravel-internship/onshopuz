@@ -1,6 +1,10 @@
 <div>
     @if ($product)
-
+        @if (session()->has('message'))
+            <div class="alert alert-success">
+                <span>{{session('message')}}</span>
+            </div>
+        @endif
         <!-- Section: product details -->
         <section id="productDetails" class="pb-5">
 
@@ -104,7 +108,7 @@
 
                                 <div class="row mt-3 mb-4">
                                     <div class="col-md-12 text-center text-md-left text-md-right">
-                                        <a href="{{route('cart', ['slug' => $product->slug]) }}">
+                                        <a wire:click.prevent="addToCart()">
                                         <button class="btn btn-primary btn-rounded">
                                             <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Add to cart  </button></a>
                                     </div>
@@ -420,7 +424,7 @@
                                                 </span>
                                                 <span class="float-right">
 
-                                                    <a class="" data-toggle="tooltip" href="{{route('detail', ['slug' => $rel->slug]) }}"
+                                                    <a class="" data-toggle="tooltip"
                                                         data-placement="top" title="Add to Cart">
                                                         <i class="fas fa-shopping-cart ml-3"></i>
                                                     </a>

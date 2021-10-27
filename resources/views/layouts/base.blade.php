@@ -80,8 +80,6 @@
                             <i class="fas fa-shopping-cart"></i> Cart page
                         </a>
                     </li>
-
-
                     <li>
                         <a class="collapsible-header waves-effect arrow-r"href="{{route('home')}}">
                             <i class="far fa-bookmark"></i> Homepage
