@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Services\ShopService;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -14,6 +15,11 @@ class ShopComponent extends Component
     public $orderBy;
     public $paginate;
     public $price;
+    protected $service;
+    public function __construct(ShopService $service)
+    {
+        $this->service = $service;
+    }
 
     public function mount()
     {
@@ -24,25 +30,11 @@ class ShopComponent extends Component
     public function render()
     {
         // dd( $this->price);
-        $products = Product::with('category');
-        if($this->category_id){
-            $products = $products->where('category_id', (int) $this->category_id);
-        }
-        if($this->price){
-            $products = $products->where('price', $this->price);
-        }
-        if($this->orderBy == 'asc'){
-            $products = $products->orderBy('price', 'asc');
-        } else if($this->orderBy == 'desc'){
-            $products = $products->orderBy('price', 'desc');
-        } else if($this->orderBy == 'newless'){
-            $products = $products->orderBy('created_at', 'desc');
-        } else if($this->orderBy == 'popularity'){
-            // $products = $products->orderBy('price', 'asc');
-        }
+        $products = $this->service->get();
+        $products = $this->service->filter($products, $this->category_id,$this->price,$this->orderBy);
         $products = $products->paginate($this->paginate);
         // dd($products->lastPage());
-        $categories = Category::get();
+        $categories = $this->service->cateser();
         return view('livewire.shop-component', ['products' => $products, 'categories' => $categories])->layout('layouts.base');
     }
 }

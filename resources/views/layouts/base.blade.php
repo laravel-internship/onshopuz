@@ -27,92 +27,15 @@
     <!--Navigation-->
     <header>
         <!-- Sidebar navigation -->
-        <ul id="slide-out" class="side-nav custom-scrollbar">
-            <!-- Logo -->
-            <li>
-                <div class="logo-wrapper waves-light">
-                    <a href="#">
-                        <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" class="img-fluid flex-center">
-                    </a>
-                </div>
-            </li>
-            <!--/. Logo -->
-            <!--Social-->
-            <li>
-                <ul class="social">
-                    <li>
-                        <a class="fb-ic">
-                            <i class="fab fa-facebook-f"> </i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="pin-ic">
-                            <i class="fab fa-pinterest"> </i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="gplus-ic">
-                            <i class="fab fa-google-plus-g"> </i>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="tw-ic">
-                            <i class="fab fa-twitter"> </i>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <!--/Social-->
-            <!--Search Form-->
-            <li>
-                <form class="search-form" role="search">
-                    <div class="form-group md-form mt-0 pt-1 waves-light">
-                        <input type="text" class="form-control" placeholder="Search" >
-                    </div>
-                </form>
-            </li>
-            <!--/.Search Form-->
-            <!-- Side navigation links -->
-            <li>
-                <ul class="collapsible collapsible-accordion">
-                    <li>
-                        <a class="collapsible-header waves-effect arrow-r" href="{{route('cart')}}" >
-                            <i class="fas fa-shopping-cart"></i> Cart page
-                        </a>
-                    </li>
-                    <li>
-                        <a class="collapsible-header waves-effect arrow-r"href="{{route('home')}}">
-                            <i class="far fa-bookmark"></i> Homepage
-                        </a>
 
-                    </li>
-                    <li>
-                        <a class="collapsible-header waves-effect arrow-r" href="{{route('shop')}}">
-                            <i class="fas fa-camera-retro"></i> Product page
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{route('contact')}}" class="collapsible-header waves-effect ">
-                            <i class="fas fa-envelope"></i> Contact</a>
-                    </li>
-
-                </ul>
-            </li>
-            <!--/. Side navigation links -->
-            <div class="sidenav-bg mask-strong"></div>
-        </ul>
         <!--/. Sidebar navigation -->
         <!-- Navbar -->
         <nav class="navbar fixed-top navbar-expand-lg  navbar-light scrolling-navbar white">
             <div class="container">
                 <!-- SideNav slide-out button -->
-                <div class="float-left mr-2">
-                    <a href="#" data-activates="slide-out" class="button-collapse">
-                        <i class="fas fa-bars"></i>
-                    </a>
-                </div>
-                <a class="navbar-brand font-weight-bold" href="#">
-                    <strong>SHOP</strong>
+
+                <a class="navbar-brand font-weight-bold" href="{{route('home')}}">
+                    <strong style="color: rgb(99, 99, 237)">On Shop Uz</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -127,16 +50,24 @@
                             </a>
                         </li>
                         <li class="nav-item ml-3">
-                            <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="#">
-                                <i class="fas fa-cog blue-text"></i> Settings</a>
+                            <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="{{route('cart')}}">
+                                <i class="fas fa-cog blue-text"></i> Cart</a>
                         </li>
                         <li class="nav-item dropdown ml-3">
                             <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user blue-text"></i> Profile </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                                <a class="dropdown-item waves-effect waves-light" href="#">My account</a>
-                                <a class="dropdown-item waves-effect waves-light" href="#">Log out</a>
+                           @if (auth()->check())
+                           <a class="dropdown-item waves-effect waves-light" href="{{route('user/profile')}}">My account</a>
+
+                         <form action="{{route('logout')}}" method="POST">
+                            <a class="dropdown-item waves-effect waves-light" >Log out</a>
+                             </form>
+                           @endif
+                                <a class="dropdown-item waves-effect waves-light" href="{{route('login') }}">Login</a>
+                                <a class="dropdown-item waves-effect waves-light" href="{{route('register') }}">Register</a>
+
                             </div>
                         </li>
                     </ul>
@@ -259,7 +190,12 @@
                 <div class="container">
 
                     <!-- Navbar brand -->
-                    <a class="font-weight-bold white-text mr-4" href="#">Categories</a>
+                    {{-- @foreach ($category as $item) --}}
+
+                    <a class="font-weight-bold white-text mr-4" href="{{route('home')}}">Home</a>
+                    <a class="font-weight-bold white-text mr-4" href="{{route('shop')}}">Products</a>
+                    <a class="font-weight-bold white-text mr-4" href="{{route('contact')}}">Contact</a>
+                    {{-- @endforeach --}}
 
                     <!-- Collapse button -->
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
@@ -271,7 +207,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent1">
 
                         <!-- Links -->
-                        <ul class="navbar-nav mr-auto">
+                        {{-- <ul class="navbar-nav mr-auto">
 
                             <li class="nav-item dropdown mega-dropdown active">
                                 <a class="nav-link dropdown-toggle  no-caret" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Laptop</a>
@@ -502,7 +438,7 @@
                             </li>
 
                         </ul>
-                        <!-- Links -->
+                        <!-- Links --> --}}
 
                         <form class="search-form" role="search">
                             <div class="form-group md-form my-0 waves-light">

@@ -18,6 +18,15 @@ class CartComponent extends Component
             ]);
         }
     }
+    public function plus($cart)
+    {
+        if($cart->quantity > 1){
+            $cart->update([
+                'quantity' => $cart->quantity + 1,
+                'price' => $cart->product->price * ($cart->quantity + 1)
+            ]);
+        }
+    }
 
     public function render()
     {

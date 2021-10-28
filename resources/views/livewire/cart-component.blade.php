@@ -57,13 +57,13 @@
                     <td></td>
                     <td>{{$product->price}}$</td>
                     <td class="text-center text-md-left">
-                         <span class="qty">{{$item}}</span>
+                         <span class="qty">{{$product->quentity}}</span>
                       <div class="btn-group radio-group ml-2" data-toggle="buttons">
                         <label class="btn btn-sm btn-primary btn-rounded">
-                          <input type="radio" name="options" wire:click="decrease({{$item}})" id="option1">&mdash;
+                          <input type="radio" name="options" wire:click="decrease({{$product->quentity}})" id="option1">&mdash;
                         </label>
                         <label class="btn btn-sm btn-primary btn-rounded">
-                          <input type="radio" name="options" id="option2" value="">+
+                          <input type="radio" name="options" id="option2" wire:click="plus({{$product->quentity}})" value="">+
                         </label>
                       </div>
                     </td>
