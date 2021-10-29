@@ -16,24 +16,29 @@ class ShopComponent extends Component
     public $paginate;
     public $price;
     protected $service;
+    public $search;
 
     public function boot()
     {
         $this->service = new ShopService;
 
     }
-    public function mount()
+    public function mount($search = null)
     {
         $this->orderBy  = 'default';
         $this->paginate  = 6;
         $this->price = null;
-
+        $this->search = request()->get('search', null);
     }
     public function render()
     {
-        // dd( $this->price);
+        // dd( $this->search);
         $products = $this->service->getAll();
         $products = $this->service->filter($products, $this->category_id,$this->price,$this->orderBy);
+        if($this->search)
+        {
+            $products = $products->where('name', 'like', '%'.$this->search.'%');
+        }
         $products = $products->paginate($this->paginate);
         // dd($products->lastPage());
         $categories = $this->service->cateser();
