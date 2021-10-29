@@ -7,7 +7,7 @@ use App\Models\Product;
 
 class ShopRepository
 {
-    public function query()
+    public function queries()
     {
         return  Product::with('category');
     }

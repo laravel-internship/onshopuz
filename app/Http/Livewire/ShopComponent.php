@@ -16,21 +16,23 @@ class ShopComponent extends Component
     public $paginate;
     public $price;
     protected $service;
-    public function __construct(ShopService $service)
-    {
-        $this->service = $service;
-    }
 
+    public function boot()
+    {
+        $this->service = new ShopService;
+
+    }
     public function mount()
     {
         $this->orderBy  = 'default';
         $this->paginate  = 6;
         $this->price = null;
+
     }
     public function render()
     {
         // dd( $this->price);
-        $products = $this->service->get();
+        $products = $this->service->getAll();
         $products = $this->service->filter($products, $this->category_id,$this->price,$this->orderBy);
         $products = $products->paginate($this->paginate);
         // dd($products->lastPage());

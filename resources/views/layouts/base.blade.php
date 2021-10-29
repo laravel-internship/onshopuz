@@ -59,11 +59,13 @@
                                 <i class="fas fa-user blue-text"></i> Profile </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
                            @if (auth()->check())
-                           <a class="dropdown-item waves-effect waves-light" href="{{route('user/profile')}}">My account</a>
+                           <a class="dropdown-item waves-effect waves-light" href="{{route('profile.show')}}">My account</a>
 
-                         <form action="{{route('logout')}}" method="POST">
-                            <a class="dropdown-item waves-effect waves-light" >Log out</a>
-                             </form>
+                            <form action="{{route('logout')}}" method="POST">
+                                @csrf
+                                <a class="dropdown-item waves-effect waves-light" onclick="event.preventDefault();
+                                this.closest('form').submit();" >Log out</a>
+                                </form>
                            @endif
                                 <a class="dropdown-item waves-effect waves-light" href="{{route('login') }}">Login</a>
                                 <a class="dropdown-item waves-effect waves-light" href="{{route('register') }}">Register</a>

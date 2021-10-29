@@ -6,14 +6,14 @@ use App\Repositories\ShopRepository;
 
 class ShopService
 {
-    public function __construct(ShopRepository $repo)
+    public function __construct()
     {
-        $this->repo = $repo;
+        $this->repo = new ShopRepository;
     }
 
-    public function get()
+    public function getAll()
     {
-        return $this->repo->query();
+        return $this->repo->queries();
     }
     public function filter($products, $category_id,$price,$orderBy)
     {
