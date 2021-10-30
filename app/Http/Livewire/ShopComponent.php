@@ -28,11 +28,11 @@ class ShopComponent extends Component
         $this->orderBy  = 'default';
         $this->paginate  = 6;
         $this->price = null;
-        $this->search = request()->get('search', null);
+        $this->search = $search;
     }
     public function render()
     {
-        // dd( $this->search);
+//         dd( $this->search);
         $products = $this->service->getAll();
         $products = $this->service->filter($products, $this->category_id,$this->price,$this->orderBy);
         if($this->search)
