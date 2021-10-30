@@ -2,23 +2,16 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\Request;
 use Livewire\Component;
 
 class SearchComponent extends Component
 {
     public $search;
 
-    public function mount()
-    {
-        $this->search = null;
-    }
-
     public function search()
     {
-        if($this->search)
-        {
-            return redirect()->route('shop', ['search' => $this->search]);
-        }
+        return redirect()->route('shop', ['search' => $this->search]);
     }
     public function render()
     {

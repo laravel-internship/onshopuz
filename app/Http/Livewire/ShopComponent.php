@@ -23,16 +23,16 @@ class ShopComponent extends Component
         $this->service = new ShopService;
 
     }
-    public function mount($search = null)
+    public function mount()
     {
         $this->orderBy  = 'default';
         $this->paginate  = 6;
         $this->price = null;
-        $this->search = $search;
+        $this->search = request()->get('search', null);
     }
+
     public function render()
     {
-//         dd( $this->search);
         $products = $this->service->getAll();
         $products = $this->service->filter($products, $this->category_id,$this->price,$this->orderBy);
         if($this->search)
