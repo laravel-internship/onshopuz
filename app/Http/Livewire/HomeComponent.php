@@ -12,6 +12,7 @@ class HomeComponent extends Component
     public function render()
     {
 
+
             $product1=Product::with('category')->inRandomOrder()->paginate(3);
             $product2=Product::with('category')->inRandomOrder()->paginate(3);
             $product3=Product::with('category')->inRandomOrder()->paginate(3);

@@ -33,14 +33,7 @@ class ShopComponent extends Component
     public function render()
     {
         // dd( $this->search);
-        $products = $this->service->getAll();
-        $products = $this->service->filter($products, $this->category_id,$this->price,$this->orderBy);
-        if($this->search)
-        {
-            $products = $products->where('name', 'like', '%'.$this->search.'%');
-        }
-        $products = $products->paginate($this->paginate);
-        // dd($products->lastPage());
+        $products = $this->service->getAll($this->category_id,$this->price,$this->orderBy,$this->paginate,$this->search);
         $categories = $this->service->cateser();
         return view('livewire.shop-component', ['products' => $products, 'categories' => $categories])->layout('layouts.base');
     }
