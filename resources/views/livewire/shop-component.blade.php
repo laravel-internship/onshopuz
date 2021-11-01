@@ -184,8 +184,8 @@
                                 <!--Card image-->
                                 <div class="view overlay">
                                     <img src="{{asset($item->image)}}" class="img-fluid" alt="{{$item->name}}">
-                                    <a href="{{route('detail','slug'=>$item->slug)}}">
-                                        <div class="mask rgba-white-slight"></div>
+                                    <a href="{{route('detail',['slug'=>$item->slug])}}">
+                                        <div class="mask rgba-white-slight"></div> 
                                     </a>
                                 </div>
                                 <!--Card image-->
