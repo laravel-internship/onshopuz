@@ -51,12 +51,12 @@
                         </li>
                         <li class="nav-item ml-3">
                             <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="{{route('cart')}}">
-                                <i class="fas fa-cog blue-text"></i> Cart</a>
+                                <i class="fas fa-cart-plus mr-2" aria-hidden="true" style="color: rgb(62, 136, 239)"></i> Cart</a>
                         </li>
                         <li class="nav-item dropdown ml-3">
                             <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user blue-text"></i> Profile </a>
+                                <i class="fas fa-user blue-text"></i>  {{(auth()->user())? auth()->user()->name : 'none'}} </a>
                             <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
                            @if (auth()->check())
                            <a class="dropdown-item waves-effect waves-light" href="{{route('profile.show')}}">My account</a>
@@ -66,10 +66,10 @@
                                 <a class="dropdown-item waves-effect waves-light" onclick="event.preventDefault();
                                 this.closest('form').submit();" >Log out</a>
                                 </form>
-                           @endif
+@else
                                 <a class="dropdown-item waves-effect waves-light" href="{{route('login') }}">Login</a>
                                 <a class="dropdown-item waves-effect waves-light" href="{{route('register') }}">Register</a>
-
+                                @endif
                             </div>
                         </li>
                     </ul>

@@ -7,11 +7,11 @@ use App\Models\Product;
 
 class ShopRepository
 {
-    public function queries()
+    public function proget()
     {
         return  Product::with('category');
     }
-    public function catequery()
+    public function catget()
     {
         return Category::get();
     }

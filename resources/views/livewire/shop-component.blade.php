@@ -1,7 +1,9 @@
 <div>
-{{--@php--}}
-{{--    dd($search);--}}
-{{--@endphp--}}
+    @if (session()->has('message'))
+    <div class="alert alert-success">
+        <span>{{session('message')}}</span>
+    </div>
+@endif
     <div class="row pt-4">
 
         <!-- Sidebar -->
