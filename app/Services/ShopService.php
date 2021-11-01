@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Repositories\ShopRepository;
 use phpDocumentor\Reflection\Types\This;
 
-class ShopService
+class ShopService extends BaseService
 {
     protected $repo;
     public function __construct()
