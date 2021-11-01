@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-12 mb-5">
                         <!-- Panel -->
-                        <h5 class="font-weight-bold dark-grey-text"><strong>Order By</strong></h3>
+                        <h5 class="font-weight-bold dark-grey-text"><strong>Order By</strong></h5>
                             <div class="divider"></div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="orderBy"  wire:model="orderBy" value="default" id="flexRadioDefault1"/>
@@ -157,6 +157,10 @@
 
         <!-- Content -->
         <div class="col-lg-9">
+            @if($search)
+                <h3>{{$search}}</h3>
+
+            @endif
 
             <!-- Filter Area -->
             <div class="row">

@@ -1,9 +1,4 @@
 <div>
-    @if (session()->has('message'))
-    <div class="alert alert-success">
-        <span>{{session('message')}}</span>
-    </div>
-@endif
     <div class="row pt-4">
 
         <!-- Content -->
@@ -161,8 +156,7 @@
                                                             </span>
                                                             <span class="float-right">
                                                                 <a class="" data-toggle="tooltip"
-                                                                    data-placement="top" title="Add to Cart"
-                                                                    href="{{ route('cart') }}">
+                                                                    data-placement="top" title="Add to Cart">
                                                                     <i class="fas fa-shopping-cart ml-3"></i>
                                                                 </a>
                                                             </span>
