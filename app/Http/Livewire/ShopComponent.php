@@ -31,6 +31,13 @@ class ShopComponent extends Component
         $this->search = request()->get('search', null);
     }
 
+    public function addToCart($id)
+    {
+        $product = Product::find($id);
+        $this->service->addcart($product, 1);
+    }
+
+
     public function render()
     {
         $products = $this->service->getAll($this->category_id,$this->price,$this->orderBy,$this->paginate,$this->search);

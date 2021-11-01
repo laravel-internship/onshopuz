@@ -22,13 +22,23 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
 
-Route::any('/', HomeComponent::class)->name('home');
-Route::get('/shop', ShopComponent::class)->name('shop');
-Route::get('/cart', CartComponent::class)->name('cart')->middleware('authcheck');
-Route::get('/detail/{slug}', DetailComonent::class)->name('detail');
-Route::get('/contact', ContactComponent::class)->name('contact');
+Route::group(
+    [
+        'prefix' => \LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
+
+        Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+            return view('dashboard');
+        })->name('dashboard');
+
+        Route::any('/', HomeComponent::class)->name('home');
+        Route::get('/shop', ShopComponent::class)->name('shop');
+        Route::get('/cart', CartComponent::class)->name('cart')->middleware('authcheck');
+        Route::get('/detail/{slug}', DetailComonent::class)->name('detail');
+        Route::get('/contact', ContactComponent::class)->name('contact');
+
+
+    });
 

@@ -1,9 +1,5 @@
 <div>
-    @if (session()->has('message'))
-    <div class="alert alert-success">
-        <span>{{session('message')}}</span>
-    </div>
-@endif
+    @include('layouts.message')
     <div class="row pt-4">
 
         <!-- Sidebar -->
@@ -219,7 +215,7 @@
                                             <span class="float-left"><strong>{{$item->price}}$</strong></span>
                                             <span class="float-right">
 
-                                                <a class="" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-shopping-cart ml-3"></i></a>
+                                                <a class=""  wire:click.prevent="addToCart({{$item->id}})" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-shopping-cart ml-3"></i></a>
                                                 </span>
                                         </div>
                                     </div>

@@ -43,15 +43,24 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                     <ul class="navbar-nav ml-auto">
+
+                            @foreach(\LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <li class="nav-item">
+                                    <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                        {{ $localeCode }}
+                                    </a>
+                                </li>
+                            @endforeach
+
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="#">
-                                <i class="fas fa-envelope blue-text"></i> Contact
+                                <i class="fas fa-envelope blue-text"></i> {{ __('main.contact')}}
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item ml-3">
                             <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="{{route('cart')}}">
-                                <i class="fas fa-cart-plus mr-2" aria-hidden="true" style="color: rgb(62, 136, 239)"></i> Cart</a>
+                                <i class="fas fa-cart-plus mr-2" aria-hidden="true" style="color: rgb(62, 136, 239)"></i> {{ __('main.cart')}}</a>
                         </li>
                         <li class="nav-item dropdown ml-3">
                             <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
@@ -194,9 +203,9 @@
                     <!-- Navbar brand -->
                     {{-- @foreach ($category as $item) --}}
 
-                    <a class="font-weight-bold white-text mr-4" href="{{route('home')}}">Home</a>
-                    <a class="font-weight-bold white-text mr-4" href="{{route('shop')}}">Products</a>
-                    <a class="font-weight-bold white-text mr-4" href="{{route('contact')}}">Contact</a>
+                    <a class="font-weight-bold white-text mr-4" href="{{route('home')}}">{{ __('main.home')}}</a>
+                    <a class="font-weight-bold white-text mr-4" href="{{route('shop')}}">{{ __('main.products')}}</a>
+                    <a class="font-weight-bold white-text mr-4" href="{{route('contact')}}">{{ __('main.contact')}}</a>
                     {{-- @endforeach --}}
 
                     <!-- Collapse button -->
