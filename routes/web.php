@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SocialiteController;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\DetailComonent;
@@ -24,10 +25,8 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(
-    [
-        'prefix' => \LaravelLocalization::setLocale(),
-        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
-    ], function(){
+    ['prefix' => \LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect', 'localizationRedirect', 'localeViewPath']],
+    function () {
 
         Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
             return view('dashboard');
@@ -39,6 +38,8 @@ Route::group(
         Route::get('/detail/{slug}', DetailComonent::class)->name('detail');
         Route::get('/contact', ContactComponent::class)->name('contact');
 
+        Route::get('/google/redirect', [SocialiteController::class, 'redirect'])->name('google.redirect');
+        Route::get('/google/callback', [SocialiteController::class, 'callback']);
+    }
 
-    });
-
+);

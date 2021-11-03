@@ -51,4 +51,9 @@ class ShopService extends BaseService
     {
         return $this->repo->catget();
     }
+
+    public function cart($product,$quentity)
+    {
+        $this->addcart($product, 1, $this->repo->cartlist());
+    }
 }

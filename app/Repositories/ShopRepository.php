@@ -5,7 +5,7 @@ namespace App\Repositories;
 use App\Models\Category;
 use App\Models\Product;
 
-class ShopRepository
+class ShopRepository extends BaseRepository
 {
     public function proget()
     {
