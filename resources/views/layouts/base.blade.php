@@ -9,17 +9,17 @@
     <title>E-Commerce - MDBootstrap</title>
 
     <!-- Font Awesome -->
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
     <!-- Bootstrap core CSS -->
-    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Material Design Bootstrap -->
-    <link href="{{asset('assets/css/mdb.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('assets/css/mdb.min.css') }}" rel="stylesheet">
     <style>
 
-  	</style>
-      @livewireStyles
+    </style>
+    @livewireStyles
 </head>
 
 <body class="homepage-v1 hidden-sn white-skin animated">
@@ -34,50 +34,63 @@
             <div class="container">
                 <!-- SideNav slide-out button -->
 
-                <a class="navbar-brand font-weight-bold" href="{{route('home')}}">
+                <a class="navbar-brand font-weight-bold" href="{{ route('home') }}">
                     <strong style="color: rgb(99, 99, 237)">On Shop Uz</strong>
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent-4" aria-controls="navbarSupportedContent-4"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent-4">
                     <ul class="navbar-nav ml-auto">
 
-                            @foreach(\LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                                <li class="nav-item">
-                                    <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                                        {{ $localeCode }}
-                                    </a>
-                                </li>
-                            @endforeach
+                        @foreach (\LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <li class="nav-item">
+                                <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
+                                    rel="alternate" hreflang="{{ $localeCode }}"
+                                    href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $localeCode }}
+                                </a>
+                            </li>
+                        @endforeach
 
                         <li class="nav-item">
                             <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="#">
-                                <i class="fas fa-envelope blue-text"></i> {{ __('main.contact')}}
+                                <i class="fas fa-envelope blue-text"></i> {{ __('main.contact') }}
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
                         <li class="nav-item ml-3">
-                            <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="{{route('cart')}}">
-                                <i class="fas fa-cart-plus mr-2" aria-hidden="true" style="color: rgb(62, 136, 239)"></i> {{ __('main.cart')}}</a>
+                            <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
+                                href="{{ route('cart') }}">
+                                <i class="fas fa-cart-plus mr-2" aria-hidden="true"
+                                    style="color: rgb(62, 136, 239)"></i> {{ __('main.cart') }}</a>
                         </li>
                         <li class="nav-item dropdown ml-3">
-                            <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user blue-text"></i>  {{(auth()->user())? auth()->user()->name : 'none'}} </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                           @if (auth()->check())
-                           <a class="dropdown-item waves-effect waves-light" href="{{route('profile.show')}}">My account</a>
+                            <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold"
+                                id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                <i class="fas fa-user blue-text"></i>
+                                {{ auth()->user() ? auth()->user()->name : 'none' }} </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
+                                aria-labelledby="navbarDropdownMenuLink-4">
+                                @if (auth()->check())
+                                    <a class="dropdown-item waves-effect waves-light"
+                                        href="{{ route('profile.show') }}">My account</a>
+                                    <a class="dropdown-item waves-effect waves-light"
+                                        href="">Order</a>
 
-                            <form action="{{route('logout')}}" method="POST">
-                                @csrf
-                                <a class="dropdown-item waves-effect waves-light" onclick="event.preventDefault();
-                                this.closest('form').submit();" >Log out</a>
-                                </form>
-@else
-                                <a class="dropdown-item waves-effect waves-light" href="{{route('login') }}">Login</a>
-                                <a class="dropdown-item waves-effect waves-light" href="{{route('register') }}">Register</a>
+                                    <form action="{{ route('logout') }}" method="POST">
+                                        @csrf
+                                        <a class="dropdown-item waves-effect waves-light" onclick="event.preventDefault();
+                                this.closest('form').submit();">Log out</a>
+                                    </form>
+                                @else
+                                    <a class="dropdown-item waves-effect waves-light"
+                                        href="{{ route('login') }}">Login</a>
+                                    <a class="dropdown-item waves-effect waves-light"
+                                        href="{{ route('register') }}">Register</a>
                                 @endif
                             </div>
                         </li>
@@ -107,7 +120,8 @@
                 <!--First slide-->
                 <div class="carousel-item active">
                     <div class="view h-100">
-                        <img class="d-block h-100 w-lg-100" src="https://mdbootstrap.com/img/Photos/Others/ecommerce4.jpg" alt="First slide">
+                        <img class="d-block h-100 w-lg-100"
+                            src="https://mdbootstrap.com/img/Photos/Others/ecommerce4.jpg" alt="First slide">
                         <div class="mask">
                             <!-- Caption -->
                             <div class="full-bg-img flex-center white-text">
@@ -118,10 +132,13 @@
                                         </p>
                                     </li>
                                     <li>
-                                        <h5 class="h5-responsive dark-grey-text font-weight-bold mb-5">Tempora incidunt ut labore et dolore veritatis et quasi architecto beatae</h5>
+                                        <h5 class="h5-responsive dark-grey-text font-weight-bold mb-5">Tempora incidunt
+                                            ut labore et dolore veritatis et quasi architecto beatae</h5>
                                     </li>
                                     <li>
-                                        <a target="_blank" href="https://mdbootstrap.com/docs/jquery/getting-started/download/" class="btn btn-danger btn-rounded" rel="nofollow">See more!</a>
+                                        <a target="_blank"
+                                            href="https://mdbootstrap.com/docs/jquery/getting-started/download/"
+                                            class="btn btn-danger btn-rounded" rel="nofollow">See more!</a>
                                     </li>
                                 </ul>
                             </div>
@@ -133,7 +150,8 @@
                 <!--Second slide-->
                 <div class="carousel-item h-100">
                     <div class="view h-100">
-                        <img class="d-block h-100 w-lg-100" src="https://mdbootstrap.com/img/Photos/Others/ecommerce2.jpg" alt="Second slide">
+                        <img class="d-block h-100 w-lg-100"
+                            src="https://mdbootstrap.com/img/Photos/Others/ecommerce2.jpg" alt="Second slide">
                         <div class="mask">
                             <!-- Caption -->
                             <div class="full-bg-img flex-center white-text">
@@ -144,10 +162,12 @@
                                         </p>
                                     </li>
                                     <li>
-                                        <h5 class="h5-responsive dark-grey-text font-weight-bold mb-5">Tempora incidunt ut labore et dolore veritatis et quasi architecto beatae</h5>
+                                        <h5 class="h5-responsive dark-grey-text font-weight-bold mb-5">Tempora incidunt
+                                            ut labore et dolore veritatis et quasi architecto beatae</h5>
                                     </li>
                                     <li>
-                                        <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/" class="btn btn-primary btn-rounded" rel="nofollow">Read more</a>
+                                        <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/"
+                                            class="btn btn-primary btn-rounded" rel="nofollow">Read more</a>
                                     </li>
                                 </ul>
                             </div>
@@ -159,7 +179,8 @@
                 <!--Third slide-->
                 <div class="carousel-item">
                     <div class="view h-100">
-                        <img class="d-block h-100 w-lg-100" src="https://mdbootstrap.com/img/Photos/Others/ecommerce3.jpg" alt="Third slide">
+                        <img class="d-block h-100 w-lg-100"
+                            src="https://mdbootstrap.com/img/Photos/Others/ecommerce3.jpg" alt="Third slide">
                         <div class="mask">
                             <!-- Caption -->
                             <div class="full-bg-img flex-center white-text">
@@ -170,7 +191,8 @@
                                         </p>
                                     </li>
                                     <li>
-                                        <h5 class="h5-responsive dark-grey-text font-weight-bold mb-5 pr-lg-5">Tempora incidunt ut labore et dolore veritatis et quasi</h5>
+                                        <h5 class="h5-responsive dark-grey-text font-weight-bold mb-5 pr-lg-5">Tempora
+                                            incidunt ut labore et dolore veritatis et quasi</h5>
                                     </li>
                                 </ul>
                             </div>
@@ -203,13 +225,16 @@
                     <!-- Navbar brand -->
                     {{-- @foreach ($category as $item) --}}
 
-                    <a class="font-weight-bold white-text mr-4" href="{{route('home')}}">{{ __('main.home')}}</a>
-                    <a class="font-weight-bold white-text mr-4" href="{{route('shop')}}">{{ __('main.products')}}</a>
-                    <a class="font-weight-bold white-text mr-4" href="{{route('contact')}}">{{ __('main.contact')}}</a>
+                    <a class="font-weight-bold white-text mr-4" href="{{ route('home') }}">{{ __('main.home') }}</a>
+                    <a class="font-weight-bold white-text mr-4"
+                        href="{{ route('shop') }}">{{ __('main.products') }}</a>
+                    <a class="font-weight-bold white-text mr-4"
+                        href="{{ route('contact') }}">{{ __('main.contact') }}</a>
                     {{-- @endforeach --}}
 
                     <!-- Collapse button -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
                         aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -232,7 +257,7 @@
     <!-- Main Container -->
     <div class="container">
         <!-- Grid row -->
-            {{$slot}}
+        {{ $slot }}
         <!-- /Grid row -->
     </div>
     <!-- /.Main Container -->
@@ -293,7 +318,8 @@
                         <strong>Company name</strong>
                     </h6>
                     <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur
+                    <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
+                        amet, consectetur
                         adipisicing elit.</p>
                 </div>
                 <!--/.First column-->
@@ -347,13 +373,17 @@
                     </h6>
                     <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>
-                        <i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+                        <i class="fas fa-home mr-3"></i> New York, NY 10012, US
+                    </p>
                     <p>
-                        <i class="fas fa-envelope mr-3"></i> info@example.com</p>
+                        <i class="fas fa-envelope mr-3"></i> info@example.com
+                    </p>
                     <p>
-                        <i class="fas fa-phone mr-3"></i> + 01 234 567 88</p>
+                        <i class="fas fa-phone mr-3"></i> + 01 234 567 88
+                    </p>
                     <p>
-                        <i class="fas fa-print mr-3"></i> + 01 234 567 89</p>
+                        <i class="fas fa-print mr-3"></i> + 01 234 567 89
+                    </p>
                 </div>
                 <!--/.Fourth column-->
 
@@ -364,7 +394,8 @@
         <!-- Copyright-->
         <div class="footer-copyright py-3 text-center">
             <div class="container-fluid">
-                © 2018 Copyright: <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
+                © 2018 Copyright: <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank">
+                    MDBootstrap.com </a>
             </div>
         </div>
         <!--/.Copyright -->
@@ -376,30 +407,30 @@
     <!-- SCRIPTS -->
 
     <!-- JQuery -->
-    <script type="text/javascript" src="{{asset('assets/js/jquery-3.3.1.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
 
     <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="{{asset('assets/js/popper.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/popper.min.js') }}"></script>
 
     <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="{{asset('assets/js/mdb.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/mdb.min.js') }}"></script>
 
     <script type="text/javascript">
         /* WOW.js init */
         new WOW().init();
 
         // Tooltips Initialization
-        $(function () {
+        $(function() {
             $('[data-toggle="tooltip"]').tooltip()
         })
     </script>
 
     <script>
         // Material Select Initialization
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('.mdb-select').material_select();
         });
     </script>

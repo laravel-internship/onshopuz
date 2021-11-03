@@ -155,7 +155,7 @@
                                                                 <strong>{{ $item->price }}$</strong>
                                                             </span>
                                                             <span class="float-right">
-                                                                <a class="" data-toggle="tooltip"
+                                                                <a  wire:click.prevent="addToCart({{$item->id}})" data-toggle="tooltip"
                                                                     data-placement="top" title="Add to Cart">
                                                                     <i class="fas fa-shopping-cart ml-3"></i>
                                                                 </a>

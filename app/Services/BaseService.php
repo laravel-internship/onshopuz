@@ -7,12 +7,12 @@ use App\Repositories\BaseRepository;
 class BaseService
 {
 
+    protected $repo;
 
-
-    public function addcart($product, $quantity = 1,$cartlist)
+    public function addcart($product, $quantity = 1)
     {
         if (auth()->check() && $product) {
-            $cart = $cartlist->cartlist()->where('user_id', auth()->user()->id)->where('product_id', $product->id)->where('status', true)->first();
+            $cart = $this->repo->cartlist()->where('user_id', auth()->user()->id)->where('product_id', $product->id)->where('status', true)->first();
             if ($cart) {
                 $cart =     $cart->update([
                     'quantity' => $cart->quantity + $quantity,

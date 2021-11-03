@@ -17,7 +17,7 @@ class BaseRepository
     {
         return Category::get();
     }
-    public function cartlist() : Builder
+    public function cartlist() 
     {
         return  Cart::with('product');
     }

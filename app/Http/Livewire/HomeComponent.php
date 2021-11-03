@@ -8,7 +8,18 @@ use Livewire\Component;
 
 class HomeComponent extends Component
 {
+    // protected $service;
 
+    // public function boot()
+    // {
+    //     $this->service = new HomeService;
+
+    // }
+    // public function addToCart($id)
+    // {
+    //     $product = Product::find($id);
+    //     $this->service->cart($product, 1);
+    // }
     public function render()
     {
 
