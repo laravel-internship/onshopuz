@@ -1,10 +1,6 @@
 <div>
     @if ($product)
-        @if (session()->has('message'))
-            <div class="alert alert-success">
-                <span>{{session('message')}}</span>
-            </div>
-        @endif
+       @include('layouts.message')
         <!-- Section: product details -->
         <section id="productDetails" class="pb-5">
 

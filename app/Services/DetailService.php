@@ -1,6 +1,28 @@
 <?php
 
 namespace App\Services;
-class DetailService
+
+use App\Repositories\DetailRepository;
+
+class DetailService extends BaseService
 {
+
+    public function __construct()
+    {
+        $this->repo = new DetailRepository;
+    }
+
+    public function maounte($slug)
+    {
+        return $this->repo->prolist()->where('slug', $slug)->first();
+    }
+
+    public function product($product)
+    {
+        return  $this->repo->prolist()->where('category_id', $product->category_id)->paginate(9);
+    }
+    public function related($product)
+    {
+        return $this->repo->prolist()->where('category_id', $product->category_id)->limit(9)->paginate(3);
+    }
 }

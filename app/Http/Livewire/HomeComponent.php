@@ -12,6 +12,7 @@ class HomeComponent extends Component
     public function render()
     {
 
+
             $product1=Product::with('category')->inRandomOrder()->paginate(3);
             $product2=Product::with('category')->inRandomOrder()->paginate(3);
             $product3=Product::with('category')->inRandomOrder()->paginate(3);
@@ -19,6 +20,11 @@ class HomeComponent extends Component
             return view('livewire.home-component', ['product1' => $product1,'product2' => $product2,'product3' => $product3,'category'=>$category])->layout('layouts.base');
 
     }
+
+    //katta ishlarimiz
+    // 1. Order yani buyurtmalarni qilish
+    // 2. Reting va review
+    // 3. Adminka
 }
 
 
