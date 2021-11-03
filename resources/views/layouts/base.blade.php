@@ -325,40 +325,20 @@
                 <!--/.First column-->
 
                 <!--Second column-->
-                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <h6 class="text-uppercase font-weight-bold">
-                        <strong>Products</strong>
-                    </h6>
-                    <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p>
-                        <a href="#!">MDBootstrap</a>
-                    </p>
-                    <p>
-                        <a href="#!">MDWordPress</a>
-                    </p>
-                    <p>
-                        <a href="#!">BrandFlow</a>
-                    </p>
-                    <p>
-                        <a href="#!">Bootstrap Angular</a>
-                    </p>
-                </div>
+
+                @livewire('footer-component')
+
                 <!--/.Second column-->
 
                 <!--Third column-->
-                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4" ">
                     <h6 class="text-uppercase font-weight-bold">
                         <strong>Useful links</strong>
                     </h6>
                     <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>
-                        <a href="#!">Your Account</a>
-                    </p>
-                    <p>
-                        <a href="#!">Become an Affiliate</a>
-                    </p>
-                    <p>
-                        <a href="#!">Shipping Rates</a>
+                        <a href="{{(auth()->user())? route('profile.show') : route('login') }}">Your Account</a>
                     </p>
                     <p>
                         <a href="#!">Help</a>

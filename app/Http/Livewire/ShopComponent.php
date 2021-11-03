@@ -34,7 +34,7 @@ class ShopComponent extends Component
     public function addToCart($id)
     {
         $product = Product::find($id);
-        $this->service->cart($product, 1);
+        $this->service->addcart($product, 1);
     }
 
 
