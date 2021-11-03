@@ -1,16 +1,21 @@
 <div>
+@if ($carts)
+
 
 
       <!-- Section cart -->
       <section class="section my-5 pb-5">
 
         <div class="card card-ecommerce">
-          <div class="card-body">
 
-            <!-- Shopping Cart table -->
-            <div class="table-responsive">
 
-              <table class="table product-table">
+            <div class="card-body">
+
+                <!-- Shopping Cart table -->
+                <div class="table-responsive">
+                {{-- @foreach ($cart as $item) --}}
+
+              <table class="table cart-table">
 
                 <!-- Table head -->
                 <thead class="mdb-color lighten-5">
@@ -19,15 +24,12 @@
                     <th class="font-weight-bold">
                       <strong>Product</strong>
                     </th>
-                    <th class="font-weight-bold">
-                      <strong>Color</strong>
-                    </th>
                     <th></th>
                     <th class="font-weight-bold">
                       <strong>Price</strong>
                     </th>
                     <th class="font-weight-bold">
-                      <strong>QTY</strong>
+                      <strong>Quentity</strong>
                     </th>
                     <th class="font-weight-bold">
                       <strong>Amount</strong>
@@ -41,150 +43,60 @@
                 <tbody>
 
                   <!-- First row -->
-                  <tr>
-                    <th scope="row">
-                      <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/13.jpg" alt="" class="img-fluid z-depth-0">
-                    </th>
-                    <td>
-                      <h5 class="mt-3">
-                        <strong>iPhone</strong>
-                      </h5>
-                      <p class="text-muted">Apple</p>
-                    </td>
-                    <td>White</td>
-                    <td></td>
-                    <td>$800</td>
-                    <td class="text-center text-md-left">
-                      <span class="qty">1 </span>
-                      <div class="btn-group radio-group ml-2" data-toggle="buttons">
-                        <label class="btn btn-sm btn-primary btn-rounded">
-                          <input type="radio" name="options" id="option1">&mdash;
-                        </label>
-                        <label class="btn btn-sm btn-primary btn-rounded">
-                          <input type="radio" name="options" id="option2">+
-                        </label>
-                      </div>
-                    </td>
-                    <td class="font-weight-bold">
-                      <strong>$800</strong>
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top"
-                        title="Remove item">X
-                      </button>
-                    </td>
-                  </tr>
+                  @foreach ($carts as $cart)
+                    <tr>
+                        <th scope="row">
+                            <img src="{{asset($cart->product->image)}}" alt="" width="100px" class="img-fluid z-depth-0">
+                        </th>
+                        <td>
+                        <h5 class="mt-3">
+                            <strong>{{$cart->product->name}}</strong>
+                        </h5>
+                        {{-- <p class="text-muted">Apple</p> --}}
+                        </td>
+                        {{-- <td>White</td> --}}
+                        <td></td>
+                        <td>{{$cart->price}}$</td>
+                        <td class="text-center text-md-left">
+                            <span class="qty">{{$cart->quantity}}</span>
+                        <div class="btn-group radio-group ml-2" data-toggle="buttons">
+                            <label class="btn btn-sm btn-primary btn-rounded" wire:click="decrease({{$cart->id}})">
+                                <input type="radio" name="options"  id="option1">&mdash;
+                            </label>
+                            <label class="btn btn-sm btn-primary btn-rounded"  wire:click="plus({{$cart->id}})">
+                            <input type="radio" name="options" id="option2" value="">+
+                            </label>
+                        </div>
+                        </td>
+                        <td class="font-weight-bold">
+                        <strong>${{$cart->price}}</strong>
+                        </td>
+                        <td>
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top"
+                            title="Remove item">X
+                        </button>
+                        </td>
+                    </tr>
+                  @endforeach
+
                   <!-- /.First row -->
-
-                  <!-- Second row -->
-                  <tr>
-                    <th scope="row">
-                      <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/6.jpg" alt="" class="img-fluid z-depth-0">
-                    </th>
-                    <td>
-                      <h5 class="mt-3">
-                        <strong>Headphones</strong>
-                      </h5>
-                      <p class="text-muted">Sony</p>
-                    </td>
-                    <td>Red</td>
-                    <td></td>
-                    <td>$200</td>
-                    <td class="text-center text-md-left">
-                      <span class="qty">3 </span>
-                      <div class="btn-group radio-group ml-2" data-toggle="buttons">
-                        <label class="btn btn-sm btn-primary btn-rounded">
-                          <input type="radio" name="options" id="option1">&mdash;
-                        </label>
-                        <label class="btn btn-sm btn-primary btn-rounded">
-                          <input type="radio" name="options" id="option2">+
-                        </label>
-                      </div>
-                    </td>
-                    <td class="font-weight-bold">
-                      <strong>$600</strong>
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top"
-                        title="Remove item">X
-                      </button>
-                    </td>
-                  </tr>
-                  <!-- /.Second row -->
-
-                  <!-- Third row -->
-                  <tr>
-                    <th scope="row">
-                      <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/1.jpg" alt="" class="img-fluid z-depth-0">
-                    </th>
-                    <td>
-                      <h5 class="mt-3">
-                        <strong>iPad Pro</strong>
-                      </h5>
-                      <p class="text-muted">Apple</p>
-                    </td>
-                    <td>Gold</td>
-                    <td></td>
-                    <td>$600</td>
-                    <td class="text-center text-md-left">
-                      <span class="qty">2 </span>
-                      <div class="btn-group radio-group ml-2" data-toggle="buttons">
-                        <label class="btn btn-sm btn-primary btn-rounded">
-                          <input type="radio" name="options" id="option1">&mdash;
-                        </label>
-                        <label class="btn btn-sm btn-primary btn-rounded">
-                          <input type="radio" name="options" id="option2">+
-                        </label>
-                      </div>
-                    </td>
-                    <td class="font-weight-bold">
-                      <strong>$1200</strong>
-                    </td>
-                    <td>
-                      <button type="button" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top"
-                        title="Remove item">X
-                      </button>
-                    </td>
-                  </tr>
-                  <!-- /.Third row -->
-
-                  <!-- Fourth row -->
-                  <tr>
-                    <td colspan="3"></td>
-                    <td>
-                      <h4 class="mt-2">
-                        <strong>Total</strong>
-                      </h4>
-                    </td>
-                    <td class="text-right">
-                      <h4 class="mt-2">
-                        <strong>$2600</strong>
-                      </h4>
-                    </td>
-                    <td colspan="3" class="text-right">
-                      <button type="button" class="btn btn-primary btn-rounded">Complete purchase
-                        <i class="fas fa-angle-right right"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  <!-- Fourth row -->
 
                 </tbody>
                 <!-- /.Table body -->
 
               </table>
 
+              {{-- @endforeach --}}
             </div>
             <!-- /.Shopping Cart table -->
 
           </div>
-
         </div>
 
       </section>
       <!-- /Section cart -->
 
-      <!-- Section products -->
+      <!-- Section carts -->
       <section>
         <h4 class="font-weight-bold mt-4 title-1">
           <strong>YOU MAY BE INTERESTED IN</strong>
@@ -202,7 +114,7 @@
 
               <!--Card image-->
               <div class="view overlay">
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/12.jpg" class="img-fluid"
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/12.jpg" class="img-fluid"
                   alt="">
                 <a>
                   <div class="mask rgba-white-slight"></div>
@@ -270,7 +182,7 @@
 
               <!--Card image-->
               <div class="view overlay">
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/8.jpg" class="img-fluid"
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/8.jpg" class="img-fluid"
                   alt="">
                 <a>
                   <div class="mask rgba-white-slight"></div>
@@ -337,7 +249,7 @@
 
               <!--Card image-->
               <div class="view overlay">
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/7.jpg" class="img-fluid"
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/7.jpg" class="img-fluid"
                   alt="">
                 <a>
                   <div class="mask rgba-white-slight"></div>
@@ -405,7 +317,7 @@
 
               <!--Card image-->
               <div class="view overlay">
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/9.jpg" class="img-fluid"
+                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/9.jpg" class="img-fluid"
                   alt="">
                 <a>
                   <div class="mask rgba-white-slight"></div>
@@ -484,7 +396,7 @@
 
           <p>
             <a class="btn btn-primary btn-rounded mb-5" data-toggle="collapse" href="#collapseExample1" aria-expanded="false"
-              aria-controls="collapseExample1">More products</a>
+              aria-controls="collapseExample1">More carts</a>
           </p>
           <div class="collapse" id="collapseExample1">
 
@@ -499,7 +411,7 @@
 
                   <!--Card image-->
                   <div class="view overlay">
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/3.jpg" class="img-fluid"
+                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/3.jpg" class="img-fluid"
                       alt="">
                     <a>
                       <div class="mask rgba-white-slight"></div>
@@ -567,7 +479,7 @@
 
                   <!--Card image-->
                   <div class="view overlay">
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/5.jpg" class="img-fluid"
+                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/5.jpg" class="img-fluid"
                       alt="">
                     <a>
                       <div class="mask rgba-white-slight"></div>
@@ -634,7 +546,7 @@
 
                   <!--Card image-->
                   <div class="view overlay">
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/2.jpg" class="img-fluid"
+                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/2.jpg" class="img-fluid"
                       alt="">
                     <a>
                       <div class="mask rgba-white-slight"></div>
@@ -712,7 +624,7 @@
 
                   <!--Card image-->
                   <div class="view overlay">
-                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Products/4.jpg" class="img-fluid"
+                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/4.jpg" class="img-fluid"
                       alt="">
                     <a>
                       <div class="mask rgba-white-slight"></div>
@@ -782,5 +694,6 @@
         <!--Grid row-->
 
       </section>
-      <!-- Section products -->
+      <!-- Section carts -->
+      @endif
 </div>

@@ -8,13 +8,16 @@ use Livewire\Component;
 
 class HomeComponent extends Component
 {
+
     public function render()
     {
-        $product1=Product::with('category')->inRandomOrder()->paginate(3);
-        $product2=Product::with('category')->inRandomOrder()->paginate(3);
-        $product3=Product::with('category')->inRandomOrder()->paginate(3);
-        $category=Category::with('product')->get();
-        return view('livewire.home-component', ['product1' => $product1,'product2' => $product2,'product3' => $product3,'category'=>$category])->layout('layouts.base');
+
+            $product1=Product::with('category')->inRandomOrder()->paginate(3);
+            $product2=Product::with('category')->inRandomOrder()->paginate(3);
+            $product3=Product::with('category')->inRandomOrder()->paginate(3);
+            $category=Category::with('product')->get();
+            return view('livewire.home-component', ['product1' => $product1,'product2' => $product2,'product3' => $product3,'category'=>$category])->layout('layouts.base');
+
     }
 }
 

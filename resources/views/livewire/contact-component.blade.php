@@ -1,9 +1,25 @@
 <div>
 
+<style>
+
+.map-container{
+overflow:hidden;
+padding-bottom:56.25%;
+position:relative;
+height:9;
+}
+.map-container iframe{
+left:0;
+top:0;
+height:100%;
+width:100%;
+position:absolute;
+}
+</style>
   <section>
       <!--Google map-->
-      <div id="map-container" class="z-depth-1-half map-container" style="height: 500px">
-        <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" style="border:0"
+      <div id="map-container" class="z-depth-1-half map-container" style="height:900px">
+        <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="" style="border:0"
           allowfullscreen></iframe>
       </div>
   </section>
@@ -178,14 +194,15 @@
 
 
 
-          <button class="btn btn-primary btn-rounded btn-sm">Checkout</button>
+          <!-- <button class="btn btn-primary btn-rounded btn-sm">Checkout</button>
 
-        </div>
+        </div> -->
         <!--Footer-->
-        <div class="modal-footer">
+        <!-- <div class="modal-footer">
           <button type="button" class="btn btn-grey btn-rounded btn-sm" data-dismiss="modal">Close</button>
-        </div>
+        </div> -->
       </div>
+      
       <!--/.Content-->
     </div>
   </div>

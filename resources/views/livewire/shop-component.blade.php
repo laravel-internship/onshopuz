@@ -1,4 +1,7 @@
 <div>
+{{--@php--}}
+{{--    dd($search);--}}
+{{--@endphp--}}
     <div class="row pt-4">
 
         <!-- Sidebar -->
@@ -9,7 +12,7 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-12 mb-5">
                         <!-- Panel -->
-                        <h5 class="font-weight-bold dark-grey-text"><strong>Order By</strong></h3>
+                        <h5 class="font-weight-bold dark-grey-text"><strong>Order By</strong></h5>
                             <div class="divider"></div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="orderBy"  wire:model="orderBy" value="default" id="flexRadioDefault1"/>
@@ -152,6 +155,10 @@
 
         <!-- Content -->
         <div class="col-lg-9">
+            @if($search)
+                <h3>{{$search}}</h3>
+
+            @endif
 
             <!-- Filter Area -->
             <div class="row">
@@ -184,8 +191,13 @@
                                 <!--Card image-->
                                 <div class="view overlay">
                                     <img src="{{asset($item->image)}}" class="img-fluid" alt="{{$item->name}}">
+<<<<<<< HEAD
                                     <a href="{{route('detail',['slug'=>$item->slug])}}">
                                         <div class="mask rgba-white-slight"></div> 
+=======
+                                    <a href="{{route('detail',['slug' => $item->slug])}}">
+                                        <div class="mask rgba-white-slight"></div>
+>>>>>>> 0558929c1c845b2952e23a3a4f5dc8ca71e75a38
                                     </a>
                                 </div>
                                 <!--Card image-->
@@ -194,7 +206,7 @@
                                 <div class="card-body">
                                     <!--Category & Title-->
 
-                                    <h5 class="card-title mb-1"><strong><a href="{{route('detail',$item->slug)}}" class="dark-grey-text">{{$item->name}}</a></strong></h5><span class="badge badge-info mb-2">new</span>
+                                    <h5 class="card-title mb-1"><strong><a href="{{route('detail',['slug' => $item->slug])}}" class="dark-grey-text">{{$item->name}}</a></strong></h5><span class="badge badge-info mb-2">new</span>
                                     <!-- Rating -->
                                     <ul class="rating">
                                         <li><i class="fas fa-star blue-text"></i></li>

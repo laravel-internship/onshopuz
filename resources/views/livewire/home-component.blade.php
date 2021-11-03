@@ -1,4 +1,5 @@
 <div>
+  
     <div class="row pt-4">
 
         <!-- Content -->
@@ -22,7 +23,7 @@
                                         <a class="dark-grey-text font-small">
                                             <i aria-hidden="true"></i> {{ $son->name }}</a>
                                         <a href=""></a>
-                                        <span class="badge badge-danger badge-pill">{{$son->product->count()}}</span>
+                                        <span class="badge badge-danger badge-pill">{{ $son->product->count() }}</span>
                                         </a>
                                     </li>
                                 @endforeach
