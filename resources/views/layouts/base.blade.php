@@ -77,20 +77,20 @@
                                 aria-labelledby="navbarDropdownMenuLink-4">
                                 @if (auth()->check())
                                     <a class="dropdown-item waves-effect waves-light"
-                                        href="{{ route('profile.show') }}">My account</a>
+                                        href="{{ route('profile.show') }}">{{__('main.myaccount')}}</a>
                                     <a class="dropdown-item waves-effect waves-light"
-                                        href="">Order</a>
+                                        href="">{{__('order')}}</a>
 
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
                                         <a class="dropdown-item waves-effect waves-light" onclick="event.preventDefault();
-                                this.closest('form').submit();">Log out</a>
+                                this.closest('form').submit();">{{__('main.logout')}}</a>
                                     </form>
                                 @else
                                     <a class="dropdown-item waves-effect waves-light"
-                                        href="{{ route('login') }}">Login</a>
+                                        href="{{ route('login') }}">{{__('main.login')}}</a>
                                     <a class="dropdown-item waves-effect waves-light"
-                                        href="{{ route('register') }}">Register</a>
+                                        href="{{ route('register') }}">{{__('main.register')}}</a>
                                 @endif
                             </div>
                         </li>
@@ -128,17 +128,16 @@
                                 <ul class="animated fadeIn col-10 list-unstyled">
                                     <li>
                                         <p class="h1 red-text mb-4 mt-5">
-                                            <strong>Sale off 30% on every saturday!</strong>
+                                            <strong>{{__('main.saleoff30')}}</strong>
                                         </p>
                                     </li>
                                     <li>
-                                        <h5 class="h5-responsive dark-grey-text font-weight-bold mb-5">Tempora incidunt
-                                            ut labore et dolore veritatis et quasi architecto beatae</h5>
+                                        <h5 class="h5-responsive dark-grey-text font-weight-bold mb-5">{{__('main.temporainc')}}</h5>
                                     </li>
                                     <li>
                                         <a target="_blank"
                                             href="https://mdbootstrap.com/docs/jquery/getting-started/download/"
-                                            class="btn btn-danger btn-rounded" rel="nofollow">See more!</a>
+                                            class="btn btn-danger btn-rounded" rel="nofollow">{{__('main.seemore')}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -158,16 +157,15 @@
                                 <ul class="animated fadeIn col-10 list-unstyled">
                                     <li>
                                         <p class="h1 dark-grey-text mb-4">
-                                            <strong>Nemo enim ipsam voluptatem quia voluptas</strong>
+                                            <strong>{{__('main.nemoen')}}</strong>
                                         </p>
                                     </li>
                                     <li>
-                                        <h5 class="h5-responsive dark-grey-text font-weight-bold mb-5">Tempora incidunt
-                                            ut labore et dolore veritatis et quasi architecto beatae</h5>
+                                        <h5 class="h5-responsive dark-grey-text font-weight-bold mb-5">{{__('main.temporainc')}}</h5>
                                     </li>
                                     <li>
                                         <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/"
-                                            class="btn btn-primary btn-rounded" rel="nofollow">Read more</a>
+                                            class="btn btn-primary btn-rounded" rel="nofollow">{{__('main.readmore')}}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -187,12 +185,11 @@
                                 <ul class="animated fadeIn col-md-10 text-center text-md-right list-unstyled">
                                     <li>
                                         <p class="h1 blue-text mb-4 mt-5 pr-lg-5">
-                                            <strong>Sale off 20% on every headphones!</strong>
+                                            <strong>{{__('main.saleoff20')}}</strong>
                                         </p>
                                     </li>
                                     <li>
-                                        <h5 class="h5-responsive dark-grey-text font-weight-bold mb-5 pr-lg-5">Tempora
-                                            incidunt ut labore et dolore veritatis et quasi</h5>
+                                        <h5 class="h5-responsive dark-grey-text font-weight-bold mb-5 pr-lg-5">{{__('main.temporainc')}}i</h5>
                                     </li>
                                 </ul>
                             </div>
@@ -206,11 +203,11 @@
             <!--Controls-->
             <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
+                <span class="sr-only">{{__('previous')}}</span>
             </a>
             <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
+                <span class="sr-only">{{__('next')}}</span>
             </a>
             <!--/.Controls-->
         </div>
@@ -273,7 +270,7 @@
 
                     <!--Grid column-->
                     <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-                        <h6 class="mb-0 white-text">Get connected with us on social networks!</h6>
+                        <h6 class="mb-0 white-text">{{__('main.getconnected')}}</h6>
                     </div>
                     <!--Grid column-->
 
@@ -315,12 +312,10 @@
                 <!--First column-->
                 <div class="col-md-3 col-lg-4 col-xl-3 mb-4">
                     <h6 class="text-uppercase font-weight-bold">
-                        <strong>Company name</strong>
+                        <strong>{{__('main.compname')}}</strong>
                     </h6>
                     <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-                    <p>Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit
-                        amet, consectetur
-                        adipisicing elit.</p>
+                    <p>{{__('main.hereyou')}}</p>
                 </div>
                 <!--/.First column-->
 
@@ -338,10 +333,10 @@
                     </h6>
                     <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>
-                        <a href="{{(auth()->user())? route('profile.show') : route('login') }}">Your Account</a>
+                        <a href="{{(auth()->user())? route('profile.show') : route('login') }}">{{__('main.youraccount')}}</a>
                     </p>
                     <p>
-                        <a href="#!">Help</a>
+                        <a href="#!">{{__('main.help')}}</a>
                     </p>
                 </div>
                 <!--/.Third column-->
@@ -349,7 +344,7 @@
                 <!--Fourth column-->
                 <div class="col-md-4 col-lg-3 col-xl-3">
                     <h6 class="text-uppercase font-weight-bold">
-                        <strong>Contact</strong>
+                        <strong>{{__('contact')}}</strong>
                     </h6>
                     <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>
@@ -374,7 +369,7 @@
         <!-- Copyright-->
         <div class="footer-copyright py-3 text-center">
             <div class="container-fluid">
-                © 2018 Copyright: <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank">
+                © 2018 {{__('main.copyright')}}: <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank">
                     MDBootstrap.com </a>
             </div>
         </div>
