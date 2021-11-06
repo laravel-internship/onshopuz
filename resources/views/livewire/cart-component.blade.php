@@ -101,10 +101,10 @@
                         </table>
                         <div style="display: flex; justify-content: space-between; border-top:  rgb(62, 136, 239) solid 3px">
                             <div style="margin-top: 15px; margin-right: 20px; color: darkgreen;">
-                                <h4>Total: {{ $cart->sum('price') }} $</h4>
+                                <h4>Total: {{ $carts->sum('price') }} $</h4>
                             </div>
                             <div> <a><button class="btn btn-primary btn-rounded"
-                                        style="font-size: 18px">Order</button></a></div>
+                                        style="font-size: 18px" wire:click="storeOrder({{$carts}})">Order</button></a></div>
                         </div>
                         {{-- @endforeach --}}
                     </div>

@@ -3,6 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\Cart;
+use App\Models\Order;
+use App\Models\OrderDetail;
+use App\Models\OrderDetails;
 use App\Models\Product;
 use Livewire\Component;
 
@@ -43,5 +46,29 @@ class CartComponent extends Component
         } else {
             return redirect()->route('login');
         }
+    }
+
+    public function storeOrder($carts)
+    {
+//        dd($carts);
+        $order = Order::create([
+            'user_id' => auth()->user()->id,
+            'all_price' => array_sum(array_column($carts, 'price'))*1.01,
+            'delivery_price' => array_sum(array_column($carts, 'price'))*0.01
+        ]);
+
+        foreach($carts as $cart)
+        {
+            $order_detail = OrderDetail::create([
+                'user_id' => $cart['user_id'],
+                'product_id' => $cart['product_id'],
+                'order_id' => $order['id'],
+                'quantity' => $cart['quantity'],
+                'price' => $cart['price']
+            ]);
+            Cart::find($cart['id'])->delete();
+        }
+        return redirect()->route('checkout', ['order_id' => $order->id]);
+
     }
 }

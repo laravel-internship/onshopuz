@@ -37,6 +37,8 @@ Route::group(
         Route::get('/cart', CartComponent::class)->name('cart')->middleware('authcheck');
         Route::get('/detail/{slug}', DetailComonent::class)->name('detail');
         Route::get('/contact', ContactComponent::class)->name('contact');
+        Route::get('/checkout/{order_id}', \App\Http\Livewire\CheckoutComponent::class)->name('checkout');
+        Route::get('/thankyou/{order_id}', \App\Http\Livewire\ThankyouComponent::class)->name('thankyou');
 
         Route::get('/google/redirect', [SocialiteController::class, 'redirect'])->name('google.redirect');
         Route::get('/google/callback', [SocialiteController::class, 'callback']);
