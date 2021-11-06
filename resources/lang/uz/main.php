@@ -4,5 +4,25 @@ return [
     'home' => 'Bosh sahifa',
     'contact' => 'Biz bilan aloqa',
     'products' => 'Mahsulotlar',
-    'cart' => 'Savat'
+    'cart' => 'Savat',
+
+    'myaccount' =>'Mening hisobim',
+    'order' =>'Buyurtma',
+    'logout' =>'Chiqish',
+    'login' =>'Kirish',
+    'register' =>'Roʻyxatdan oʻtish',
+   'saleoff30' =>'Har shanba kuni 30% chegirma!',
+  'temporainc' =>'Vaqtinchalik mehnat va tajribalar va arxitektorlarning kvazilari',
+    'seemore' =>'Koʻproq koʻring!',
+    'nemoen' =>'Nemo enim ipsm voluptatem quia voluptas ',
+    'readmore' =>'Ko\'proq o\'qish',
+   'saleoff20' =>'Har bir minigarnituraga 20% chegirma!',
+    'previous' =>'Oldingi',
+    'next' =>'Keyingi',
+'getconnected' =>'Ijtimoiy tarmoqlarda biz bilan bog\'laning!',
+    'compname' =>'Kopmaniya nomi',
+    'hereyou' =>'Bu yerda siz altbilgi tarkibini tartibga solish uchun qatorlar va ustunlardan foydalanishingiz mumkin. ',
+  'youaccount' =>'Siz hisob',
+    'help' =>'Yordam',
+   'copyright' =>'Mualliflik huquqi'
 ];

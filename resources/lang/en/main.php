@@ -5,6 +5,7 @@ return [
     'contact' => 'Contact',
     'products' => 'Products',
     'cart' => 'Cart',
+    
     'myaccount' => 'My account',
     'order' => 'Order',
     'logout' => 'Log out',
@@ -20,7 +21,7 @@ return [
     'next' => 'Next',
     'getconnected' => 'Get connected with us on social networks!',
     'compname' => 'Company name',
-    'hereyou' => 'Here you can use rows and columns here to organize your footer content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    'hereyou' => 'Here you can use rows and columns here to organize your footer content. ',
     'youaccount' => 'You account',
     'help' => 'Help',
     'copyright' => 'Copyright',
