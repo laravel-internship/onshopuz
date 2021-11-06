@@ -5,7 +5,7 @@ return [
     'contact' => 'Contact',
     'products' => 'Products',
     'cart' => 'Cart',
-    
+
     'myaccount' => 'My account',
     'order' => 'Order',
     'logout' => 'Log out',
@@ -25,4 +25,18 @@ return [
     'youaccount' => 'You account',
     'help' => 'Help',
     'copyright' => 'Copyright',
+
+    'bestsel' => 'bestseller',
+    'titleis' => 'This is news title',
+    'bestsels' => 'Best sellers',
+    'topof' => 'Top offers',
+    'bestrat' => 'Best rated',
+    'sale' => 'Sale',
+    'sale2050' => 'Sale from 20% to 50% on every tablet!',
+    'newprod' => 'New  Products',
+    'topsel' => 'Top Sellers',
+    'radprod' => 'Random products',
+    'lastitems' => 'LAST ITEMS',
+    'first' => 'First',
+    'last' => 'Last',
 ];
