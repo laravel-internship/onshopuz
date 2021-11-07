@@ -2,7 +2,9 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Cart;
 use App\Models\Order;
+use App\Models\OrderDetail;
 use Livewire\Component;
 
 class CheckoutComponent extends Component
@@ -21,18 +23,19 @@ class CheckoutComponent extends Component
     public function update()
     {
         $this->order->update([
-           'first_name' => $this->first_name,
-           'phone' => $this->phone,
-           'last_name' => $this->last_name,
-           'address' => $this->address,
-           'payment_type' => $this->payment_type,
-           'status' => 2
+            'first_name' => $this->first_name,
+            'phone' => $this->phone,
+            'last_name' => $this->last_name,
+            'address' => $this->address,
+            'payment_type' => $this->payment_type,
+            'status' => 2
         ]);
         return redirect()->route('thankyou', ['order_id' => str_pad($this->order->id, 5, 0, STR_PAD_LEFT)]);
-
     }
     public function render()
     {
-        return view('livewire.checkout-component')->layout('layouts.base');
+        $order = Order::find(auth()->user()->id);
+        // dd($order->all_price);
+        return view('livewire.checkout-component',['order'=>$order])->layout('layouts.base');
     }
 }

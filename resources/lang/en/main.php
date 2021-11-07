@@ -22,7 +22,7 @@ return [
     'getconnected' => 'Get connected with us on social networks!',
     'compname' => 'Company name',
     'hereyou' => 'Here you can use rows and columns here to organize your footer content. ',
-    'youaccount' => 'You account',
+    'youraccount' => 'You account',
     'help' => 'Help',
     'copyright' => 'Copyright',
 

@@ -1,10 +1,5 @@
 <div>
-    @if (isset($carts))
-        @if (session()->has('message'))
-            <div class="alert alert-success">
-                <span>{{ session('message') }}</span>
-            </div>
-        @endif
+    @include('layouts.message')
 
 
         <!-- Section cart -->
@@ -63,7 +58,7 @@
                                         </td>
                                         {{-- <td>White</td> --}}
                                         <td></td>
-                                        <td>{{ $cart->price }}$</td>
+                                        <td>{{ $cart->product->price }}$</td>
                                         <td class="text-center text-md-left">
                                             <span class="qty"
                                                 style="margin-left: 20px">{{ $cart->quantity }}</span>
@@ -180,7 +175,7 @@
                                         </span>
                                         <span class="float-right">
                                             <a class="" data-toggle="tooltip" data-placement="top"
-                                                title="Add to Cart">
+                                                title="Add to Cart" wire:click.prevent="addToCart({{$item->id}})">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
                                         </span>
@@ -509,5 +504,4 @@
 
         </section>
         <!-- Section carts -->
-    @endif
 </div>

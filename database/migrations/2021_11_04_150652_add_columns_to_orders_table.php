@@ -15,7 +15,7 @@ class AddColumnsToOrdersTable extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             $table->string('first_name')->nullable();
-            $table->string('lastname')->nullable();
+            $table->string('last_name')->nullable();
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
         });

@@ -1,4 +1,5 @@
 <div>
+    @include('layouts.message')
     <div class="row pt-4">
 
         <!-- Content -->
@@ -19,9 +20,9 @@
                             <ul class="list-group z-depth-1">
                                 @foreach ($category as $son)
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                                        <a class="dark-grey-text font-small">
+                                        <a class="dark-grey-text font-small" href="{{route('shop',['category_id'=>$son->id])}}">
                                             <i aria-hidden="true"></i> {{ $son->name }}</a>
-                                        <a href=""></a>
+                                        <a href="{{route('shop',['category_id'=>$son->id])}}"></a>
                                         <span class="badge badge-danger badge-pill">{{ $son->product->count() }}</span>
                                         </a>
                                     </li>
