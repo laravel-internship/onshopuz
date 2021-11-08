@@ -107,7 +107,9 @@
                             @endif
 
                             <div class="border-t border-gray-100"></div>
-
+                            <a href="{{ route('home') }}" class="ml-4" >
+                                {{ __('Home') }}
+                            </a>
                             <!-- Authentication -->
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

@@ -23,11 +23,12 @@ class ShopComponent extends Component
         $this->service = new ShopService;
 
     }
-    public function mount()
+    public function mount($category_id = null)
     {
         $this->orderBy  = 'default';
         $this->paginate  = 6;
         $this->price = null;
+        $this->category_id = $category_id;
         $this->search = request()->get('search', null);
     }
 

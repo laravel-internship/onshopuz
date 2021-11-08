@@ -43,6 +43,9 @@
                         {{ __('Registor') }}
                     </a>
                 @endif
+                <a href="{{ route('google.redirect') }}" class="ml-4" >
+                    {{ __('Google') }}
+                </a>
 
                 <x-jet-button class="ml-4">
                     {{ __('Log in') }}

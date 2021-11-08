@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Orders extends Model
+class Order extends Model
 {
     use HasFactory;
 
@@ -13,23 +13,27 @@ class Orders extends Model
         'id',
         'all_price',
         'date',
-        'dativery_price',
+        'delivery_price',
         'status',
         'payment_type',
-        'user_id'
+        'user_id',
+        'first_name',
+        'lastname',
+        'phone',
+        'address'
     ];
 
     public function orderdetail()
     {
-        return $this->hasMany(OrderDetails::class,'order_id','id');
+        return $this->hasMany(OrderDetail::class,'order_id','id');
     }
 
     public function user()
     {
-        return $this->belongsTo(Users::class,'user_id','id');
+        return $this->belongsTo(User::class,'user_id','id');
     }
 
-    
+
 
 
 }

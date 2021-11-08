@@ -1,9 +1,4 @@
 <div>
-    @if (session()->has('message'))
-    <div class="alert alert-success">
-        <span>{{session('message')}}</span>
-    </div>
-@endif
     <div class="row pt-4">
 
         <!-- Content -->
@@ -49,15 +44,15 @@
                                 <div class="dark-grey-text  pt-4 ml-3 pl-3">
                                     <div>
                                         <a>
-                                            <span class="badge badge-danger">bestseller</span>
+                                            <span class="badge badge-danger">{{ __('main.bestsel') }}</span>
                                         </a>
                                         <h2 class="card-title font-weight-bold pt-2">
-                                            <strong>This is news title</strong>
+                                            <strong>{{ __('main.titleis') }}</strong>
                                         </h2>
-                                        <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                            elit. </p>
-                                        <a class="btn btn-danger btn-sm btn-rounded clearfix d-none d-md-inline-block">Read
-                                            more</a>
+                                        {{-- <p class="">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                            elit. </p> --}}
+                                        <a
+                                            class="btn btn-danger btn-sm btn-rounded clearfix d-none d-md-inline-block">{{ __('main.readmore') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -86,16 +81,16 @@
                         <ul class="nav md-tabs nav-justified grey lighten-3 mx-0" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active dark-grey-text font-weight-bold" data-toggle="tab"
-                                    href="#panel5" role="tab"> Best sellers</a>
+                                    href="#panel5" role="tab">{{ __('main.bestsels') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link dark-grey-text font-weight-bold" data-toggle="tab" href="#panel6"
-                                    role="tab">Top offers</a>
+                                    role="tab">{{ __('main.topof') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link dark-grey-text font-weight-bold" data-toggle="tab" href="#panel7"
                                     role="tab">
-                                    </i>Best rated</a>
+                                    </i>{{ __('main.bestrat') }}</a>
                             </li>
                         </ul>
                         <!-- Tab panels -->
@@ -160,9 +155,9 @@
                                                                 <strong>{{ $item->price }}$</strong>
                                                             </span>
                                                             <span class="float-right">
-                                                                <a class="" data-toggle="tooltip"
-                                                                    data-placement="top" title="Add to Cart"
-                                                                    href="{{ route('cart') }}">
+                                                                <a wire:click.prevent="addToCart({{ $item->id }})"
+                                                                    data-toggle="tooltip" data-placement="top"
+                                                                    title="Add to Cart">
                                                                     <i class="fas fa-shopping-cart ml-3"></i>
                                                                 </a>
                                                             </span>
@@ -799,16 +794,16 @@
                                 <div class="dark-grey-text text-right pt-lg-5 pt-md-1 mr-5 pr-md-4 pr-0">
                                     <div>
                                         <a>
-                                            <span class="badge badge-primary">SALE</span>
+                                            <span class="badge badge-primary">{{ __('main.sale') }}</span>
                                         </a>
                                         <h2 class="card-title font-weight-bold pt-md-3 pt-1">
-                                            <strong>Sale from 20% to 50% on every tablet!
+                                            <strong style="font-size: 28px">{{ __('main.sale2050') }}
                                             </strong>
                                         </h2>
                                         <p class="pb-lg-3 pb-md-1 clearfix d-none d-md-block">Lorem ipsum dolor sit
                                             amet, consectetur adipisicing elit. </p>
-                                        <a class="btn mr-0 btn-primary btn-rounded clearfix d-none d-md-inline-block">Read
-                                            more</a>
+                                        <a
+                                            class="btn mr-0 btn-primary btn-rounded clearfix d-none d-md-inline-block">{{ __('main.readmore') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -831,7 +826,7 @@
                     <div class="col-lg-4 col-md-12 col-12 pt-5">
                         <hr>
                         <h5 class="text-center font-weight-bold dark-grey-text">
-                            <strong>New Products</strong>
+                            <strong>{{ __('main.newprod') }}</strong>
                         </h5>
                         <hr>
 
@@ -988,7 +983,7 @@
 
                         <hr>
                         <h5 class="text-center font-weight-bold dark-grey-text">
-                            <strong>Top Sellers</strong>
+                            <strong>{{ __('main.topsel') }}</strong>
                         </h5>
                         <hr>
 
@@ -1150,7 +1145,7 @@
 
                         <hr>
                         <h5 class="text-center font-weight-bold dark-grey-text">
-                            <strong>Random products</strong>
+                            <strong>{{ __('main.radprod') }}</strong>
                         </h5>
                         <hr>
 
@@ -1315,7 +1310,7 @@
             <section>
 
                 <h4 class="font-weight-bold mt-4 dark-grey-text">
-                    <strong>LAST ITEMS</strong>
+                    <strong>{{ __('main.lastitems') }}</strong>
                 </h4>
                 <hr class="mb-5">
 
@@ -1615,14 +1610,14 @@
 
                             <!--First-->
                             <li class="page-item disabled clearfix d-none d-md-block">
-                                <a class="page-link waves-effect waves-effect">First</a>
+                                <a class="page-link waves-effect waves-effect">{{ __('main.first') }}</a>
                             </li>
 
                             <!--Arrow left-->
                             <li class="page-item disabled">
                                 <a class="page-link waves-effect waves-effect" aria-label="Previous">
                                     <span aria-hidden="true">«</span>
-                                    <span class="sr-only">Previous</span>
+                                    <span class="sr-only">{{ __('main.previous') }}</span>
                                 </a>
                             </li>
 
@@ -1647,13 +1642,13 @@
                             <li class="page-item">
                                 <a class="page-link waves-effect waves-effect" aria-label="Next">
                                     <span aria-hidden="true">»</span>
-                                    <span class="sr-only">Next</span>
+                                    <span class="sr-only">{{ __('main.next') }}</span>
                                 </a>
                             </li>
 
                             <!--First-->
                             <li class="page-item clearfix d-none d-md-block">
-                                <a class="page-link waves-effect waves-effect">Last</a>
+                                <a class="page-link waves-effect waves-effect">{{ __('main.last') }}</a>
                             </li>
 
                         </ul>
