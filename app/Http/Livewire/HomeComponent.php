@@ -8,7 +8,6 @@ use Livewire\Component;
 
 class HomeComponent extends Component
 {
-
     public function render()
     {
 
@@ -20,6 +19,7 @@ class HomeComponent extends Component
             return view('livewire.home-component', ['product1' => $product1,'product2' => $product2,'product3' => $product3,'category'=>$category])->layout('layouts.base');
 
     }
+
 
     //katta ishlarimiz
     // 1. Order yani buyurtmalarni qilish

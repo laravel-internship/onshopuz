@@ -75,7 +75,7 @@
                                 <a class="dropdown-item waves-effect waves-light" onclick="event.preventDefault();
                                 this.closest('form').submit();" >Log out</a>
                                 </form>
-@else
+                                @else
                                 <a class="dropdown-item waves-effect waves-light" href="{{route('login') }}">Login</a>
                                 <a class="dropdown-item waves-effect waves-light" href="{{route('register') }}">Register</a>
                                 @endif
