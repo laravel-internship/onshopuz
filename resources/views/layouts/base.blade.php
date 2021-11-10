@@ -68,7 +68,6 @@
                                     style="color: rgb(62, 136, 239)"></i> {{ __('main.cart') }}</a>
                         </li>
                         <li class="nav-item dropdown ml-3">
-<<<<<<< HEAD
                             <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-user blue-text"></i>  {{(auth()->user())? auth()->user()->name : 'none'}} </a>
@@ -84,7 +83,6 @@
                                 @else
                                 <a class="dropdown-item waves-effect waves-light" href="{{route('login') }}">Login</a>
                                 <a class="dropdown-item waves-effect waves-light" href="{{route('register') }}">Register</a>
-=======
                             <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold"
                                 id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
@@ -108,7 +106,6 @@
                                         href="{{ route('login') }}">{{__('main.login')}}</a>
                                     <a class="dropdown-item waves-effect waves-light"
                                         href="{{ route('register') }}">{{__('main.register')}}</a>
->>>>>>> 344f3a02cca54dfdc09787d44279157786c73f3b
                                 @endif
                             </div>
                         </li>
