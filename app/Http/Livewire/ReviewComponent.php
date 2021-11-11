@@ -19,7 +19,6 @@ class ReviewComponent extends Component
 
     public function store()
     {
-//        dd($this->rating);
         Review::create([
             'user_id' => auth()->user()->id,
             'rating' => $this->rating,
