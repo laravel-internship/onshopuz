@@ -41,6 +41,7 @@ Route::group(
         Route::get('/contact', ContactComponent::class)->name('contact');
         Route::get('/checkout/{order_id}', CheckoutComponent::class)->name('checkout');
         Route::get('/thankyou/{order_id}', ThankyouComponent::class)->name('thankyou');
+        Route::get('/review/{order_detail_id}', \App\Http\Livewire\ReviewComponent::class)->name('review');
 
         Route::get('/google/redirect', [SocialiteController::class, 'redirect'])->name('google.redirect');
         Route::get('/google/callback', [SocialiteController::class, 'callback']);

@@ -174,151 +174,51 @@
         <!--Main wrapper-->
         <div class="comments-list text-center text-md-left">
 
-            <!--First row-->
-            <div class="row mb-5">
-                <!--Image column-->
-                <div class="col-sm-2 col-12 mb-3">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (8).jpg" alt="sample image"
-                        class="avatar rounded-circle z-depth-1-half">
-                </div>
-                <!--/.Image column-->
+            @if(sizeof($order_detail) > 0)
+                @foreach($order_detail as $item)
+                    <!--First row-->
+                    @if($item->review)
+                    <div class="row mb-5">
+                        <!--Image column-->
+                        <div class="col-sm-2 col-12 mb-3">
+                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img (8).jpg" alt="sample image"
+                                class="avatar rounded-circle z-depth-1-half">
+                        </div>
+                        <!--/.Image column-->
 
-                <!--Content column-->
-                <div class="col-sm-10 col-12">
-                    <a>
-                        <h5 class="user-name font-weight-bold">John Doe</h5>
-                    </a>
-                    <!-- Rating -->
-                    <ul class="rating">
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                    </ul>
-                    <div class="card-data">
-                        <ul class="list-unstyled mb-1">
-                            <li class="comment-date font-small grey-text">
-                                <i class="far fa-clock-o"></i> 05/10/2015
-                            </li>
-                        </ul>
+                        <!--Content column-->
+                        <div class="col-sm-10 col-12">
+                            <a>
+                                <h5 class="user-name font-weight-bold">{{isset($item->review->user) ?  $item->review->user->name : ''}}</h5>
+                            </a>
+                            <!-- Rating -->
+                            <ul class="rating">
+                                @for($i = 1; $i <= $item->review->rating; $i++)
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                @endfor
+
+                            </ul>
+                            <div class="card-data">
+                                <ul class="list-unstyled mb-1">
+                                    <li class="comment-date font-small grey-text">
+                                        <i class="far fa-clock-o"></i> {{$item->review->created_at}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <p class="dark-grey-text article">{{$item->review->comment}}</p>
+                        </div>
+                        <!--/.Content column-->
                     </div>
-                    <p class="dark-grey-text article">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat
-                        nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                        @endif
+                    <!--/.First row-->
+                @endforeach
+            @else
+                <div>
+                    <h4>No reviews</h4>
                 </div>
-                <!--/.Content column-->
-            </div>
-            <!--/.First row-->
-
-            <!--Second row-->
-            <div class="row mb-5">
-                <!--Image column-->
-                <div class="col-sm-2 col-12 mb-3">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (30).jpg" alt="sample image"
-                        class="avatar rounded-circle z-depth-1-half">
-                </div>
-                <!--/.Image column-->
-
-                <!--Content column-->
-                <div class="col-sm-10 col-12">
-                    <a>
-                        <h5 class="user-name font-weight-bold">Lily Brown</h5>
-                    </a>
-                    <!-- Rating -->
-                    <ul class="rating">
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                    </ul>
-                    <div class="card-data">
-                        <ul class="list-unstyled mb-1">
-                            <li class="comment-date font-small grey-text">
-                                <i class="far fa-clock-o"></i> 05/10/2015
-                            </li>
-                        </ul>
-                    </div>
-                    <p class="dark-grey-text article">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat
-                        nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-                </div>
-                <!--/.Content column-->
-            </div>
-            <!--/.Second row-->
-
-            <!--Third row-->
-            <div class="row mb-5">
-                <!--Image column-->
-                <div class="col-sm-2 col-12 mb-3">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (28).jpg" alt="sample image"
-                        class="avatar rounded-circle z-depth-1-half">
-                </div>
-                <!--/.Image column-->
-                <!--Content column-->
-                <div class="col-sm-10 col-12">
-                    <a>
-                        <h5 class="user-name font-weight-bold">Martha Smith</h5>
-                    </a>
-                    <!-- Rating -->
-                    <ul class="rating">
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                    </ul>
-                    <div class="card-data">
-                        <ul class="list-unstyled mb-1">
-                            <li class="comment-date font-small grey-text">
-                                <i class="far fa-clock-o"></i> 05/10/2015
-                            </li>
-                        </ul>
-                    </div>
-                    <p class="dark-grey-text article">Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat
-                        nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-                </div>
-                <!--/.Content column-->
-            </div>
-            <!--/.Third row-->
+            @endif
         </div>
         <!--/.Main wrapper-->
     </section>

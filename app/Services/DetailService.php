@@ -14,15 +14,15 @@ class DetailService extends BaseService
 
     public function maounte($slug)
     {
-        return $this->repo->prolist()->where('slug', $slug)->first();
+        return $this->repo->proget()->where('slug', $slug)->first();
     }
 
     public function product($product)
     {
-        return  $this->repo->prolist()->where('category_id', $product->category_id)->paginate(9);
+        return  $this->repo->proget()->where('category_id', $product->category_id)->paginate(9);
     }
     public function related($product)
     {
-        return $this->repo->prolist()->where('category_id', $product->category_id)->limit(9)->paginate(3);
+        return $this->repo->proget()->where('category_id', $product->category_id)->limit(9)->paginate(3);
     }
 }

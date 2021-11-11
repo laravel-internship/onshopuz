@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Http\Livewire;
+
+use App\Models\OrderDetail;
+use App\Models\Review;
+use Livewire\Component;
+
+class ReviewComponent extends Component
+{
+    public $order_detail_id;
+    public $rating;
+    public $comment;
+    public function mount($order_detail_id)
+    {
+        $this->order_detail_id = $order_detail_id;
+        $this->rating = 3;
+    }
+
+    public function store()
+    {
+//        dd($this->rating);
+        Review::create([
+            'user_id' => auth()->user()->id,
+            'rating' => $this->rating,
+            'comment' => $this->comment,
+            'order_detail_id' => $this->order_detail_id
+        ]);
+        $order_detail= OrderDetail::find($this->order_detail_id);
+        $order_detail->update([
+            'r_status' => true
+        ]);
+        return redirect()->route('home');
+    }
+    public function render()
+    {
+        $order_detail = OrderDetail::with('product')->find($this->order_detail_id);
+        return view('livewire.review-component', ['order_detail' => $order_detail])->layout('layouts.base');
+    }
+}

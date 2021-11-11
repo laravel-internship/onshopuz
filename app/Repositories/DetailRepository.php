@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 
-class DetailRepository
+class DetailRepository extends BaseRepository
 {
 
 }
