@@ -78,8 +78,8 @@
     </div>
     <div style="display: flex; flex-direction: column; justify-content: center; width: 30%; color: rgb(0, 188, 230); font-weight: 700; ">
 
-            <p style="font-size: 30px">Total amount: {{ $order->all_price}} $</p>
-            <p style="font-size: 27px">Supplier service fee: {{$order->delivery_price}} $</p>
+            <p style="font-size: 28px">Total amount: {{ $order->all_price}} $</p>
+            <p style="font-size: 25px">Supplier service fee: {{$order->delivery_price}} $</p>
 
     </div>
 

@@ -65,7 +65,8 @@
                             <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
                                 href="{{ route('cart') }}">
                                 <i class="fas fa-cart-plus mr-2" aria-hidden="true"
-                                    style="color: rgb(62, 136, 239)"></i> {{ __('main.cart') }}</a>
+                                    style="color: rgb(62, 136, 239)"></i> {{ __('main.cart') }}
+                                    <span class="badge badge-danger badge-pill">5</span></a>
                         </li>
                         <li class="nav-item dropdown ml-3">
                             <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold"
@@ -79,7 +80,7 @@
                                     <a class="dropdown-item waves-effect waves-light"
                                         href="{{ route('profile.show') }}">{{__('main.myaccount')}}</a>
                                     <a class="dropdown-item waves-effect waves-light"
-                                        href="">{{__('order')}}</a>
+                                        href="{{route('myorder')}}">{{__('order')}}</a>
 
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf

@@ -27,7 +27,7 @@ class ReviewComponent extends Component
         ]);
         $order_detail= OrderDetail::find($this->order_detail_id);
         $order_detail->update([
-            'r_status' => true
+            'r_status' => 4
         ]);
         return redirect()->route('home');
     }

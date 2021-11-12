@@ -6,6 +6,8 @@ use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\ContactComponent;
 use App\Http\Livewire\DetailComonent;
 use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\MyOrderComponent;
+use App\Http\Livewire\OrderDatilComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\ThankyouComponent;
 use Illuminate\Support\Facades\Route;
@@ -42,6 +44,8 @@ Route::group(
         Route::get('/checkout/{order_id}', CheckoutComponent::class)->name('checkout');
         Route::get('/thankyou/{order_id}', ThankyouComponent::class)->name('thankyou');
         Route::get('/review/{order_detail_id}', \App\Http\Livewire\ReviewComponent::class)->name('review');
+        Route::get('myorder/', MyOrderComponent::class)->name('myorder');
+        Route::get('orderdatil/{order_id}', OrderDatilComponent::class)->name('orderdatil');
 
         Route::get('/google/redirect', [SocialiteController::class, 'redirect'])->name('google.redirect');
         Route::get('/google/callback', [SocialiteController::class, 'callback']);
