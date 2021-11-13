@@ -16,7 +16,31 @@ class DetailComonent extends Component
     public $slug;
     public $product;
     public $quantity;
+    public $quantity2;
     protected $service;
+
+            public function decrease($id)
+            {
+                $cart = Cart::find($id);
+                if ($cart->quantity > 1) {
+                    $cart->update([
+                        'quantity' => $cart->quantity - 1,
+                        'price' => $cart->product->price * ($cart->quantity - 1)
+                    ]);
+                    $this->quantity2=$cart->quantity;
+                }
+            }
+            public function plus($id)
+            {
+                // dd($id);
+                $cart = Cart::find($id);
+                // dd($cart);
+                $cart->update([
+                    'quantity' => $cart->quantity + 1,
+                    'price' => $cart->product->price * ($cart->quantity + 1)
+                ]);
+                $this->quantity2=$cart->quantity;
+            }
 
     public function boot()
     {
@@ -41,6 +65,10 @@ class DetailComonent extends Component
         $related_pro = $this->service->related($this->product);
         $order_detail = OrderDetail::with('review', 'review.user')->where('product_id', $this->product->id)->where('r_status', 1)->get();
 //        dd($order_detail);
-        return view('livewire.detail-comonent', ['product' => $this->product, 'products' => $products, 'images' => $images, 'related' => $related_pro, 'order_detail' => $order_detail])->layout('layouts.base');
+        return view('livewire.detail-comonent', ['product' => $this->product, 'products' => $products, 'images' => $images, 'related' => $related_pro, 'order_detail' => $order_detail,'count'=>$this->quantity2])->layout('layouts.base');
+    }
+    public function wishlist($id)
+    {
+       $this->service->list($id);
     }
 }

@@ -61,12 +61,26 @@
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
+                        <li  class="nav-item">
+                            <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="#">
+                                <img src="{{asset('assets/img/yurak.png')}}" alt="" width="25px" height="25px" >
+                                <span class="badge badge-danger badge-pill">0</span>
+                            </a>
+                        </li>
                         <li class="nav-item ml-3">
                             <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
                                 href="{{ route('cart') }}">
                                 <i class="fas fa-cart-plus mr-2" aria-hidden="true"
                                     style="color: rgb(62, 136, 239)"></i> {{ __('main.cart') }}
-                                    <span class="badge badge-danger badge-pill">5</span></a>
+                                    @if (isset(auth()->user()->id))
+
+                                    @livewire('cart-count-component')
+                                    @endif
+                                    {{-- <div style="display: inline">
+
+                                        <span class="badge badge-danger badge-pill">5</span>
+                                    </div> --}}
+                                </a>
                         </li>
                         <li class="nav-item dropdown ml-3">
                             <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold"

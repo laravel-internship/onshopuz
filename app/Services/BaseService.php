@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Models\Wishlists;
 use App\Repositories\BaseRepository;
 
 class BaseService
@@ -9,6 +10,22 @@ class BaseService
 
     protected $repo;
 
+    public function list($id)
+    {// home ,detail , cart ,
+        $product = Wishlists::where('product_id',$id)->first();
+        // dd($product);
+        if ($product == null or !$product) {
+
+            Wishlists::create([
+                'user_id' => auth()->user()->id,
+                'product_id' => $id
+            ]);
+            session()->flash('message', 'Added wishlist');
+        } else {
+
+            session()->flash('message', 'Duplicate information !!!');
+        }
+    }
     public function addcart($product, $quantity = 1)
     {
         if (auth()->check() && $product) {
@@ -32,4 +49,5 @@ class BaseService
             return redirect()->route('login');
         }
     }
+
 }
