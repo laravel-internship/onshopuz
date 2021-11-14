@@ -62,9 +62,12 @@
                             </a>
                         </li>
                         <li  class="nav-item">
-                            <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="#">
+                            <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" href="{{route('wishlist')}}">
                                 <img src="{{asset('assets/img/yurak.png')}}" alt="" width="25px" height="25px" >
-                                <span class="badge badge-danger badge-pill">0</span>
+                                @if (isset(auth()->user()->id))
+                                @livewire('wishlist-count-component')
+                                {{-- <span class="badge badge-danger badge-pill">0</span> --}}
+                                @endif
                             </a>
                         </li>
                         <li class="nav-item ml-3">

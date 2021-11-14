@@ -11,20 +11,25 @@ class BaseService
     protected $repo;
 
     public function list($id)
-    {// home ,detail , cart ,
-        $product = Wishlists::where('product_id',$id)->first();
-        // dd($product);
-        if ($product == null or !$product) {
+    { // home ,detail , cart ,
+        if (auth()->check()) {
+            $product = Wishlists::where('product_id', $id)->first();
+            // dd($product);
+            if ($product == null or !$product) {
 
-            Wishlists::create([
-                'user_id' => auth()->user()->id,
-                'product_id' => $id
-            ]);
-            session()->flash('message', 'Added wishlist');
+                Wishlists::create([
+                    'user_id' => auth()->user()->id,
+                    'product_id' => $id
+                ]);
+                session()->flash('message', 'Added wishlist');
+            } else {
+
+                session()->flash('message', 'Duplicate information !!!');
+            }
         } else {
-
-            session()->flash('message', 'Duplicate information !!!');
+            return redirect()->route('login');
         }
+
     }
     public function addcart($product, $quantity = 1)
     {
@@ -49,5 +54,4 @@ class BaseService
             return redirect()->route('login');
         }
     }
-
 }
