@@ -10,33 +10,33 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-12 mb-5">
                         <!-- Panel -->
-                        <h5 class="font-weight-bold dark-grey-text"><strong>Order By</strong></h5>
+                        <h5 class="font-weight-bold dark-grey-text"><strong>{{ __('main.Order By')}}</strong></h5>
                             <div class="divider"></div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="orderBy"  wire:model="orderBy" value="default" id="flexRadioDefault1"/>
-                                <label class="form-check-label" for="flexRadioDefaultOrder1">Default </label>
+                                <label class="form-check-label" for="flexRadioDefaultOrder1">{{ __('main.Default')}} </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="orderBy"  wire:model="orderBy" value="asc" id="flexRadioDefaultOrder2"/>
-                                <label class="form-check-label" for="flexRadioDefaultOrder2">Price: low to high </label>
+                                <label class="form-check-label" for="flexRadioDefaultOrder2">{{ __('main.Price: low to high')}} </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="orderBy"  wire:model="orderBy" value="desc" id="flexRadioDefaultOrder3"/>
-                                <label class="form-check-label" for="flexRadioDefaultOrder3">Price: high to low </label>
+                                <label class="form-check-label" for="flexRadioDefaultOrder3">{{ __('main.Price: high to low')}} </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="orderBy"  wire:model="orderBy" value="newless" id="flexRadioDefaultOrder4"/>
-                                <label class="form-check-label" for="flexRadioDefaultOrder4">Newless </label>
+                                <label class="form-check-label" for="flexRadioDefaultOrder4">{{ __('main.Newless')}} </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="orderBy"  wire:model="orderBy" value="popularity" id="flexRadioDefaultOrder5"/>
-                                <label class="form-check-label" for="flexRadioDefaultOrder5"> Popularity </label>
+                                <label class="form-check-label" for="flexRadioDefaultOrder5"> {{ __('main.Popularity')}} </label>
                             </div>
                     </div>
 
                     <!-- Filter by category-->
                     <div class="col-md-6 col-lg-12 mb-5">
-                        <h5 class="font-weight-bold dark-grey-text"><strong>Category</strong></h3>
+                        <h5 class="font-weight-bold dark-grey-text"><strong>{{ __('main.category')}}</strong></h3>
                             <div class="divider"></div>
 
                             <!--Radio group-->
@@ -66,7 +66,7 @@
 
                     <!-- Filter by price  -->
                     <div class="col-md-6 col-lg-12 mb-5">
-                        <h5 class="font-weight-bold dark-grey-text"><strong>Price</strong></h3>
+                        <h5 class="font-weight-bold dark-grey-text"><strong>{{ __('main.Price')}}</strong></h3>
                             <div class="divider"></div>
 
                             <form class="range-field mt-3">
@@ -96,7 +96,7 @@
 
                     <!-- Filter by rating -->
                     <div class="col-md-6 col-lg-12 mb-5">
-                        <h5 class="font-weight-bold dark-grey-text"><strong>Rating</strong></h3>
+                        <h5 class="font-weight-bold dark-grey-text"><strong>{{ __('main.Rating')}}</strong></h3>
                             <div class="divider"></div>
                             <div class="row ml-1">
                                 <!-- Rating -->
@@ -107,7 +107,7 @@
                                     <li><i class="fas fa-star blue-text"></i></li>
                                     <li><i class="fas fa-star blue-text"></i></li>
                                     <li>
-                                        <p class="ml-3 dark-grey-text"><a>4 and more</a></p>
+                                        <p class="ml-3 dark-grey-text"><a>{{ __('main.4 and more')}}</a></p>
                                     </li>
                                 </ul>
 
@@ -137,7 +137,7 @@
                                     <li><i class="fas fa-star grey-text"></i></li>
                                     <li><i class="fas fa-star grey-text"></i></li>
                                     <li>
-                                        <p class="ml-3 dark-grey-text"><a>3.00 and less</a></p>
+                                        <p class="ml-3 dark-grey-text"><a>{{ __('main.3.00 and less')}}</a></p>
                                     </li>
                                 </ul>
 
@@ -165,7 +165,7 @@
 
                     <!-- Sort by -->
                     <select class="mdb-select grey-text md-form" wire:model="paginate">
-                        <option value="" disabled selected>Choose your option</option>
+                        <option value="" disabled selected>{{ __('main.Choose your option')}}</option>
                         <option value="6">X6</option>
                         <option value="9">X9</option>
                         <option value="12">X12</option>
@@ -244,7 +244,7 @@
 
                             <!--First-->
                             <li class="page-item clearfix d-none d-md-block"><a
-                                    class="page-link waves-effect waves-effect" wire:click="resetPage">First</a></li>
+                                    class="page-link waves-effect waves-effect" wire:click="resetPage">{{ __('main.First')}}</a></li>
 
                             <!--Arrow left-->
                             <li class="page-item ">
@@ -274,7 +274,7 @@
 
                             <!--First-->
                             <li class="page-item clearfix d-none d-md-block"><a
-                                    class="page-link waves-effect waves-effect" wire:click="gotoPage({{$products->lastPage()}})">Last</a></li>
+                                    class="page-link waves-effect waves-effect" wire:click="gotoPage({{$products->lastPage()}})">{{ __('main.Last')}}</a></li>
 
                         </ul>
                     </nav>

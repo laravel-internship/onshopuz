@@ -39,4 +39,20 @@ return [
     'lastitems' => 'LAST ITEMS',
     'first' => 'First',
     'last' => 'Last',
+
+    'Order By' =>'Ordre By',
+    'Default' =>'Default',
+    'Price: low to high' =>'Price: low to high',
+    'Price: high to low' =>'Price: high to low',
+    'Newless' =>'Newless',
+    'Popularity' =>'Popularity',
+    'category' =>'Category',
+    'Price' =>'Price',
+    'Rating' =>'Rating',
+    '4 and more' =>'4 and more',
+    '3.00 and less' =>'3.00 and less',
+    'Choose your option' =>'Choose your option',
+    'First' =>'First',
+    'Last' =>'Last'
+
 ];

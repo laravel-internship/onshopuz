@@ -41,4 +41,24 @@ return [
    'lastitems' =>'OXIRGI BUYUMLAR',
    'first' =>'Birinchidan',
    'last' =>'Oxirgi',
+
+
+   'Order By' =>'Tomonidan buyurtmalar',
+   'Default' =>'Sukut bo\'yicha',
+   'Price: low to high' =>'Narx pasdan balandgacha',
+   'Price: high to low' =>'Yuqoridan pastgacha narx',
+   'Newless' =>'Yangisiz',
+   'Popularity' =>'Mashhurlik',
+   'category' =>'Toifa',
+   'Price' =>'Narx',
+   'Rating' =>'Reyting',
+   '4 and more' =>'4 va undan ko\'p',
+   '3.00 and less' =>'3.00 va ro\'yxat',
+   'Choose your option' =>'Variantingizni tanlang',
+   'First' =>'Birinchi',
+   'Last' =>'Oxirgi'
+
+
+
+
 ];

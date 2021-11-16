@@ -17,7 +17,6 @@
     <!-- Material Design Bootstrap -->
     <link href="{{ asset('assets/css/mdb.min.css') }}" rel="stylesheet">
     <style>
-
     </style>
     @livewireStyles
 </head>
@@ -68,21 +67,6 @@
                                     style="color: rgb(62, 136, 239)"></i> {{ __('main.cart') }}</a>
                         </li>
                         <li class="nav-item dropdown ml-3">
-                            <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold" id="navbarDropdownMenuLink-4" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-user blue-text"></i>  {{(auth()->user())? auth()->user()->name : 'none'}} </a>
-                            <div class="dropdown-menu dropdown-menu-right dropdown-cyan" aria-labelledby="navbarDropdownMenuLink-4">
-                           @if (auth()->check())
-                           <a class="dropdown-item waves-effect waves-light" href="{{route('profile.show')}}">My account</a>
-
-                            <form action="{{route('logout')}}" method="POST">
-                                @csrf
-                                <a class="dropdown-item waves-effect waves-light" onclick="event.preventDefault();
-                                this.closest('form').submit();" >Log out</a>
-                                </form>
-                                @else
-                                <a class="dropdown-item waves-effect waves-light" href="{{route('login') }}">Login</a>
-                                <a class="dropdown-item waves-effect waves-light" href="{{route('register') }}">Register</a>
                             <a class="nav-link dropdown-toggle waves-effect waves-light dark-grey-text font-weight-bold"
                                 id="navbarDropdownMenuLink-4" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
@@ -355,7 +339,6 @@
                     </p>
                 </div>
                 <!--/.Third column-->
-
                 <!--Fourth column-->
                 <div class="col-md-4 col-lg-3 col-xl-3">
                     <h6 class="text-uppercase font-weight-bold">
@@ -376,11 +359,9 @@
                     </p>
                 </div>
                 <!--/.Fourth column-->
-
             </div>
         </div>
         <!--/.Footer Links-->
-
         <!-- Copyright-->
         <div class="footer-copyright py-3 text-center">
             <div class="container-fluid">
@@ -389,35 +370,25 @@
             </div>
         </div>
         <!--/.Copyright -->
-
     </footer>
     <!--/.Footer-->
-
-
     <!-- SCRIPTS -->
-
     <!-- JQuery -->
     <script type="text/javascript" src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
-
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="{{ asset('assets/js/popper.min.js') }}"></script>
-
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{{ asset('assets/js/mdb.min.js') }}"></script>
-
     <script type="text/javascript">
         /* WOW.js init */
         new WOW().init();
-
         // Tooltips Initialization
         $(function() {
             $('[data-toggle="tooltip"]').tooltip()
         })
     </script>
-
     <script>
         // Material Select Initialization
         $(document).ready(function() {
@@ -430,5 +401,4 @@
     </script>
     @livewireScripts
 </body>
-
 </html>
