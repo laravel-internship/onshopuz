@@ -159,6 +159,7 @@
                                                                 <a wire:click.prevent="addToCart({{ $item->id }})"
                                                                     data-toggle="tooltip" data-placement="top"
                                                                     title="Add to Cart">
+                                                                    <img src="{{asset('assets/img/yurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$item->id}})">
                                                                     <i class="fas fa-shopping-cart ml-3"></i>
                                                                 </a>
                                                             </span>

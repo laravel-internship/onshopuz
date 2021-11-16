@@ -7,7 +7,7 @@ return [
     'cart' => 'Savat',
 
     'myaccount' =>'Mening hisobim',
-    'order' =>'Buyurtma',
+    'order' =>'Mening Buyurtma',
     'logout' =>'Chiqish',
     'login' =>'Kirish',
     'register' =>'Roʻyxatdan oʻtish',

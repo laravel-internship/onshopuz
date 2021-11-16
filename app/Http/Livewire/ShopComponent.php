@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Wishlists;
 use App\Services\ShopService;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -36,6 +37,10 @@ class ShopComponent extends Component
     {
         $product = Product::find($id);
         $this->service->addcart($product, 1);
+    }
+    public function wishlist($id)
+    {
+       $this->service->list($id);
     }
 
 

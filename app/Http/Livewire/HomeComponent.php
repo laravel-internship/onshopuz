@@ -21,6 +21,10 @@ class HomeComponent extends Component
         $product = Product::find($id);
         $this->service->cart($product, 1);
     }
+    public function wishlist($id)
+    {
+        $this->service->list($id);
+    }
     public function render()
     {
 

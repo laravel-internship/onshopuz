@@ -84,6 +84,7 @@
                                                 data-placement="top" wire:click="prodel({{ $cart->id }})"
                                                 title="Remove item">X
                                             </button>
+                                            <img src="{{asset('assets/img/yurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$cart->product->id}})">
                                         </td>
                                     </tr>
                                 @endforeach
@@ -178,6 +179,7 @@
                                                 title="Add to Cart" wire:click.prevent="addToCart({{$item->id}})">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
+                                            <img src="{{asset('assets/img/yurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$item->id}})">
                                         </span>
                                     </div>
                                 </div>

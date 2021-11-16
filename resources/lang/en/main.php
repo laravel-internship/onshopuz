@@ -7,7 +7,7 @@ return [
     'cart' => 'Cart',
 
     'myaccount' => 'My account',
-    'order' => 'Order',
+    'order' => 'MyOrder',
     'logout' => 'Log out',
     'login' => 'Login',
     'register' => 'Register',
