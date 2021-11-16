@@ -97,7 +97,7 @@
                                     <a class="dropdown-item waves-effect waves-light"
                                         href="{{ route('profile.show') }}">{{__('main.myaccount')}}</a>
                                     <a class="dropdown-item waves-effect waves-light"
-                                        href="{{route('myorder')}}">{{__('order')}}</a>
+                                        href="{{route('myorder')}}">{{__('MyOrder')}}</a>
 
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
