@@ -14,7 +14,7 @@ class ReviewComponent extends Component
     public function mount($order_detail_id)
     {
         $this->order_detail_id = $order_detail_id;
-        $this->rating = 3;
+        $this->rating = 5;
     }
 
     public function store()
