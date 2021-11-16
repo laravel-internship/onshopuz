@@ -26,10 +26,16 @@ class ReviewComponent extends Component
             'order_detail_id' => $this->order_detail_id
         ]);
         $order_detail= OrderDetail::find($this->order_detail_id);
-        $order_detail->update([
-            'r_status' => 1
-        ]);
-        return redirect()->route('home');
+        if($order_detail->r_status!=2){
+
+            $order_detail->update([
+                'r_status' => 2
+            ]);
+            return redirect()->route('home');
+        }
+        else{
+            return redirect()->route('logo');
+        }
     }
     public function render()
     {

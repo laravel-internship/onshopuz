@@ -2,12 +2,14 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Product;
 use Livewire\Component;
 
 class ProductComponent extends Component
 {
     public function render()
     {
-        return view('livewire.admin.product-component')->layout('layouts.base-admin');
+        $products=Product::with('category')->get();
+        return view('livewire.admin.product-component',['products'=>$products])->layout('layouts.base-admin');
     }
 }

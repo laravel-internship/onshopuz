@@ -15,4 +15,9 @@ class Review extends Model
     {
         return $this->belongsTo(User::class,'user_id','id');
     }
+    public function orderdetail()
+    {
+        return $this->belongsTo(OrderDetail::class,'order_detail_id','id');
+    }
+
 }
