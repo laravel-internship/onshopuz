@@ -23,8 +23,8 @@ class BaseService
                 ]);
                 session()->flash('message', 'Added wishlist');
             } else {
-
-                session()->flash('message', 'Duplicate information !!!');
+                $product->delete();
+                session()->flash('message', 'Deleted success from wishlist');
             }
         } else {
             return redirect()->route('login');

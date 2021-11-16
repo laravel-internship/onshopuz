@@ -14,7 +14,7 @@ class ReviewComponent extends Component
     public function mount($order_detail_id)
     {
         $this->order_detail_id = $order_detail_id;
-        $this->rating = 3;
+        $this->rating = 5;
     }
 
     public function store()
@@ -27,7 +27,7 @@ class ReviewComponent extends Component
         ]);
         $order_detail= OrderDetail::find($this->order_detail_id);
         $order_detail->update([
-            'r_status' => 4
+            'r_status' => 1
         ]);
         return redirect()->route('home');
     }

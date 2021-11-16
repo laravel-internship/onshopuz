@@ -14,8 +14,8 @@ class OrderDatilComponent extends Component
     }
     public function render()
     {
-        $ordet = OrderDetail::with('product')->find($this->order_id);
-        // dd($ordet->product->image);
-        return view('livewire.order-datil-component', ['ordet' => $ordet])->layout('layouts.base');
+        $ordet = OrderDetail::with('product')->where('order_id', $this->order_id)->get();
+//         dd($ordet);
+        return view('livewire.order-datil-component', ['order_det' => $ordet])->layout('layouts.base');
     }
 }
