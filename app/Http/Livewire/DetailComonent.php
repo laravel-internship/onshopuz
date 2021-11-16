@@ -44,6 +44,7 @@ class DetailComonent extends Component
     {
 
         $this->service->addcart($this->product,$this->quantity);
+        $this->emitTo('cart-count-component', 'count');
     }
 
     public function render()

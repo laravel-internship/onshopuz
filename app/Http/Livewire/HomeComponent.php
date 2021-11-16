@@ -20,10 +20,12 @@ class HomeComponent extends Component
     {
         $product = Product::find($id);
         $this->service->cart($product, 1);
+        $this->emitTo('cart-count-component', 'count');
     }
     public function wishlist($id)
     {
         $this->service->list($id);
+        $this->emitTo('wishlist-count-component', 'count');
     }
     public function render()
     {

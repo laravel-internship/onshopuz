@@ -37,10 +37,12 @@ class ShopComponent extends Component
     {
         $product = Product::find($id);
         $this->service->addcart($product, 1);
+        $this->emitTo('cart-count-component', 'count');
     }
     public function wishlist($id)
     {
        $this->service->list($id);
+       $this->emitTo('wishlist-count-component', 'count');
     }
 
 

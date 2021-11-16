@@ -15,10 +15,6 @@ class WishlistComponent extends Component
     public function render()
     {
         $wishlist=Wishlists::with('product','product.category')->where('user_id',auth()->user()->id)->get();
-        // foreach($wishlist as $wishlist){
-
-        //     dd($wishlist->product->name);
-        // }
         return view('livewire.wishlist-component',['wishlist'=>$wishlist])->layout('layouts.base');
     }
 }

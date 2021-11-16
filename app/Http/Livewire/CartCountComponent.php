@@ -11,7 +11,7 @@ class CartCountComponent extends Component
     {
 
             $count=Cart::where('user_id',auth()->user()->id)->get()->count();
-            // $count=$cart->count();
+ 
             return view('livewire.cart-count-component',['count'=>$count])->layout('layouts.base');
 
     }
