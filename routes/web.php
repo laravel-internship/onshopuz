@@ -51,6 +51,10 @@ Route::group(
 
         Route::get('/google/redirect', [SocialiteController::class, 'redirect'])->name('google.redirect');
         Route::get('/google/callback', [SocialiteController::class, 'callback']);
+
+        Route::group(['prefix' => 'admin/', 'middleware' => ['auth']], function () {
+            Route::get('products', \App\Http\Livewire\Admin\ProductComponent::class)->name('product');
+        });
     }
 
 );

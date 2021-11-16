@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class WishlistCountComponent extends Component
 {
+    protected $listeners = ['count' => '$refresh'];
     public function render()
     {
         $count=Wishlists::where('user_id',auth()->user()->id)->get()->count();

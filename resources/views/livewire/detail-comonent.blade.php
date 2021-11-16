@@ -98,14 +98,14 @@
                         </p>
                         {{-- quantity start --}}
                                 <div>
-                                    <span class="qty" style="margin-left: 20px">{{$count}}</span>
+                                    <span class="qty" style="margin-left: 20px">{{$quantity}}</span>
                                     <div class="btn-group radio-group ml-2" data-toggle="buttons">
                                         <label class="btn btn-sm btn-primary btn-rounded"
-                                            wire:click="decrease({{ $product->id }})">
+                                            wire:click="decrease()">
                                             <input type="radio" name="options" id="option1">&mdash;
                                         </label>
                                         <label class="btn btn-sm btn-primary btn-rounded"
-                                            wire:click="plus({{ $product->id }})">
+                                            wire:click="plus()">
                                             <input type="radio" name="options" id="option2" value="">+
                                         </label>
                                     </div>
