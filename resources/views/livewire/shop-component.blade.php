@@ -217,7 +217,16 @@
 
                                                 <a class=""  wire:click.prevent="addToCart({{$item->id}})" data-toggle="tooltip" data-placement="top" title="Add to Cart"><i class="fas fa-shopping-cart ml-3"></i></a>
                                                 </span>
-                                                <img src="{{asset('assets/img/yurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$item->id}})">
+                                            @if(auth()->check())
+                                                @php
+                                                        $wishlist = \App\Models\Wishlists::where('user_id', auth()->user()->id)->where('product_id', $item->id)->first();
+                                                @endphp
+                                                @if($wishlist)
+                                                    <img src="{{asset('assets/img/toliqyurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$item->id}})">
+                                                @else
+                                                    <img src="{{asset('assets/img/yurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$item->id}})">
+                                                @endif
+                                            @endif
                                         </div>
                                     </div>
 

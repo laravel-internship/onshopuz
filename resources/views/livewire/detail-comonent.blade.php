@@ -109,8 +109,14 @@
                                             <input type="radio" name="options" id="option2" value="">+
                                         </label>
                                     </div>
-                                    {{-- quantity end --}}
-                                    <img src="{{asset('assets/img/yurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$product->id}})">
+                                    @if(auth()->check())
+                                        @if($wishlist)
+                                            <img src="{{asset('assets/img/toliqyurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$product->id}})">
+                                        @else
+                                            <img src="{{asset('assets/img/yurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$product->id}})">
+                                        @endif
+
+                                    @endif
                         </div>
                         <!-- Add to Cart -->
                         <section class="color">

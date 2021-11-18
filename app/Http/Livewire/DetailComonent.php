@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\Cart;
 use App\Models\OrderDetail;
 use App\Models\Product;
+use App\Models\Wishlists;
 use App\Services\DetailService;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -49,12 +50,14 @@ class DetailComonent extends Component
 
     public function render()
     {
+        $wishlist = null;
         $images = explode(',', $this->product->images);
         $products =$this->service->product($this->product);
         $related_pro = $this->service->related($this->product);
         $order_detail = OrderDetail::with('review', 'review.user')->where('product_id', $this->product->id)->where('r_status', 1)->get();
-//        dd($order_detail);
-        return view('livewire.detail-comonent', ['product' => $this->product, 'products' => $products, 'images' => $images, 'related' => $related_pro, 'order_detail' => $order_detail])->layout('layouts.base');
+        if(auth()->check())
+            $wishlist =  Wishlists::where('user_id', auth()->user()->id)->where('product_id', $this->product->id)->first();
+        return view('livewire.detail-comonent', ['product' => $this->product, 'products' => $products, 'images' => $images, 'related' => $related_pro, 'order_detail' => $order_detail, 'wishlist' => $wishlist])->layout('layouts.base');
     }
     public function wishlist($id)
     {
