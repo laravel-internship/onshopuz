@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
@@ -53,7 +54,7 @@ Route::group(
         Route::get('/google/callback', [SocialiteController::class, 'callback']);
 
         Route::group(['prefix' => 'admin/', 'middleware' => ['auth']], function () {
-            Route::get('products', \App\Http\Livewire\Admin\ProductComponent::class)->name('product');
+            Route::get('products',[ ProductController::class, 'index'])->name('product');
         });
     }
 

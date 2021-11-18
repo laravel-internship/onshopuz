@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Wishlists;
 use App\Services\HomeService;
 use Livewire\Component;
 
@@ -35,7 +36,8 @@ class HomeComponent extends Component
         $product2=$this->service->protwo();
         $product3=$this->service->prothree();
         $category=$this->service->category();
-        return view('livewire.home-component', ['product1' => $product1,'product2' => $product2,'product3' => $product3,'category'=>$category])->layout('layouts.base');
+        $wishlist=Wishlists::with('product')->get();
+        return view('livewire.home-component', ['product1' => $product1,'product2' => $product2,'product3' => $product3,'category'=>$category,'wishlist'=>$wishlist])->layout('layouts.base');
 
     }
 

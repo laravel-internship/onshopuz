@@ -1,5 +1,6 @@
-<div>
-       <!--Section: Table-->
+@extends('layouts.base-admin')
+@section('content')
+   <!--Section: Table-->
    <section>
 
 
@@ -30,8 +31,8 @@
                 @if ($products)
 
 
-<!--Table-->
-<table class="table table-hover mb-0">
+   <!--Table-->
+   <table class="table table-hover mb-0" >
 
     <!--Table head-->
     <thead>
@@ -76,8 +77,8 @@
     @endforeach
     </tbody>
     <!--Table body-->
-</table>
-<!--Table-->
+   </table>
+   <!--Table-->
 
                 @endif
             </div>
@@ -139,6 +140,7 @@
         </div>
     </div>
 
-</section>
-<!--Section: Table-->
-</div>
+   </section>
+   <!--Section: Table-->
+
+@endsection

@@ -49,24 +49,9 @@
             <!-- Side navigation links -->
             <li>
                 <ul class="collapsible collapsible-accordion">
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-tachometer-alt"></i>
-                            Dashboards<i class="fas fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="../dashboards/v-1.html" class="waves-effect">Version 1</a>
-                                </li>
-                                <li><a href="../dashboards/v-2.html" class="waves-effect">Version 2</a>
-                                </li>
-                                <li><a href="../dashboards/v-3.html" class="waves-effect">Version 3</a>
-                                </li>
-                                <li><a href="../dashboards/v-4.html" class="waves-effect">Version 4</a>
-                                </li>
-                                <li><a href="../dashboards/v-5.html" class="waves-effect">Version 5</a>
-                                </li>
-                                <li><a href="../dashboards/v-6.html" class="waves-effect">Version 6</a>
-                                </li>
-                            </ul>
-                        </div>
+                    <li><a class="collapsible-header waves-effect arrow-r" href="{{route('product')}}"><i class="fas fa-tachometer-alt"></i>
+                            Products</a>
+
                     </li>
                     <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-image"></i> Pages<i class="fas fa-angle-down rotate-icon"></i></a>
                         <div class="collapsible-body">
@@ -243,12 +228,20 @@
         </div>
         <!-- Breadcrumb-->
         <div class="breadcrumb-dn mr-auto">
-            <p>Dashboard v.1</p>
+            <p>ADMIN PANEL</p>
         </div>
 
         <!--Navbar links-->
         <ul class="nav navbar-nav nav-flex-icons ml-auto">
-
+            @foreach (\LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+            <li class="nav-item">
+                <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
+                    rel="alternate" hreflang="{{ $localeCode }}"
+                    href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                    {{ $localeCode }}
+                </a>
+            </li>
+        @endforeach
             <!-- Dropdown -->
             <li class="nav-item dropdown notifications-nav">
                 <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -283,11 +276,14 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown"
                    aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user"></i> <span class="clearfix d-none d-sm-inline-block">Profile</span></a>
+                    <i class="fas fa-user"></i> <span class="clearfix d-none d-sm-inline-block">{{ auth()->user() ? auth()->user()->name : 'none' }}</span></a>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="#">Log Out</a>
-                    <a class="dropdown-item" href="#">My account</a>
+                    <a class="dropdown-item" href="{{route('myorder')}}">{{__('MyOrder')}}</a>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <a class="dropdown-item" >{{ __('main.logout') }}</a>
+                    </form>
                 </div>
             </li>
 
@@ -329,8 +325,8 @@
             <!--Card-->
             <div class="card card-cascade narrower">
 
-
-                {{ $slot }}
+                @yield('content')
+                {{-- {{ $slot }} --}}
 
             </div>
             <!--/.Card-->
