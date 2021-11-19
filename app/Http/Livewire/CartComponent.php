@@ -5,12 +5,20 @@ namespace App\Http\Livewire;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderDetail;
-use App\Models\OrderDetails;
 use App\Models\Product;
+use App\Services\CartService;
 use Livewire\Component;
 
 class CartComponent extends Component
 {
+
+    protected $service;
+
+    public function boot()
+    {
+        $this->service = new CartService;
+
+    }
 
     public function decrease($id)
     {
@@ -35,6 +43,11 @@ class CartComponent extends Component
     {
         $cart = Cart::find($id);
         $cart->delete();
+    }
+    public function addToCart($id)
+    {
+        $product = Product::find($id);
+        $this->service->addcart($product, 1);
     }
 
     public function render()
@@ -70,5 +83,9 @@ class CartComponent extends Component
         }
         return redirect()->route('checkout', ['order_id' => $order->id]);
 
+    }
+    public function wishlist($id)
+    {
+       $this->service->list($id);
     }
 }

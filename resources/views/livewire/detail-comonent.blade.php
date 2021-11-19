@@ -1,6 +1,6 @@
 <div>
     @if ($product)
-       @include('layouts.message')
+        @include('layouts.message')
         <!-- Section: product details -->
         <section id="productDetails" class="pb-5">
 
@@ -96,7 +96,22 @@
                         <p class="ml-xl-0 ml-4">
                             <strong>Data: </strong>{{ $product->data }}
                         </p>
-
+                        {{-- quantity start --}}
+                                <div>
+                                    <span class="qty" style="margin-left: 20px">{{$quantity}}</span>
+                                    <div class="btn-group radio-group ml-2" data-toggle="buttons">
+                                        <label class="btn btn-sm btn-primary btn-rounded"
+                                            wire:click="decrease()">
+                                            <input type="radio" name="options" id="option1">&mdash;
+                                        </label>
+                                        <label class="btn btn-sm btn-primary btn-rounded"
+                                            wire:click="plus()">
+                                            <input type="radio" name="options" id="option2" value="">+
+                                        </label>
+                                    </div>
+                                    {{-- quantity end --}}
+                                    <img src="{{asset('assets/img/yurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$product->id}})">
+                        </div>
                         <!-- Add to Cart -->
                         <section class="color">
                             <div class="mt-5">
@@ -105,8 +120,9 @@
                                 <div class="row mt-3 mb-4">
                                     <div class="col-md-12 text-center text-md-left text-md-right">
                                         <a wire:click.prevent="addToCart()">
-                                        <button class="btn btn-primary btn-rounded">
-                                            <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Add to cart  </button></a>
+                                            <button class="btn btn-primary btn-rounded">
+                                                <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Add to cart
+                                            </button></a>
                                     </div>
                                 </div>
                             </div>
@@ -149,7 +165,7 @@
                     <tbody>
                         <tr>
                             <td>{{ $product->category->name }}</td>
-                            <td>{{ $product->price}}$</td>
+                            <td>{{ $product->price }}$</td>
                             <td>{{ $product->quatity }}</td>
                             <td>{{ $product->description }}</td>
                         </tr>
@@ -174,151 +190,52 @@
         <!--Main wrapper-->
         <div class="comments-list text-center text-md-left">
 
-            <!--First row-->
-            <div class="row mb-5">
-                <!--Image column-->
-                <div class="col-sm-2 col-12 mb-3">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (8).jpg" alt="sample image"
-                        class="avatar rounded-circle z-depth-1-half">
-                </div>
-                <!--/.Image column-->
+            @if (sizeof($order_detail) > 0)
+                @foreach ($order_detail as $item)
+                    <!--First row-->
+                    @if ($item->review)
+                        <div class="row mb-5">
+                            <!--Image column-->
+                            <div class="col-sm-2 col-12 mb-3">
+                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img (8).jpg" alt="sample image"
+                                    class="avatar rounded-circle z-depth-1-half">
+                            </div>
+                            <!--/.Image column-->
 
-                <!--Content column-->
-                <div class="col-sm-10 col-12">
-                    <a>
-                        <h5 class="user-name font-weight-bold">John Doe</h5>
-                    </a>
-                    <!-- Rating -->
-                    <ul class="rating">
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                    </ul>
-                    <div class="card-data">
-                        <ul class="list-unstyled mb-1">
-                            <li class="comment-date font-small grey-text">
-                                <i class="far fa-clock-o"></i> 05/10/2015
-                            </li>
-                        </ul>
-                    </div>
-                    <p class="dark-grey-text article">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat
-                        nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-                </div>
-                <!--/.Content column-->
-            </div>
-            <!--/.First row-->
+                            <!--Content column-->
+                            <div class="col-sm-10 col-12">
+                                <a>
+                                    <h5 class="user-name font-weight-bold">
+                                        {{ isset($item->review->user) ? $item->review->user->name : '' }}</h5>
+                                </a>
+                                <!-- Rating -->
+                                <ul class="rating">
+                                    @for ($i = 1; $i <= $item->review->rating; $i++)
+                                        <li>
+                                            <i class="fas fa-star blue-text"></i>
+                                        </li>
+                                    @endfor
 
-            <!--Second row-->
-            <div class="row mb-5">
-                <!--Image column-->
-                <div class="col-sm-2 col-12 mb-3">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (30).jpg" alt="sample image"
-                        class="avatar rounded-circle z-depth-1-half">
+                                </ul>
+                                <div class="card-data">
+                                    <ul class="list-unstyled mb-1">
+                                        <li class="comment-date font-small grey-text">
+                                            <i class="far fa-clock-o"></i> {{ $item->review->created_at }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <p class="dark-grey-text article">{{ $item->review->comment }}</p>
+                            </div>
+                            <!--/.Content column-->
+                        </div>
+                    @endif
+                    <!--/.First row-->
+                @endforeach
+            @else
+                <div>
+                    <h4>No reviews</h4>
                 </div>
-                <!--/.Image column-->
-
-                <!--Content column-->
-                <div class="col-sm-10 col-12">
-                    <a>
-                        <h5 class="user-name font-weight-bold">Lily Brown</h5>
-                    </a>
-                    <!-- Rating -->
-                    <ul class="rating">
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                    </ul>
-                    <div class="card-data">
-                        <ul class="list-unstyled mb-1">
-                            <li class="comment-date font-small grey-text">
-                                <i class="far fa-clock-o"></i> 05/10/2015
-                            </li>
-                        </ul>
-                    </div>
-                    <p class="dark-grey-text article">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat
-                        nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-                </div>
-                <!--/.Content column-->
-            </div>
-            <!--/.Second row-->
-
-            <!--Third row-->
-            <div class="row mb-5">
-                <!--Image column-->
-                <div class="col-sm-2 col-12 mb-3">
-                    <img src="https://mdbootstrap.com/img/Photos/Avatars/img (28).jpg" alt="sample image"
-                        class="avatar rounded-circle z-depth-1-half">
-                </div>
-                <!--/.Image column-->
-                <!--Content column-->
-                <div class="col-sm-10 col-12">
-                    <a>
-                        <h5 class="user-name font-weight-bold">Martha Smith</h5>
-                    </a>
-                    <!-- Rating -->
-                    <ul class="rating">
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                        <li>
-                            <i class="fas fa-star blue-text"></i>
-                        </li>
-                    </ul>
-                    <div class="card-data">
-                        <ul class="list-unstyled mb-1">
-                            <li class="comment-date font-small grey-text">
-                                <i class="far fa-clock-o"></i> 05/10/2015
-                            </li>
-                        </ul>
-                    </div>
-                    <p class="dark-grey-text article">Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                        laboris nisi ut aliquip ex ea commodo
-                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                        fugiat
-                        nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-                </div>
-                <!--/.Content column-->
-            </div>
-            <!--/.Third row-->
+            @endif
         </div>
         <!--/.Main wrapper-->
     </section>
@@ -366,75 +283,75 @@
 
                     <div class="carousel-item active">
                         @foreach ($related as $rel)
-                        @if ($rel->slug!=$product->slug)
+                            @if ($rel->slug != $product->slug)
 
 
-                            <div class="col-md-4 mb-4">
+                                <div class="col-md-4 mb-4">
 
-                                <!--Card-->
-                                <div class="card card-ecommerce">
+                                    <!--Card-->
+                                    <div class="card card-ecommerce">
 
-                                    <!--Card image-->
-                                    <div class="view overlay">
-                                        <img src="{{ asset($rel->image) }}" class="img-fluid" alt="">
-                                        <a href="{{route('detail', ['slug' => $rel->slug]) }}" >
-                                            <div class="mask rgba-white-slight"></div>
-                                        </a>
-                                    </div>
-                                    <!--Card image-->
-
-                                    <!--Card content-->
-                                    <div class="card-body">
-                                        <!--Category & Title-->
-
-                                        <h5 class="card-title mb-1">
-                                            <strong>
-                                                <a href="" class="dark-grey-text">{{ $rel->name }}</a>
-                                            </strong>
-                                        </h5>
-                                        <span class="badge badge-danger mb-2">bestseller</span>
-                                        <!-- Rating -->
-                                        <ul class="rating">
-                                            <li>
-                                                <i class="fas fa-star blue-text"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star blue-text"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star blue-text"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star blue-text"></i>
-                                            </li>
-                                            <li>
-                                                <i class="fas fa-star grey-text"></i>
-                                            </li>
-                                        </ul>
-
-                                        <!--Card footer-->
-                                        <div class="card-footer pb-0">
-                                            <div class="row mb-0">
-                                                <span class="float-left">
-                                                    <strong>{{ $rel->price }}$</strong>
-                                                </span>
-                                                <span class="float-right">
-
-                                                    <a class="{{route('cart')}}" data-toggle="tooltip"
-                                                        data-placement="top" title="Add to Cart">
-                                                        <i class="fas fa-shopping-cart ml-3"></i>
-                                                    </a>
-                                                </span>
-                                            </div>
+                                        <!--Card image-->
+                                        <div class="view overlay">
+                                            <img src="{{ asset($rel->image) }}" class="img-fluid" alt="">
+                                            <a href="{{ route('detail', ['slug' => $rel->slug]) }}">
+                                                <div class="mask rgba-white-slight"></div>
+                                            </a>
                                         </div>
+                                        <!--Card image-->
+
+                                        <!--Card content-->
+                                        <div class="card-body">
+                                            <!--Category & Title-->
+
+                                            <h5 class="card-title mb-1">
+                                                <strong>
+                                                    <a href="" class="dark-grey-text">{{ $rel->name }}</a>
+                                                </strong>
+                                            </h5>
+                                            <span class="badge badge-danger mb-2">bestseller</span>
+                                            <!-- Rating -->
+                                            <ul class="rating">
+                                                <li>
+                                                    <i class="fas fa-star blue-text"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-star blue-text"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-star blue-text"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-star blue-text"></i>
+                                                </li>
+                                                <li>
+                                                    <i class="fas fa-star grey-text"></i>
+                                                </li>
+                                            </ul>
+
+                                            <!--Card footer-->
+                                            <div class="card-footer pb-0">
+                                                <div class="row mb-0">
+                                                    <span class="float-left">
+                                                        <strong>{{ $rel->price }}$</strong>
+                                                    </span>
+                                                    <span class="float-right">
+
+                                                        <a class="{{ route('cart') }}" data-toggle="tooltip"
+                                                            data-placement="top" title="Add to Cart">
+                                                            <i class="fas fa-shopping-cart ml-3"></i>
+                                                        </a>
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!--Card content-->
 
                                     </div>
-                                    <!--Card content-->
+                                    <!--Card-->
 
                                 </div>
-                                <!--Card-->
-
-                            </div>
                             @endif
                         @endforeach
                     </div>

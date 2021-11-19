@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Core\Abstracts\AbstractRepository;
+
 use App\Models\User;
 
 class SocialiteRepository extends BaseRepository

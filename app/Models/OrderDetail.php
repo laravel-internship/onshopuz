@@ -16,7 +16,7 @@ class OrderDetail extends Model
         'order_id',
         'quantity',
         'price',
-        'rating'
+        'r_status'
     ];
 
     public function product()
@@ -32,5 +32,10 @@ class OrderDetail extends Model
     public function user()
     {
         return $this->belongsTo(User::class,'user_id','id');
+    }
+
+    public function review()
+    {
+        return $this->hasOne(Review::class,'order_detail_id','id');
     }
 }

@@ -7,7 +7,7 @@ return [
     'cart' => 'Savat',
 
     'myaccount' =>'Mening hisobim',
-    'order' =>'Buyurtma',
+    'order' =>'Mening Buyurtma',
     'logout' =>'Chiqish',
     'login' =>'Kirish',
     'register' =>'Roʻyxatdan oʻtish',
@@ -22,7 +22,7 @@ return [
 'getconnected' =>'Ijtimoiy tarmoqlarda biz bilan bog\'laning!',
     'compname' =>'Kopmaniya nomi',
     'hereyou' =>'Bu yerda siz altbilgi tarkibini tartibga solish uchun qatorlar va ustunlardan foydalanishingiz mumkin. ',
-  'youaccount' =>'Siz hisob',
+  'youraccount' =>'Siz hisob',
     'help' =>'Yordam',
    'copyright' =>'Mualliflik huquqi',
 

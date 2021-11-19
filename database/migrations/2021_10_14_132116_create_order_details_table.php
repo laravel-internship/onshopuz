@@ -20,7 +20,7 @@ class CreateOrderDetailsTable extends Migration
             $table->integer('order_id');
             $table->integer('quantity');
             $table->decimal('price');
-            $table->integer('rating')->nullable();
+            $table->integer('r_status')->default(0);
             $table->timestamps();
         });
     }
