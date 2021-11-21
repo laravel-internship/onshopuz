@@ -23,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+        // \Str::macro('getSlug',function ($slug){
+        //     return strtolower(str_replace(' ','-',$slug));
+        // });
     }
 }

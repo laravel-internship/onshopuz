@@ -12,8 +12,8 @@
 
 
 
-                <a href="" class="white-text mx-3">Products</a>
-                <a href="{{ route('product.create') }}"> <button type="button"
+                <a href="" class="white-text mx-3">Categories</a>
+                <a href="{{ route('category-create') }}"> <button type="button"
                         class="btn btn-outline-white btn-rounded btn-sm px-2"><i
                             class="fas fa-pencil-alt mt-0"></i></button></a>
             </div>
@@ -25,7 +25,7 @@
         <div class="px-4">
 
             <div class="table-responsive">
-                @if ($products)
+                @if ($category)
 
 
                     <!--Table-->
@@ -34,13 +34,10 @@
                         <!--Table head-->
                         <thead>
                             <tr>
-                                <th class="th-lg"><a href="">Image<i class="fas fa-sort ml-1"></i></a></th>
+                                <th class="th-lg"><a href="">Id<i class="fas fa-sort ml-1"></i></a></th>
                                 <th class="th-lg"><a href="">Name<i class="fas fa-sort ml-1"></i></a></th>
-                                <th class="th-lg"><a href="">Slug<i class="fas fa-sort ml-1"></i></a></th>
-                                <th class="th-lg"><a href="">Category<i class="fas fa-sort ml-1"></i></a></th>
-                                <th class="th-lg"><a href="">Price<i class="fas fa-sort ml-1"></i></a></th>
-                                <th class="th-lg"><a href="">Quatity<i class="fas fa-sort ml-1"></i></a></th>
-                                <th class="th-lg"><a href="">Discount<i class="fas fa-sort ml-1"></i></a></th>
+                                <th class="th-lg"><a href="">CreateData<i class="fas fa-sort ml-1"></i></a></th>
+                                <th class="th-lg"><a href="">UpdateData<i class="fas fa-sort ml-1"></i></a></th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -48,24 +45,21 @@
 
                         <!--Table body-->
                         <tbody>
-                            @foreach ($products as $item)
+                            @foreach ($category as $item)
                                 <tr>
-                                    <td><img src="{{ asset($item->image) }}" alt="" width="100px"></td>
+                                    <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->slug }}</td>
-                                    <td>{{ $item->category->name }}</td>
-                                    <td>{{ $item->price }}$</td>
-                                    <td>{{ $item->quatity }}</td>
-                                    <td>{{ $item->discount }}{{ $item->discount ? '$' : 'no discount available' }}</td>
+                                    <td>{{ $item->created_at }}</td>
+                                    <td>{{ $item->updated_at }}</td>
                                     <td>
                                         <div>
-                                            <form action="{{ route('product.edit', ['id' => $item->id]) }}" method="get">
+                                            <form action="{{ route('category-edit', ['id' => $item->id]) }}" method="get">
                                                 @method('get')
                                                 @csrf
                                             <button type="submit" class="btn btn-outline-blue btn-rounded btn-sm px-2"><i
                                                     class="fas fa-eraser mt-0"></i></button>
                                                 </form>
-                                            <form action="{{ route('product.delete', ['id' => $item->id]) }}" method="POST">
+                                            <form action="{{ route('category-delete', ['id' => $item->id]) }}" method="POST">
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit"

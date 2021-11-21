@@ -23,431 +23,246 @@
 
 <body class="fixed-sn white-skin">
 
-<!--Main Navigation-->
-<header>
+    <!--Main Navigation-->
+    <header>
 
-    <!-- Sidebar navigation -->
-    <div id="slide-out" class="side-nav sn-bg-4 fixed">
-        <ul class="custom-scrollbar">
-            <!-- Logo -->
-            <li class="logo-sn waves-effect">
-                <div class="text-center">
-                    <a href="#" class="pl-0"><img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" class=""></a>
-                </div>
-            </li>
-            <!--/. Logo -->
-
-            <!--Search Form-->
-            <li>
-                <form class="search-form" role="search">
-                    <div class="form-group md-form mt-0 pt-1 waves-light">
-                        <input type="text" class="form-control" placeholder="Search">
+        <!-- Sidebar navigation -->
+        <div id="slide-out" class="side-nav sn-bg-4 fixed">
+            <ul class="custom-scrollbar">
+                <!-- Logo -->
+                <li class="logo-sn waves-effect">
+                    <div class="text-center">
+                        <a href="#" class="pl-0"><img
+                                src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
+                                class=""></a>
                     </div>
-                </form>
-            </li>
-            <!--/.Search Form-->
-            <!-- Side navigation links -->
-            <li>
-                <ul class="collapsible collapsible-accordion">
-                    <li><a class="collapsible-header waves-effect arrow-r" href="{{route('product')}}"><i class="fas fa-tachometer-alt"></i>
-                            Products</a>
-
-                    </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-image"></i> Pages<i class="fas fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="../pages/login.html" class="waves-effect">Login</a>
-                                </li>
-                                <li><a href="../pages/register.html" class="waves-effect">Register</a>
-                                </li>
-                                <li><a href="../pages/pricing.html" class="waves-effect">Pricing</a>
-                                </li>
-                                <li><a href="../pages/about.html" class="waves-effect">About us</a>
-                                </li>
-                                <li><a href="../pages/single.html" class="waves-effect">Single post</a>
-                                </li>
-                                <li><a href="../pages/post.html" class="waves-effect">Post listing</a>
-                                </li>
-                                <li><a href="../pages/landing.html" class="waves-effect">Landing page</a>
-                                </li>
-                                <li><a href="../pages/customers.html" class="waves-effect">Customers</a>
-                                </li>
-                                <li><a href="../pages/invoice.html" class="waves-effect">Invoice</a>
-                                </li>
-                                <li><a href="../pages/page-creator.html" class="waves-effect">Page Creator</a>
-                                </li>
-                                <li><a href="../pages/support.html" class="waves-effect">Support</a>
-                                </li>
-                                <li><a href="../pages/chat.html" class="waves-effect">Chat</a>
-                                </li>
-                            </ul>
+                </li>
+                <!--/. Logo -->
+{{--
+                <!--Search Form-->
+                <li>
+                    <form class="search-form" role="search">
+                        <div class="form-group md-form mt-0 pt-1 waves-light">
+                            <input type="text" class="form-control" placeholder="Search">
                         </div>
-                    </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-user"></i> Profile<i class="fas fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="../profile/basic-1.html" class="waves-effect">Basic 1</a>
-                                </li>
-                                <li><a href="../profile/basic-2.html" class="waves-effect">Basic 2</a>
-                                </li>
-                                <li><a href="../profile/extended.html" class="waves-effect">Extended</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fab fa-css3"></i> CSS<i class="fas fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="../css/grid.html" class="waves-effect">Grid system</a>
-                                </li>
-                                <li><a href="../css/media.html" class="waves-effect">Media object</a>
-                                </li>
-                                <li><a href="../css/utilities.html" class="waves-effect">Utilities / helpers</a>
-                                </li>
-                                <li><a href="../css/code.html" class="waves-effect">Code</a>
-                                </li>
-                                <li><a href="../css/icons.html" class="waves-effect">Icons</a>
-                                </li>
-                                <li><a href="../css/images.html" class="waves-effect">Images</a>
-                                </li>
-                                <li><a href="../css/typography.html" class="waves-effect">Typography</a>
-                                </li>
-                                <li><a href="../css/animations.html" class="waves-effect">Animations</a>
-                                </li>
-                                <li><a href="../css/colors.html" class="waves-effect">Colors</a>
-                                </li>
-                                <li><a href="../css/hover.html" class="waves-effect">Hover effects</a>
-                                </li>
-                                <li><a href="../css/masks.html" class="waves-effect">Masks</a>
-                                </li>
-                                <li><a href="../css/shadows.html" class="waves-effect">Shadows</a>
-                                </li>
-                                <li><a href="../css/skins.html" class="waves-effect">Skins</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-th"></i> Components<i class="fas fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="../components/buttons.html" class="waves-effect">Buttons</a>
-                                </li>
-                                <li><a href="../components/cards.html" class="waves-effect">Cards</a>
-                                </li>
-                                <li><a href="../components/collapse.html" class="waves-effect">Collapse</a>
-                                </li>
-                                <li><a href="../components/date.html" class="waves-effect">Date picker</a>
-                                </li>
-                                <li><a href="../components/list.html" class="waves-effect">List group</a>
-                                </li>
-                                <li><a href="../components/panels.html" class="waves-effect">Panels</a>
-                                </li>
-                                <li><a href="../components/pagination.html" class="waves-effect">Pagination</a>
-                                </li>
-                                <li><a href="../components/popovers.html" class="waves-effect">Popovers</a>
-                                </li>
-                                <li><a href="../components/progress.html" class="waves-effect">Progress bars</a>
-                                </li>
-                                <li><a href="../components/stepper.html" class="waves-effect">Stepper</a>
-                                </li>
-                                <li><a href="../components/tabs.html" class="waves-effect">Tabs & pills</a>
-                                </li>
-                                <li><a href="../components/tags.html" class="waves-effect">Tags, labels & badges</a>
-                                </li>
-                                <li><a href="../components/time.html" class="waves-effect">Time picker</a>
-                                </li>
-                                <li><a href="../components/tooltips.html" class="waves-effect">Tooltips</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="far fa-check-square"></i> Forms<i
-                                class="fas fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="../forms/basic.html" class="waves-effect">Basic</a>
-                                </li>
-                                <li><a href="../forms/extended.html" class="waves-effect">Extended</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-table"></i> Tables<i class="fas fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="../tables/basic.html" class="waves-effect">Basic</a>
-                                </li>
-                                <li><a href="../tables/extended.html" class="waves-effect">Extended</a>
-                                </li>
-                                <li><a href="../tables/datatables.html" class="waves-effect">DataTables.net</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li><a class="collapsible-header waves-effect arrow-r"><i class="fas fa-map"></i> Maps<i class="fas fa-angle-down rotate-icon"></i></a>
-                        <div class="collapsible-body">
-                            <ul>
-                                <li><a href="../maps/google.html" class="waves-effect">Google Maps</a>
-                                </li>
-                                <li><a href="../maps/full.html" class="waves-effect">Full screen map</a>
-                                </li>
-                                <li><a href="../maps/vector.html" class="waves-effect">Vector world map</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-                    <!-- Simple link -->
-                    <li><a href="../alerts/alerts.html" class="collapsible-header waves-effect"><i class=" far fa-bell"></i>
-                            Alerts</a></li>
-
-                    <li><a href="../modals/modals.html" class="collapsible-header waves-effect"><i class=" fas fa-bolt"></i>
-                            Modals</a></li>
-
-                    <li><a href="../charts/charts.html" class="collapsible-header waves-effect"><i class=" fas fa-chart-pie"></i>
-                            Charts</a></li>
-
-                    <li><a href="../calendar/calendar.html" class="collapsible-header waves-effect"><i class=" far fa-calendar-check"></i>
-                            Calendar</a></li>
-
-                    <li><a href="../sections/sections.html" class="collapsible-header waves-effect"><i class=" fas fa-th-large"></i>
-                            Sections</a></li>
-
-                </ul>
-            </li>
-            <!--/. Side navigation links -->
-        </ul>
-        <div class="sidenav-bg mask-strong"></div>
-    </div>
-    <!--/. Sidebar navigation -->
-
-    <!-- Navbar -->
-    <nav class="navbar fixed-top navbar-expand-lg scrolling-navbar double-nav">
-        <!-- SideNav slide-out button -->
-        <div class="float-left">
-            <a href="#" data-activates="slide-out" class="button-collapse black-text"><i class="fas fa-bars"></i></a>
-        </div>
-        <!-- Breadcrumb-->
-        <div class="breadcrumb-dn mr-auto">
-            <p>ADMIN PANEL</p>
-        </div>
-
-        <!--Navbar links-->
-        <ul class="nav navbar-nav nav-flex-icons ml-auto">
-            @foreach (\LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-            <li class="nav-item">
-                <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
-                    rel="alternate" hreflang="{{ $localeCode }}"
-                    href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                    {{ $localeCode }}
-                </a>
-            </li>
-        @endforeach
-            <!-- Dropdown -->
-            <li class="nav-item dropdown notifications-nav">
-                <a class="nav-link dropdown-toggle waves-effect" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    <span class="badge red">3</span> <i class="fas fa-bell"></i>
-                    <span class="d-none d-md-inline-block">Notifications</span>
-                </a>
-                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-money mr-2" aria-hidden="true"></i>
-                        <span>New order received</span>
-                        <span class="float-right"><i class="far  fa-clock" aria-hidden="true"></i> 13 min</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-money mr-2" aria-hidden="true"></i>
-                        <span>New order received</span>
-                        <span class="float-right"><i class="far  fa-clock" aria-hidden="true"></i> 33 min</span>
-                    </a>
-                    <a class="dropdown-item" href="#">
-                        <i class="fas fa-line-chart mr-2" aria-hidden="true"></i>
-                        <span>Your campaign is about to end</span>
-                        <span class="float-right"><i class="far  fa-clock" aria-hidden="true"></i> 53 min</span>
-                    </a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link waves-effect"><i class="fas fa-envelope"></i> <span class="clearfix d-none d-sm-inline-block">Contact</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link waves-effect"><i class="far fa-comments"></i> <span class="clearfix d-none d-sm-inline-block">Support</span></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user"></i> <span class="clearfix d-none d-sm-inline-block">{{ auth()->user() ? auth()->user()->name : 'none' }}</span></a>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a class="dropdown-item" href="{{route('myorder')}}">{{__('MyOrder')}}</a>
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <a class="dropdown-item" >{{ __('main.logout') }}</a>
                     </form>
+                </li>
+                <!--/.Search Form--> --}}
+
+                <!-- Side navigation links -->
+                <li>
+                    <ul class="collapsible collapsible-accordion">
+                        <li><a class="collapsible-header waves-effect arrow-r" href="{{route('index')}}">Home</a></li>
+                        <li><a class="collapsible-header waves-effect arrow-r" href="{{ route('product') }}">
+                                Products</a>
+
+                        </li>
+                        <li><a class="collapsible-header waves-effect arrow-r" href="{{ route('category') }}">
+                                Category</a>
+
+                        </li>
+
+                    </ul>
+        </div>
+        <div class="sidenav-bg mask-strong"></div>
+        </div>
+        <!--/. Sidebar navigation -->
+
+        <!-- Navbar -->
+        <nav class="navbar fixed-top navbar-expand-lg scrolling-navbar double-nav">
+            <!-- SideNav slide-out button -->
+            <div class="float-left">
+                <a href="#" data-activates="slide-out" class="button-collapse black-text"><i
+                        class="fas fa-bars"></i></a>
+            </div>
+            <!-- Breadcrumb-->
+            <div class="breadcrumb-dn mr-auto">
+                <p>Home Admin</p>
+            </div>
+
+            <!--Navbar links-->
+            <ul class="nav navbar-nav nav-flex-icons ml-auto">
+                @foreach (\LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold" rel="alternate"
+                            hreflang="{{ $localeCode }}"
+                            href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            {{ $localeCode }}
+                        </a>
+                    </li>
+                @endforeach
+                <!-- Dropdown -->
+                <li class="nav-item dropdown notifications-nav">
+                    <a class="nav-link  waves-effect" id="navbarDropdownMenuLink" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-bell"></i><span class="badge red">3</span>
+                    </a>
+
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-effect" href="#" id="userDropdown" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i> <span
+                            class="clearfix d-none d-sm-inline-block">{{ auth()->user() ? auth()->user()->name : 'none' }}</span></a>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="{{ route('profile.show') }}">{{ __('main.myaccount') }}</a>
+                        <a class="dropdown-item" href="{{ route('home') }}">{{ __('main.home') }}</a>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            @method('POST')
+                            <a  class="dropdown-item waves-effect waves-light">{{__('main.logout')}}</a>
+                        </form>
+                    </div>
+                </li>
+
+            </ul>
+            <!--/Navbar links-->
+        </nav>
+        <!-- /.Navbar -->
+
+
+    </header>
+    <!--Main Navigation-->
+
+
+    <!--Main layout-->
+    <main>
+        <div class="container-fluid">
+
+
+
+
+
+            <!--Section: Main panel-->
+            <section class="mb-5">
+
+                <!--Card-->
+                <div class="card card-cascade narrower">
+
+                    @yield('content')
+                    {{-- {{ $slot }} --}}
+
                 </div>
-            </li>
+                <!--/.Card-->
 
-        </ul>
-        <!--/Navbar links-->
-    </nav>
-    <!-- /.Navbar -->
+            </section>
+            <!--Section: Main panel-->
 
-    <!-- Fixed button -->
-    <div class="fixed-action-btn clearfix d-none d-xl-block" style="bottom: 45px; right: 24px;">
-        <a class="btn-floating btn-lg red">
-            <i class="fas fa-pencil-alt"></i>
-        </a>
+        </div>
+    </main>
+    <!--Main layout-->
 
-        <ul class="list-unstyled">
-            <li><a class="btn-floating red"><i class="fas fa-star"></i></a></li>
-            <li><a class="btn-floating yellow darken-1"><i class="fas fa-user"></i></a></li>
-            <li><a class="btn-floating green"><i class="fas fa-envelope"></i></a></li>
-            <li><a class="btn-floating blue"><i class="fas fa-shopping-cart"></i></a></li>
-        </ul>
-    </div>
-    <!-- Fixed button -->
+    <!--Footer-->
+    <footer class="page-footer pt-0 mt-5 rgba-stylish-light">
 
-</header>
-<!--Main Navigation-->
-
-
-<!--Main layout-->
-<main>
-    <div class="container-fluid">
-
-
-
-
-
-        <!--Section: Main panel-->
-        <section class="mb-5">
-
-            <!--Card-->
-            <div class="card card-cascade narrower">
-
-                @yield('content')
-                {{-- {{ $slot }} --}}
+        <!--Copyright-->
+        <div class="footer-copyright py-3 text-center">
+            <div class="container-fluid">
+                © 2018 Copyright: <a href="{{route('product')}}" target="_blank">
+                    MDBootstrap.com </a>
 
             </div>
-            <!--/.Card-->
-
-        </section>
-        <!--Section: Main panel-->
-
-    </div>
-</main>
-<!--Main layout-->
-
-<!--Footer-->
-<footer class="page-footer pt-0 mt-5 rgba-stylish-light">
-
-    <!--Copyright-->
-    <div class="footer-copyright py-3 text-center">
-        <div class="container-fluid">
-            © 2018 Copyright: <a href="https://mdbootstrap.com/education/bootstrap/" target="_blank"> MDBootstrap.com </a>
-
         </div>
-    </div>
-    <!--/.Copyright-->
+        <!--/.Copyright-->
 
-</footer>
-<!--/.Footer-->
+    </footer>
+    <!--/.Footer-->
 
 
-<!-- SCRIPTS -->
-<!-- JQuery -->
-<script src="{{asset('assets/admin/js/jquery-3.3.1.min.js') }}"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="{{ asset('assets/admin/js/popper.min.js') }}"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="{{ asset('assets/admin/js/bootstrap.js') }}"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="{{asset('assets/admin/js/mdb.min.js') }}"></script>
-<!--Initializations-->
-<script>
-    // SideNav Initialization
-    $(".button-collapse").sideNav();
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script src="{{ asset('assets/admin/js/jquery-3.3.1.min.js') }}"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="{{ asset('assets/admin/js/popper.min.js') }}"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="{{ asset('assets/admin/js/bootstrap.js') }}"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="{{ asset('assets/admin/js/mdb.min.js') }}"></script>
+    <!--Initializations-->
+    <script>
+        // SideNav Initialization
+        $(".button-collapse").sideNav();
 
-    var container = document.querySelector('.custom-scrollbar');
-    Ps.initialize(container, {
-        wheelSpeed: 2,
-        wheelPropagation: true,
-        minScrollbarLength: 20
-    });
+        var container = document.querySelector('.custom-scrollbar');
+        Ps.initialize(container, {
+            wheelSpeed: 2,
+            wheelPropagation: true,
+            minScrollbarLength: 20
+        });
 
-    // Data Picker Initialization
-    $('.datepicker').pickadate();
+        // Data Picker Initialization
+        $('.datepicker').pickadate();
 
-    // Material Select Initialization
-    $(document).ready(function () {
-        $('.mdb-select').material_select();
-    });
+        // Material Select Initialization
+        $(document).ready(function() {
+            $('.mdb-select').material_select();
+        });
 
-    // Tooltips Initialization
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
+        // Tooltips Initialization
+        $(function() {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 
-</script>
+    <!-- Charts -->
+    <script>
+        // Small chart
+        $(function() {
+            $('.min-chart#chart-sales').easyPieChart({
+                barColor: "#FF5252",
+                onStep: function(from, to, percent) {
+                    $(this.el).find('.percent').text(Math.round(percent));
+                }
+            });
+        });
 
-<!-- Charts -->
-<script>
-    // Small chart
-    $(function () {
-        $('.min-chart#chart-sales').easyPieChart({
-            barColor: "#FF5252",
-            onStep: function (from, to, percent) {
-                $(this.el).find('.percent').text(Math.round(percent));
+        //Main chart
+        var ctxL = document.getElementById("lineChart").getContext('2d');
+        var myLineChart = new Chart(ctxL, {
+            type: 'line',
+            data: {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [{
+                    label: "My First dataset",
+                    fillColor: "#fff",
+                    backgroundColor: 'rgba(255, 255, 255, .3)',
+                    borderColor: 'rgba(255, 255, 255)',
+                    data: [0, 10, 5, 2, 20, 30, 45],
+                }]
+            },
+            options: {
+                legend: {
+                    labels: {
+                        fontColor: "#fff",
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            display: true,
+                            color: "rgba(255,255,255,.25)"
+                        },
+                        ticks: {
+                            fontColor: "#fff",
+                        },
+                    }],
+                    yAxes: [{
+                        display: true,
+                        gridLines: {
+                            display: true,
+                            color: "rgba(255,255,255,.25)"
+                        },
+                        ticks: {
+                            fontColor: "#fff",
+                        },
+                    }],
+                }
             }
         });
-    });
-
-    //Main chart
-    var ctxL = document.getElementById("lineChart").getContext('2d');
-    var myLineChart = new Chart(ctxL, {
-        type: 'line',
-        data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
-            datasets: [{
-                label: "My First dataset",
-                fillColor: "#fff",
-                backgroundColor: 'rgba(255, 255, 255, .3)',
-                borderColor: 'rgba(255, 255, 255)',
-                data: [0, 10, 5, 2, 20, 30, 45],
-            }]
-        },
-        options: {
-            legend: {
-                labels: {
-                    fontColor: "#fff",
-                }
-            },
-            scales: {
-                xAxes: [{
-                    gridLines: {
-                        display: true,
-                        color: "rgba(255,255,255,.25)"
-                    },
-                    ticks: {
-                        fontColor: "#fff",
-                    },
-                }],
-                yAxes: [{
-                    display: true,
-                    gridLines: {
-                        display: true,
-                        color: "rgba(255,255,255,.25)"
-                    },
-                    ticks: {
-                        fontColor: "#fff",
-                    },
-                }],
-            }
-        }
-    });
-
-</script>
-@livewireScripts
+    </script>
+    @livewireScripts
 
 </body>
 

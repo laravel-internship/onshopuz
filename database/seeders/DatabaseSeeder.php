@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\Property;
 use Illuminate\Database\Seeder;
+use Prophecy\Call\Call;
 
 class DatabaseSeeder extends Seeder
 {
@@ -23,5 +24,9 @@ class DatabaseSeeder extends Seeder
         Category::factory(10)->create();
         Product::factory(20)->create();
         Property::factory(30)->create();
+
+        $this->call([
+            RoleUserSeeder::class
+        ]);
     }
 }
