@@ -102,14 +102,18 @@
                 <!-- Dropdown -->
 
                 @php
-                $number = \App\Models\Order::whereDate('created_at', \Carbon\Carbon::today())->get()->count('id');
+                    $number = \App\Models\Order::whereDate('created_at', \Carbon\Carbon::today())
+                        ->get()
+                        ->count('id');
 
-        @endphp
+
+                @endphp
 
                 <li class="nav-item dropdown notifications-nav">
-                    <a class="nav-link  waves-effect" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-bell"></i><span class="badge red">{{$number}}</span>
+                    <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
+                    href="{{ route('myorder') }}">
+                        <i class="fas fa-bell"></i><span
+                            class="badge red">{{ $number}}</span>
                     </a>
 
                 </li>
@@ -127,7 +131,7 @@
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             @method('POST')
-                            <input class="btn btn-indigo" type="submit" value="{{ __('main.logout') }}" >
+                            <input class="btn btn-indigo" type="submit" value="{{ __('main.logout') }}">
                         </form>
                     </div>
                 </li>
