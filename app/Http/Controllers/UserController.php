@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        $user = User::orderby('id', 'desc')->get();
+        $user = User::orderby('id', 'desc')->paginate(\request()->get('perPage', 10));
 
         return view('admin.user', ['user' => $user]);
     }

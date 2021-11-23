@@ -60,7 +60,7 @@ Route::group(
 
         Route::group(['prefix' => 'admin/', 'middleware' => ['auth','AdminRole']], function () {
             Route::get('/',[ ProductController::class, 'index'])->name('index');
-            Route::get('/products',[ ProductController::class, 'product'])->name('product');
+            Route::get('/product',[ ProductController::class, 'product'])->name('product');
             Route::get('/create',[ ProductController::class, 'create'])->name('product.create');
             Route::post('/store',[ ProductController::class, 'store'])->name('product.store');
             Route::delete('/delete/{id}',[ ProductController::class, 'delete'])->name('product.delete');

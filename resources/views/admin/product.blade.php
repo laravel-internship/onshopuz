@@ -62,10 +62,12 @@
                                             <form action="{{ route('product.edit', ['id' => $item->id]) }}" method="get">
                                                 @method('get')
                                                 @csrf
-                                            <button type="submit" class="btn btn-outline-blue btn-rounded btn-sm px-2"><i
-                                                    class="fas fa-eraser mt-0"></i></button>
-                                                </form>
-                                            <form action="{{ route('product.delete', ['id' => $item->id]) }}" method="POST">
+                                                <button type="submit"
+                                                    class="btn btn-outline-blue btn-rounded btn-sm px-2"><i
+                                                        class="fas fa-eraser mt-0"></i></button>
+                                            </form>
+                                            <form action="{{ route('product.delete', ['id' => $item->id]) }}"
+                                                method="POST">
                                                 @method('delete')
                                                 @csrf
                                                 <button type="submit"
@@ -90,21 +92,24 @@
             <div class="d-flex justify-content-between">
 
                 <!--Name-->
+                <form action="{{ route('product') }}" method="get" style="display: flex">
                     <select name="perPage" class="mdb-select colorful-select dropdown-primary md-form hidden-md-down">
-                        <option value="" disabled>Rows number</option>
-                        <option value="5" selected><a href="/admin/products?perPage=5">5 rows</a></option>
-                        <option value="10">10 rows</option>
-                        <option value="20">20 rows</option>
-                        <option value="100">100 rows</option>
-                    </select>
+                        <option value="5">5 rows </option>
+                        <option value="10">10 rows </option>
+                        <option value="20">20 rows </option>
+                        <option value="50">50 rows </option>
 
+                    </select>
+                    <input type="submit" class="btn " style="color: black; margin-top: 20px;margin-left: 10px;" value="OK">
+                </form>
                 <!--Pagination -->
                 <nav class="my-4">
                     <ul class="pagination pagination-circle pg-blue mb-0">
 
                         <!--First-->
-                        <li class="page-item clearfix d-none d-md-block"><a href="/admin/products?page=1" class="page-link">First</a>
-                        </li>
+                        <li class="page-item clearfix d-none d-md-block"><a href="/admin/product?page=1 && perPage="{{$products->perPage()}}
+                            class="page-link">First</a>
+                    </li>
 
                         <!--Arrow left-->
                         <li class="page-item disabled">
@@ -115,15 +120,17 @@
                         </li>
 
                         <!--Numbers-->
-                        @for ($i = 1; $i<=$products->lastPage(); $i++)
+                        @for ($i = 1; $i <= $products->lastPage(); $i++)
                             @if ($products->currentPage() == $i)
-                                <li class="page-item active"><a href="/admin/products?page={{$i}}" class="page-link">{{$i}}</a></li>
+                                <li class="page-item active"><a href="/admin/product?page={{ $i."&& perPage=".$products->perPage() }}"
+                                        class="page-link">{{ $i }}</a></li>
                             @else
-                                <li class="page-item"><a href="/admin/products?page={{$i}}" class="page-link">{{$i}}</a></li>
+                                <li class="page-item"><a href="/admin/product?page={{ $i."&& perPage=".$products->perPage()}}"
+                                        class="page-link">{{ $i }}</a></li>
 
-                        @endif
+                            @endif
 
-                    @endfor
+                        @endfor
 
                         <!--Arrow right-->
                         <li class="page-item">
@@ -134,7 +141,9 @@
                         </li>
 
                         <!--First-->
-                        <li class="page-item clearfix d-none d-md-block"><a href="/admin/products?page={{$products->lastPage()}}" class="page-link">Last</a></li>
+                        <li class="page-item clearfix d-none d-md-block"><a
+                                href="/admin/product?page={{ $products->lastPage()."&& perPage=".$products->perPage()}}" class="page-link">Last</a>
+                        </li>
 
                     </ul>
                 </nav>

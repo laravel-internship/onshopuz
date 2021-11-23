@@ -98,21 +98,25 @@
             <div class="d-flex justify-content-between">
 
                 <!--Name-->
-                <select class="mdb-select colorful-select dropdown-primary md-form hidden-md-down">
-                    <option value="" disabled>Rows number</option>
-                    <option value="1" selected>5 rows</option>
-                    <option value="2">25 rows</option>
-                    <option value="3">50 rows</option>
-                    <option value="4">100 rows</option>
-                </select>
+                <form action="{{ route('order') }}" method="get" style="display: flex">
+                    <select name="perPage" class="mdb-select colorful-select dropdown-primary md-form hidden-md-down">
+                        <option value="5">5 rows </option>
+                        <option value="10">10 rows </option>
+                        <option value="20">20 rows </option>
+                        <option value="50">50 rows </option>
+
+                    </select>
+                    <input type="submit" class="btn " style="color: black; margin-top: 20px;margin-left: 10px;" value="OK">
+                </form>
 
                 <!--Pagination -->
                 <nav class="my-4">
                     <ul class="pagination pagination-circle pg-blue mb-0">
 
                         <!--First-->
-                        <li class="page-item disabled clearfix d-none d-md-block"><a class="page-link">First</a>
-                        </li>
+                        <li class="page-item clearfix d-none d-md-block"><a href="/admin/order?page=1 && perPage="{{$order->perPage()}}
+                            class="page-link">First</a>
+                    </li>
 
                         <!--Arrow left-->
                         <li class="page-item disabled">
@@ -123,11 +127,17 @@
                         </li>
 
                         <!--Numbers-->
-                        <li class="page-item active"><a class="page-link">1</a></li>
-                        <li class="page-item"><a class="page-link">2</a></li>
-                        <li class="page-item"><a class="page-link">3</a></li>
-                        <li class="page-item"><a class="page-link">4</a></li>
-                        <li class="page-item"><a class="page-link">5</a></li>
+                        @for ($i = 1; $i <= $order->lastPage(); $i++)
+                        @if ($order->currentPage() == $i)
+                            <li class="page-item active"><a href="/admin/order?page={{ $i."&& perPage=".$order->perPage() }}"
+                                    class="page-link">{{ $i }}</a></li>
+                        @else
+                            <li class="page-item"><a href="/admin/order?page={{ $i."&& perPage=".$order->perPage() }}"
+                                    class="page-link">{{ $i }}</a></li>
+
+                        @endif
+
+                    @endfor
 
                         <!--Arrow right-->
                         <li class="page-item">
@@ -138,7 +148,9 @@
                         </li>
 
                         <!--First-->
-                        <li class="page-item clearfix d-none d-md-block"><a class="page-link">Last</a></li>
+                        <li class="page-item clearfix d-none d-md-block"><a
+                            href="/admin/order?page={{ $order->lastPage()."&& perPage=".$order->perPage()}}" class="page-link">Last</a>
+                    </li>
 
                     </ul>
                 </nav>

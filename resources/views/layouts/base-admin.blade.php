@@ -100,10 +100,16 @@
                     </li>
                 @endforeach
                 <!-- Dropdown -->
+
+                @php
+                $number = \App\Models\Order::whereDate('created_at', \Carbon\Carbon::today())->get()->count('id');
+
+        @endphp
+
                 <li class="nav-item dropdown notifications-nav">
                     <a class="nav-link  waves-effect" id="navbarDropdownMenuLink" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-bell"></i><span class="badge red">3</span>
+                        <i class="fas fa-bell"></i><span class="badge red">{{$number}}</span>
                     </a>
 
                 </li>
@@ -121,7 +127,7 @@
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             @method('POST')
-                            <a class="dropdown-item waves-effect waves-light">{{ __('main.logout') }}</a>
+                            <input class="btn btn-indigo" type="submit" value="{{ __('main.logout') }}" >
                         </form>
                     </div>
                 </li>

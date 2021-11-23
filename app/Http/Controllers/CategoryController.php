@@ -11,7 +11,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $category = Category::orderby('id','desc')->get();
+        $category = Category::orderby('id','desc')->paginate(\request()->get('perPage', 10));;
         return view('admin.category', ['category' => $category]);
     }
     public function create()
