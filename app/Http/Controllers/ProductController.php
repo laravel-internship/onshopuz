@@ -6,6 +6,7 @@ use App\Http\Requests\Product\StoreRequest;
 use App\Models\Category;
 use App\Models\Product;
 use App\Traits\ImageTrait;
+use Illuminate\Support\Facades\Request;
 
 class ProductController extends Controller
 {
@@ -17,7 +18,7 @@ class ProductController extends Controller
     }
     public function product()
     {
-        $products = Product::with('category')->orderby('id','desc')->get();
+        $products = Product::with('category')->orderby('id','desc')->paginate(\request()->get('perPage', 10));
         return view('admin.product', ['products' => $products]);
     }
     public function create()
