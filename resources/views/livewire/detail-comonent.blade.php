@@ -342,9 +342,16 @@
                                                         <strong>{{ $rel->price }}$</strong>
                                                     </span>
                                                     <span class="float-right">
+                                                        @if(auth()->check())
+                                                        @if($wishlist)
+                                                            <img src="{{asset('assets/img/toliqyurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$product->id}})">
+                                                        @else
+                                                            <img src="{{asset('assets/img/yurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$product->id}})">
+                                                        @endif
 
+                                                    @endif
                                                         <a class="{{ route('cart') }}" data-toggle="tooltip"
-                                                            data-placement="top" title="Add to Cart">
+                                                            data-placement="top" title="Add to Cart" wire:click.prevent="addToCart({{ $rel->id }})">
                                                             <i class="fas fa-shopping-cart ml-3"></i>
                                                         </a>
                                                     </span>

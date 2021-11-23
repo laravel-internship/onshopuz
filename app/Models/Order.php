@@ -18,7 +18,7 @@ class Order extends Model
         'payment_type',
         'user_id',
         'first_name',
-        'lastname',
+        'last_name',
         'phone',
         'address'
     ];

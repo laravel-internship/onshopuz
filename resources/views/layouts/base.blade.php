@@ -95,14 +95,17 @@
                             <div class="dropdown-menu dropdown-menu-right dropdown-cyan"
                                 aria-labelledby="navbarDropdownMenuLink-4">
                                 @if (auth()->check())
-                                <a class="dropdown-item waves-effect waves-light"
-                                href="{{route('product')}}">{{__('AdminPanel')}}</a>
+
                                     <a class="dropdown-item waves-effect waves-light"
                                         href="{{ route('profile.show') }}">{{__('main.myaccount')}}</a>
+                                        
+                                        @if (auth()->user()->hasRole('admin'))
+                                        <a class="dropdown-item waves-effect waves-light"
+                                        href="{{route('product')}}">{{__('AdminPanel')}}</a>
+                                        @endif
                                     <a class="dropdown-item waves-effect waves-light"
                                         href="{{route('myorder')}}">{{__('MyOrder')}}</a>
-                                        @if (auth()->user()->hasRole('admin'))
-                                        @endif
+
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
                                         <a class="dropdown-item waves-effect waves-light" onclick="event.preventDefault();

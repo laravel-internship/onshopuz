@@ -3,7 +3,7 @@
     <form action="{{ isset($category )? route('category-update',['id'=>$category->id]) : route('category-store') }}" method="POST" enctype="multipart/form-data">
  @if ( isset($category ))
  @method('put')
-@else --}}
+@else 
 @method('post')
 @endif
         @csrf

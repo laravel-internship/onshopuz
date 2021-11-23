@@ -53,12 +53,14 @@
                 <li>
                     <ul class="collapsible collapsible-accordion">
                         <li><a class="collapsible-header waves-effect arrow-r" href="{{route('index')}}">Home</a></li>
+                        <li><a class="collapsible-header waves-effect arrow-r" href="{{route('user')}}">User</a></li>
+                        <li><a class="collapsible-header waves-effect arrow-r" href="{{route('order')}}">Order</a></li>
                         <li><a class="collapsible-header waves-effect arrow-r" href="{{ route('product') }}">
                                 Products</a>
 
                         </li>
                         <li><a class="collapsible-header waves-effect arrow-r" href="{{ route('category') }}">
-                                Category</a>
+                                Categories</a>
 
                         </li>
 

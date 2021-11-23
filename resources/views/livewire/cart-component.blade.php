@@ -2,50 +2,53 @@
     @include('layouts.message')
 
 
-        <!-- Section cart -->
-        <section class="section my-5 pb-5">
+    <!-- Section cart -->
+    <section class="section my-5 pb-5">
 
-            <div class="card card-ecommerce">
+        <div class="card card-ecommerce">
 
 
-                <div class="card-body">
+            <div class="card-body">
 
-                    <!-- Shopping Cart table -->
-                    <div class="table-responsive">
-                        {{-- @foreach ($cart as $item) --}}
+                <!-- Shopping Cart table -->
+                <div class="table-responsive">
+                    {{-- @foreach ($cart as $item) --}}
 
-                        <table class="table cart-table" style="text-align: center">
+                    <table class="table cart-table" style="text-align: center">
 
-                            <!-- Table head -->
-                            <thead class="mdb-color lighten-5">
-                                <tr>
-                                    <th></th>
-                                    <th class="font-weight-bold">
-                                        <strong>Product</strong>
-                                    </th>
-                                    <th></th>
-                                    <th class="font-weight-bold">
-                                        <strong>Price</strong>
-                                    </th>
+                        <!-- Table head -->
+                        <thead class="mdb-color lighten-5">
+                            <tr>
+                                <th></th>
+                                <th class="font-weight-bold">
+                                    <strong>Product</strong>
+                                </th>
+                                <th></th>
+                                <th class="font-weight-bold">
+                                    <strong>Price</strong>
+                                </th>
 
-                                    <th class="font-weight-bold">
-                                        <strong>Quentity</strong>
-                                    </th>
-                                    <th></th>
-                                    <th class="font-weight-bold">
-                                        <strong>Amount</strong>
-                                    </th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <!-- /.Table head -->
+                                <th class="font-weight-bold">
+                                    <strong>Quentity</strong>
+                                </th>
+                                <th></th>
+                                <th class="font-weight-bold">
+                                    <strong>Amount</strong>
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <!-- /.Table head -->
 
-                            <!-- Table body -->
-                            <tbody>
+                        <!-- Table body -->
+                        <tbody>
 
-                                <!-- First row -->
-                                @foreach ($carts as $cart)
+
+                            <!-- First row -->
+                            @foreach ($carts as $cart)
+                                @if ($cart->product)
                                     <tr>
+
                                         <th scope="row">
                                             <img src="{{ asset($cart->product->image) }}" alt="" width="100px"
                                                 class="img-fluid z-depth-0">
@@ -84,47 +87,137 @@
                                                 data-placement="top" wire:click="prodel({{ $cart->id }})"
                                                 title="Remove item">X
                                             </button>
-                                            <img src="{{asset('assets/img/yurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$cart->product->id}})">
                                         </td>
                                     </tr>
-                                @endforeach
 
-                                <!-- /.First row -->
 
-                            </tbody>
-                            <!-- /.Table body -->
+                                @endif
 
-                        </table>
-                        <div style="display: flex; justify-content: space-between; border-top:  rgb(62, 136, 239) solid 3px">
-                            <div style="margin-top: 15px; margin-right: 20px; color: darkgreen;">
-                                <h4>Total: {{ $carts->sum('price') }} $</h4>
-                            </div>
-                            <div> <a><button class="btn btn-primary btn-rounded"
-                                        style="font-size: 18px" wire:click="storeOrder({{$carts}})">Order</button></a></div>
+
+                            @endforeach
+
+                            <!-- /.First row -->
+
+                        </tbody>
+                        <!-- /.Table body -->
+
+                    </table>
+                    <div
+                        style="display: flex; justify-content: space-between; border-top:  rgb(62, 136, 239) solid 3px">
+                        <div style="margin-top: 15px; margin-right: 20px; color: darkgreen;">
+                            <h4>Total: {{ $carts->sum('price') }} $</h4>
                         </div>
-                        {{-- @endforeach --}}
+                        <div> <a><button class="btn btn-primary btn-rounded" style="font-size: 18px"
+                                    wire:click="storeOrder({{ $carts }})">Order</button></a></div>
                     </div>
-                    <!-- /.Shopping Cart table -->
+                    {{-- @endforeach --}}
+                </div>
+                <!-- /.Shopping Cart table -->
+
+            </div>
+        </div>
+
+    </section>
+    <!-- /Section cart -->
+
+    <!-- Section carts -->
+    <section>
+        <h4 class="font-weight-bold mt-4 title-1">
+            <strong>YOU MAY BE INTERESTED IN</strong>
+        </h4>
+        <hr class="blue mb-5">
+
+        <!-- Grid row -->
+        <div class="row mb-3">
+
+            <!--Grid column-->
+            @foreach ($products as $item)
+
+                <div class="col-lg-3 col-md-6 mb-4">
+
+                    <!--Card-->
+                    <div class="card card-ecommerce">
+
+                        <!--Card image-->
+                        <div class="view overlay">
+                            <img src="{{ asset($item->image) }}" class="img-fluid" alt="">
+                            <a href="{{ route('detail', ['slug' => $item->slug]) }}">
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <!--Card image-->
+
+                        <!--Card content-->
+                        <div class="card-body">
+                            <!--Category & Title-->
+
+                            <h5 class="card-title mb-1">
+                                <strong>
+                                    <a href="" class="dark-grey-text">{{ $item->name }}</a>
+                                </strong>
+                            </h5>
+                            <span class="badge badge-info mb-2">new</span>
+                            <!-- Rating -->
+                            <ul class="rating">
+                                <li>
+                                    <i class="fas fa-star blue-text"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-star blue-text"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-star blue-text"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-star blue-text"></i>
+                                </li>
+                                <li>
+                                    <i class="fas fa-star blue-text"></i>
+                                </li>
+                            </ul>
+
+                            <!--Card footer-->
+                            <div class="card-footer pb-0">
+                                <div class="row mb-0">
+                                    <span class="float-left">
+                                        <strong>{{ $item->price }}$</strong>
+                                    </span>
+                                    <span class="float-right">
+                                        <a class="" data-toggle="tooltip" data-placement="top"
+                                            title="Add to Cart" wire:click.prevent="addToCart({{ $item->id }})">
+                                            <i class="fas fa-shopping-cart ml-3"></i>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--Card content-->
+
+                    </div>
+                    <!--Card-->
 
                 </div>
-            </div>
 
-        </section>
-        <!-- /Section cart -->
+            @endforeach
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
 
-        <!-- Section carts -->
-        <section>
-            <h4 class="font-weight-bold mt-4 title-1">
-                <strong>YOU MAY BE INTERESTED IN</strong>
-            </h4>
-            <hr class="blue mb-5">
 
-            <!-- Grid row -->
-            <div class="row mb-3">
+        <!--Grid row-->
+        <div class="row flex-center mb-5">
 
-                <!--Grid column-->
-                @foreach ($products as $item)
+            <p>
+                <a class="btn btn-primary btn-rounded mb-5" data-toggle="collapse" href="#collapseExample1"
+                    aria-expanded="false" aria-controls="collapseExample1">More carts</a>
+            </p>
+            <div class="collapse" id="collapseExample1">
 
+                <!-- Grid row -->
+                <div class="row">
+
+                    <!--Grid column-->
                     <div class="col-lg-3 col-md-6 mb-4">
 
                         <!--Card-->
@@ -132,8 +225,9 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="{{ asset($item->image) }}" class="img-fluid" alt="">
-                                <a href="{{ route('detail', ['slug' => $item->slug]) }}">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/3.jpg"
+                                    class="img-fluid" alt="">
+                                <a>
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
                             </div>
@@ -145,12 +239,12 @@
 
                                 <h5 class="card-title mb-1">
                                     <strong>
-                                        <a href="" class="dark-grey-text">{{ $item->name }}</a>
+                                        <a href="" class="dark-grey-text">Asus GR-597</a>
                                     </strong>
                                 </h5>
-                                <span class="badge badge-info mb-2">new</span>
+                                <span class="badge badge-danger mb-2">bestseller</span>
                                 <!-- Rating -->
-                                <ul class="rating">
+                                <ul class="rating text-left">
                                     <li>
                                         <i class="fas fa-star blue-text"></i>
                                     </li>
@@ -172,14 +266,13 @@
                                 <div class="card-footer pb-0">
                                     <div class="row mb-0">
                                         <span class="float-left">
-                                            <strong>{{ $item->price }}$</strong>
+                                            <strong>1439$</strong>
                                         </span>
                                         <span class="float-right">
                                             <a class="" data-toggle="tooltip" data-placement="top"
-                                                title="Add to Cart" wire:click.prevent="addToCart({{$item->id}})">
+                                                title="Add to Cart">
                                                 <i class="fas fa-shopping-cart ml-3"></i>
                                             </a>
-                                            <img src="{{asset('assets/img/yurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$item->id}})">
                                         </span>
                                     </div>
                                 </div>
@@ -191,319 +284,233 @@
                         <!--Card-->
 
                     </div>
+                    <!--Grid column-->
 
-                @endforeach
-                <!--Grid column-->
-            </div>
-            <!--Grid row-->
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4">
 
+                        <!--Card-->
+                        <div class="card card-ecommerce">
 
-            <!--Grid row-->
-            <div class="row flex-center mb-5">
+                            <!--Card image-->
+                            <div class="view overlay">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/5.jpg"
+                                    class="img-fluid" alt="">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+                            <!--Card image-->
 
-                <p>
-                    <a class="btn btn-primary btn-rounded mb-5" data-toggle="collapse" href="#collapseExample1"
-                        aria-expanded="false" aria-controls="collapseExample1">More carts</a>
-                </p>
-                <div class="collapse" id="collapseExample1">
+                            <!--Card content-->
+                            <div class="card-body">
+                                <!--Category & Title-->
 
-                    <!-- Grid row -->
-                    <div class="row">
+                                <h5 class="card-title mb-1">
+                                    <strong>
+                                        <a href="" class="dark-grey-text">Asus CT-567</a>
+                                    </strong>
+                                </h5>
+                                <span class="badge badge-danger mb-2">bestseller</span>
+                                <!-- Rating -->
+                                <ul class="rating text-left">
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                </ul>
 
-                        <!--Grid column-->
-                        <div class="col-lg-3 col-md-6 mb-4">
-
-                            <!--Card-->
-                            <div class="card card-ecommerce">
-
-                                <!--Card image-->
-                                <div class="view overlay">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/3.jpg"
-                                        class="img-fluid" alt="">
-                                    <a>
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
-                                </div>
-                                <!--Card image-->
-
-                                <!--Card content-->
-                                <div class="card-body">
-                                    <!--Category & Title-->
-
-                                    <h5 class="card-title mb-1">
-                                        <strong>
-                                            <a href="" class="dark-grey-text">Asus GR-597</a>
-                                        </strong>
-                                    </h5>
-                                    <span class="badge badge-danger mb-2">bestseller</span>
-                                    <!-- Rating -->
-                                    <ul class="rating text-left">
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                    </ul>
-
-                                    <!--Card footer-->
-                                    <div class="card-footer pb-0">
-                                        <div class="row mb-0">
-                                            <span class="float-left">
-                                                <strong>1439$</strong>
-                                            </span>
-                                            <span class="float-right">
-                                                <a class="" data-toggle="tooltip" data-placement="top"
-                                                    title="Add to Cart">
-                                                    <i class="fas fa-shopping-cart ml-3"></i>
-                                                </a>
-                                            </span>
-                                        </div>
+                                <!--Card footer-->
+                                <div class="card-footer pb-0">
+                                    <div class="row mb-0">
+                                        <span class="float-left">
+                                            <strong>1439$</strong>
+                                        </span>
+                                        <span class="float-right">
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
+                                                <i class="fas fa-shopping-cart ml-3"></i>
+                                            </a>
+                                        </span>
                                     </div>
-
                                 </div>
-                                <!--Card content-->
 
                             </div>
-                            <!--Card-->
+                            <!--Card content-->
 
                         </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-lg-3 col-md-6 mb-4">
-
-                            <!--Card-->
-                            <div class="card card-ecommerce">
-
-                                <!--Card image-->
-                                <div class="view overlay">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/5.jpg"
-                                        class="img-fluid" alt="">
-                                    <a>
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
-                                </div>
-                                <!--Card image-->
-
-                                <!--Card content-->
-                                <div class="card-body">
-                                    <!--Category & Title-->
-
-                                    <h5 class="card-title mb-1">
-                                        <strong>
-                                            <a href="" class="dark-grey-text">Asus CT-567</a>
-                                        </strong>
-                                    </h5>
-                                    <span class="badge badge-danger mb-2">bestseller</span>
-                                    <!-- Rating -->
-                                    <ul class="rating text-left">
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                    </ul>
-
-                                    <!--Card footer-->
-                                    <div class="card-footer pb-0">
-                                        <div class="row mb-0">
-                                            <span class="float-left">
-                                                <strong>1439$</strong>
-                                            </span>
-                                            <span class="float-right">
-                                                <a class="" data-toggle="tooltip" data-placement="top"
-                                                    title="Add to Cart">
-                                                    <i class="fas fa-shopping-cart ml-3"></i>
-                                                </a>
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!--Card content-->
-
-                            </div>
-                            <!--Card-->
-
-                        </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-lg-3 col-md-6 mb-4">
-                            <!--Card-->
-                            <div class="card card-ecommerce">
-
-                                <!--Card image-->
-                                <div class="view overlay">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/2.jpg"
-                                        class="img-fluid" alt="">
-                                    <a>
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
-                                </div>
-                                <!--Card image-->
-
-                                <!--Card content-->
-                                <div class="card-body">
-                                    <!--Category & Title-->
-
-                                    <h5 class="card-title mb-1">
-                                        <strong>
-                                            <a href="" class="dark-grey-text">iPad PRO</a>
-                                        </strong>
-                                    </h5>
-                                    <span class="badge badge-danger mb-2">bestseller</span>
-                                    <span class="badge badge-success mb-2 ml-2">SALE</span>
-                                    <!-- Rating -->
-                                    <ul class="rating text-left">
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star grey-text"></i>
-                                        </li>
-                                    </ul>
-
-                                    <!--Card footer-->
-                                    <div class="card-footer pb-0">
-                                        <div class="row mb-0">
-                                            <h5 class="mb-0 pb-0 mt-1 font-weight-bold">
-                                                <span class="red-text">
-                                                    <strong>$699</strong>
-                                                </span>
-                                                <span class="grey-text">
-                                                    <small>
-                                                        <s>$920</s>
-                                                    </small>
-                                                </span>
-                                            </h5>
-
-                                            <span class="float-right">
-
-                                                <a class="" data-toggle="tooltip" data-placement="top"
-                                                    title="Add to Cart">
-                                                    <i class="fas fa-shopping-cart ml-3"></i>
-                                                </a>
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!--Card content-->
-
-                            </div>
-                            <!--Card-->
-
-                        </div>
-                        <!--Grid column-->
-
-                        <!--Grid column-->
-                        <div class="col-lg-3 col-md-6 mb-4">
-
-                            <!--Card-->
-                            <div class="card card-ecommerce">
-
-                                <!--Card image-->
-                                <div class="view overlay">
-                                    <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/4.jpg"
-                                        class="img-fluid" alt="">
-                                    <a>
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
-                                </div>
-                                <!--Card image-->
-
-                                <!--Card content-->
-                                <div class="card-body">
-                                    <!--Category & Title-->
-
-                                    <h5 class="card-title mb-1">
-                                        <strong>
-                                            <a href="" class="dark-grey-text">Dell V-964i</a>
-                                        </strong>
-                                    </h5>
-                                    <span class="badge badge-danger mb-2">bestseller</span>
-                                    <!-- Rating -->
-                                    <ul class="rating text-left">
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                        <li>
-                                            <i class="fas fa-star blue-text"></i>
-                                        </li>
-                                    </ul>
-
-                                    <!--Card footer-->
-                                    <div class="card-footer pb-0">
-                                        <div class="row mb-0">
-                                            <span class="float-left">
-                                                <strong>1439$</strong>
-                                            </span>
-                                            <span class="float-right">
-
-                                                <a class="" data-toggle="tooltip" data-placement="top"
-                                                    title="Add to Cart">
-                                                    <i class="fas fa-shopping-cart ml-3"></i>
-                                                </a>
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <!--Card content-->
-
-                            </div>
-                            <!--Card-->
-
-                        </div>
-                        <!--Grid column-->
+                        <!--Card-->
 
                     </div>
-                    <!--Grid row-->
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4">
+                        <!--Card-->
+                        <div class="card card-ecommerce">
+
+                            <!--Card image-->
+                            <div class="view overlay">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/2.jpg"
+                                    class="img-fluid" alt="">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+                            <!--Card image-->
+
+                            <!--Card content-->
+                            <div class="card-body">
+                                <!--Category & Title-->
+
+                                <h5 class="card-title mb-1">
+                                    <strong>
+                                        <a href="" class="dark-grey-text">iPad PRO</a>
+                                    </strong>
+                                </h5>
+                                <span class="badge badge-danger mb-2">bestseller</span>
+                                <span class="badge badge-success mb-2 ml-2">SALE</span>
+                                <!-- Rating -->
+                                <ul class="rating text-left">
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star grey-text"></i>
+                                    </li>
+                                </ul>
+
+                                <!--Card footer-->
+                                <div class="card-footer pb-0">
+                                    <div class="row mb-0">
+                                        <h5 class="mb-0 pb-0 mt-1 font-weight-bold">
+                                            <span class="red-text">
+                                                <strong>$699</strong>
+                                            </span>
+                                            <span class="grey-text">
+                                                <small>
+                                                    <s>$920</s>
+                                                </small>
+                                            </span>
+                                        </h5>
+
+                                        <span class="float-right">
+
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
+                                                <i class="fas fa-shopping-cart ml-3"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--Card content-->
+
+                        </div>
+                        <!--Card-->
+
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-6 mb-4">
+
+                        <!--Card-->
+                        <div class="card card-ecommerce">
+
+                            <!--Card image-->
+                            <div class="view overlay">
+                                <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/carts/4.jpg"
+                                    class="img-fluid" alt="">
+                                <a>
+                                    <div class="mask rgba-white-slight"></div>
+                                </a>
+                            </div>
+                            <!--Card image-->
+
+                            <!--Card content-->
+                            <div class="card-body">
+                                <!--Category & Title-->
+
+                                <h5 class="card-title mb-1">
+                                    <strong>
+                                        <a href="" class="dark-grey-text">Dell V-964i</a>
+                                    </strong>
+                                </h5>
+                                <span class="badge badge-danger mb-2">bestseller</span>
+                                <!-- Rating -->
+                                <ul class="rating text-left">
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                    <li>
+                                        <i class="fas fa-star blue-text"></i>
+                                    </li>
+                                </ul>
+
+                                <!--Card footer-->
+                                <div class="card-footer pb-0">
+                                    <div class="row mb-0">
+                                        <span class="float-left">
+                                            <strong>1439$</strong>
+                                        </span>
+                                        <span class="float-right">
+
+                                            <a class="" data-toggle="tooltip" data-placement="top"
+                                                title="Add to Cart">
+                                                <i class="fas fa-shopping-cart ml-3"></i>
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <!--Card content-->
+
+                        </div>
+                        <!--Card-->
+
+                    </div>
+                    <!--Grid column-->
 
                 </div>
+                <!--Grid row-->
 
             </div>
-            <!--Grid row-->
 
-        </section>
-        <!-- Section carts -->
+        </div>
+        <!--Grid row-->
+
+    </section>
+    <!-- Section carts -->
 </div>

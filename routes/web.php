@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SocialiteController;
+use App\Http\Controllers\UserController;
 use App\Http\Livewire\CartComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\ContactComponent;
@@ -51,7 +53,7 @@ Route::group(
         Route::get('/review/{order_detail_id}', ReviewComponent::class)->name('review');
         Route::get('myorder/', MyOrderComponent::class)->name('myorder')->middleware('authcheck');
         Route::get('orderdatil/{order_id}', OrderDatilComponent::class)->name('orderdatil')->middleware(['authcheck','UserRole']);
-        Route::get('wishlist/',WishlistComponent::class)->name('wishlist')->middleware(['authcheck','UserRole','AdminRole']);
+        Route::get('wishlist/',WishlistComponent::class)->name('wishlist')->middleware(['authcheck']);
 
         Route::get('/google/redirect', [SocialiteController::class, 'redirect'])->name('google.redirect');
         Route::get('/google/callback', [SocialiteController::class, 'callback']);
@@ -65,12 +67,29 @@ Route::group(
             Route::get('/edit/{id}',[ ProductController::class, 'edit'])->name('product.edit');
             Route::put('/update/{id}',[ ProductController::class, 'update'])->name('product.update');
 
+
             Route::get('/category',[ CategoryController::class, 'index'])->name('category');
             Route::get('/category/create',[ CategoryController::class, 'create'])->name('category-create');
             Route::post('/category/store',[ CategoryController::class, 'store'])->name('category-store');
             Route::get('/category/edit/{id}',[ CategoryController::class, 'edit'])->name('category-edit');
             Route::put('/category/update/{id}',[ CategoryController::class, 'update'])->name('category-update');
             Route::delete('/category/delete/{id}',[ CategoryController::class, 'delete'])->name('category-delete');
+
+
+            Route::get('/user',[ UserController::class, 'index'])->name('user');
+            Route::get('/user/create',[ UserController::class, 'create'])->name('user.create');
+            Route::post('/user/store',[ UserController::class, 'store'])->name('user.store');
+            Route::delete('/user/delete/{id}',[UserController::class, 'delete'])->name('user.delete');
+            Route::get('/user/edit/{id}',[ UserController::class, 'edit'])->name('user.edit');
+            Route::put('/user/update/{id}',[ UserController::class, 'update'])->name('user.update');
+
+
+            Route::get('/order',[ OrderController::class, 'index'])->name('order');
+            Route::get('/order/create',[ OrderController::class, 'create'])->name('order.create');
+            Route::post('/order/store',[ OrderController::class, 'store'])->name('order.store');
+            Route::delete('/order/delete/{id}',[OrderController::class, 'delete'])->name('order.delete');
+            Route::get('/order/edit/{id}',[ OrderController::class, 'edit'])->name('order.edit');
+            Route::put('/order/update/{id}',[ OrderController::class, 'update'])->name('order.update');
         });
     }
 
