@@ -38,8 +38,7 @@
                     </div>
                 </li>
                 <!--/. Logo -->
-{{--
-                <!--Search Form-->
+                {{-- <!--Search Form-->
                 <li>
                     <form class="search-form" role="search">
                         <div class="form-group md-form mt-0 pt-1 waves-light">
@@ -52,17 +51,24 @@
                 <!-- Side navigation links -->
                 <li>
                     <ul class="collapsible collapsible-accordion">
-                        <li><a class="collapsible-header waves-effect arrow-r" href="{{route('index')}}">Home</a></li>
-                        <li><a class="collapsible-header waves-effect arrow-r" href="{{route('user')}}">User</a></li>
-                        <li><a class="collapsible-header waves-effect arrow-r" href="{{route('order')}}">Order</a></li>
-                        <li><a class="collapsible-header waves-effect arrow-r" href="{{ route('product') }}">
-                                Products</a>
+                        @if (auth()->user()->hasRole('admin'))
+                            <li><a class="collapsible-header waves-effect arrow-r" href="{{ route('index') }}">Home</a>
+                            </li>
+                            <li><a class="collapsible-header waves-effect arrow-r" href="{{ route('user') }}">User</a>
+                            </li>
+                            <li><a class="collapsible-header waves-effect arrow-r" href="{{ route('product') }}">
+                                    Products</a>
 
-                        </li>
-                        <li><a class="collapsible-header waves-effect arrow-r" href="{{ route('category') }}">
-                                Categories</a>
+                            </li>
+                            <li><a class="collapsible-header waves-effect arrow-r" href="{{ route('category') }}">
+                                    Categories</a>
 
+                            </li>
+                        @endif
+
+                        <li><a class="collapsible-header waves-effect arrow-r" href="{{ route('order') }}">Order</a>
                         </li>
+
 
                     </ul>
         </div>
@@ -109,12 +115,13 @@
                             class="clearfix d-none d-sm-inline-block">{{ auth()->user() ? auth()->user()->name : 'none' }}</span></a>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                        <a class="dropdown-item" href="{{ route('profile.show') }}">{{ __('main.myaccount') }}</a>
+                        <a class="dropdown-item"
+                            href="{{ route('profile.show') }}">{{ __('main.myaccount') }}</a>
                         <a class="dropdown-item" href="{{ route('home') }}">{{ __('main.home') }}</a>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             @method('POST')
-                            <a  class="dropdown-item waves-effect waves-light">{{__('main.logout')}}</a>
+                            <a class="dropdown-item waves-effect waves-light">{{ __('main.logout') }}</a>
                         </form>
                     </div>
                 </li>
@@ -162,7 +169,7 @@
         <!--Copyright-->
         <div class="footer-copyright py-3 text-center">
             <div class="container-fluid">
-                © 2018 Copyright: <a href="{{route('product')}}" target="_blank">
+                © 2018 Copyright: <a href="{{ route('product') }}" target="_blank">
                     MDBootstrap.com </a>
 
             </div>

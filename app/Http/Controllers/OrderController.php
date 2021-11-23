@@ -19,7 +19,7 @@ class OrderController extends Controller
     }
     public function store(OrderRequest $request)
     {
-        // dd($request);
+
         $params = $request->validated();
         // dd($params);
          $params=Order::create($params);
@@ -38,6 +38,7 @@ class OrderController extends Controller
     public function update(OrderRequest $request,$id)
     {
         $params = $request->validated();
+        // $params['date']=
         $product=Order::find($id);
         $product->update($params);
         return redirect()->route('order');

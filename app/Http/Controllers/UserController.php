@@ -21,12 +21,12 @@ class UserController extends Controller
     }
     public function store(UsoterRequest $request)
     {
+        // dd(getdate());
         $params = $request->validated();
         $params['password'] = Hash::make($params['password']);
         // dd($params);
         $params = User::create($params);
-        $role=Role::where('name',$params['role'])->first();
-        $params->assignRole($role->name);
+        $params->assignRole('supplier');
 
         return redirect()->route('user');
     }

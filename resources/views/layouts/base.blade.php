@@ -98,10 +98,10 @@
 
                                     <a class="dropdown-item waves-effect waves-light"
                                         href="{{ route('profile.show') }}">{{__('main.myaccount')}}</a>
-                                        
-                                        @if (auth()->user()->hasRole('admin'))
+
+                                        @if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('supplier'))
                                         <a class="dropdown-item waves-effect waves-light"
-                                        href="{{route('product')}}">{{__('AdminPanel')}}</a>
+                                        href="{{(auth()->user()->hasRole('admin'))? route('index'): route('order')}}">{{(auth()->user()->hasRole('admin'))? __('AdminPanel'):__('SupplierPanel')}}</a>
                                         @endif
                                     <a class="dropdown-item waves-effect waves-light"
                                         href="{{route('myorder')}}">{{__('MyOrder')}}</a>

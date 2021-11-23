@@ -38,17 +38,7 @@
                     <label for="orangeForm-pass">Password</label>
                     <span data-error="wrong" style="color: red;">{{ $errors->first('password') }}</span><br>
                   </div>
-                  <div class="col-lg-12 col-md-6 mb-4">
-                    <!--Name-->
-                    <select class="mdb-select md-form" name="role">
-
-                            <option value="user"  >User</option>
-                            <option value="supplier" >Supplier</option>
-
-
-                    </select>
-                    <span data-error="wrong" style="color: red;">{{ $errors->first('status') }}</span><br>
-                </div>
+         
                   <div class="text-center mt-4">
                     <button class="btn btn-deep-orange" type="submit">Save</button>
                     <button class="btn btn-deep-orange" type="reset">Reset</button>
