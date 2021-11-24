@@ -20,7 +20,7 @@ class ProductController extends Controller
              ];
         $status = [0=>['Start'],1 => ['  Process'], 2 => ['Finish']];
         $product = Product::count('id');
-        $user = User::count('id');
+        $user = User::whereHas('roles', function($q){$q->where('name', 'user'); })->count('id');
         $ordercount = Order::count('id');
         $order = Order::sum('all_price');
         $orderMonth = Order::select(
@@ -33,7 +33,7 @@ class ProductController extends Controller
     }
     public function product()
     {
-        $products = Product::with('category')->orderby('id', 'desc')->paginate(\request()->get('perPage', 10));
+        $products = Product::with('category')->orderby('id', 'desc')->paginate(\request()->get('perPage', 5));
         return view('admin.product', ['products' => $products]);
     }
     public function create()
