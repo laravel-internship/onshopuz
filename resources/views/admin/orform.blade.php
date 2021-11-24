@@ -1,11 +1,9 @@
 @extends('layouts.base-admin')
 @section('content')
-    <form action="{{ isset($order )? route('order.update',['id'=>$order->id]) : route('order.store') }}" method="POST" enctype="multipart/form-data">
- @if ( isset($order ))
+    <form action="{{  route('order.update',['id'=>$order->id]) }}" method="POST" enctype="multipart/form-data">
+
  @method('put')
-@else
-@method('post')
-@endif
+
         @csrf
         <section class="section card mb-5">
 
@@ -14,11 +12,8 @@
                 <!--Section heading-->
                 <h1 class="text-center my-5 h1">Order</h1>
 
-                <h5 class="pb-5">{{ isset($Order) ? 'Update' : 'Create' }}</h5>
+                <h5 class="pb-5">Update</h5>
 
-{{-- @php
-    dd($order->status);
-@endphp --}}
 
 
                  <!--Grid row-->

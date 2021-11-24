@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Order\OrderRequest;
 use App\Models\Order;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -13,20 +14,7 @@ class OrderController extends Controller
 
         return view('admin.order', ['order' => $order]);
     }
-    public function create()
-    {
-        return view('admin.orform');
-    }
-    public function store(OrderRequest $request)
-    {
 
-        $params = $request->validated();
-        // dd($params);
-         $params=Order::create($params);
-
-        return redirect()->route('order');
-
-    }
 
     public function edit($id)
     {
@@ -38,7 +26,8 @@ class OrderController extends Controller
     public function update(OrderRequest $request,$id)
     {
         $params = $request->validated();
-        // $params['date']=
+        $params['date']=date(Carbon::now()->timezone('Asia/Ashgabat'));
+//strtotime();
         $product=Order::find($id);
         $product->update($params);
         return redirect()->route('order');

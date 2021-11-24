@@ -85,8 +85,6 @@ Route::group(
 
 
             Route::get('/order',[ OrderController::class, 'index'])->name('order');
-            Route::get('/order/create',[ OrderController::class, 'create'])->name('order.create');
-            Route::post('/order/store',[ OrderController::class, 'store'])->name('order.store');
             Route::delete('/order/delete/{id}',[OrderController::class, 'delete'])->name('order.delete');
             Route::get('/order/edit/{id}',[ OrderController::class, 'edit'])->name('order.edit');
             Route::put('/order/update/{id}',[ OrderController::class, 'update'])->name('order.update');

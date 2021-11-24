@@ -12,10 +12,7 @@
 
 
 
-                <a href="" class="white-text mx-3">Users</a>
-                <a href="{{ route('order.create') }}"> <button type="button"
-                        class="btn btn-outline-white btn-rounded btn-sm px-2"><i
-                            class="fas fa-pencil-alt mt-0"></i></button></a>
+                <a href="" class="white-text mx-3">Order</a>
             </div>
 
 

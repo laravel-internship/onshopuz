@@ -113,7 +113,7 @@
                     <a class="nav-link waves-effect waves-light dark-grey-text font-weight-bold"
                     href="{{ route('myorder') }}">
                         <i class="fas fa-bell"></i><span
-                            class="badge red">{{ $number}}</span>
+                            class="badge red">{{$number}}</span>
                     </a>
 
                 </li>
@@ -158,12 +158,11 @@
             <section class="mb-5">
 
                 <!--Card-->
-                <div class="card card-cascade narrower">
+
 
                     @yield('content')
                     {{-- {{ $slot }} --}}
 
-                </div>
                 <!--/.Card-->
 
             </section>
@@ -185,6 +184,21 @@
             </div>
         </div>
         <!--/.Copyright-->
+
+        <!-- Fixed button -->
+<div class="fixed-action-btn clearfix d-none d-xl-block" style="bottom: 45px; right: 24px;">
+    <a class="btn-floating btn-lg red">
+      <i class="fas fa-pencil-alt"></i>
+    </a>
+
+    <ul class="list-unstyled">
+      <li><a class="btn-floating red" href="{{ route('product') }}"><i class="fas fa-star"></i></a></li>
+      <li><a class="btn-floating yellow darken-1"  href="{{ route('user') }}"><i class="fas fa-user"></i></a></li>
+      <li><a class="btn-floating green" href="{{ route('category') }}"><i class="fas fa-envelope"></i></a></li>
+      <li><a class="btn-floating blue" href="{{ route('order') }}"><i class="fas fa-shopping-cart"></i></a></li>
+    </ul>
+  </div>
+  <!-- Fixed button -->
 
     </footer>
     <!--/.Footer-->
