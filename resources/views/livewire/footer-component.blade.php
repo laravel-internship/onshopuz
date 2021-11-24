@@ -1,7 +1,7 @@
 <div style="margin-left: -100px">
     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4" >
         <h6 class="text-uppercase font-weight-bold">
-            <strong>Products</strong>
+            <strong>{{__('main.products')}}</strong>
         </h6>
         <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         @foreach ($products as $item)

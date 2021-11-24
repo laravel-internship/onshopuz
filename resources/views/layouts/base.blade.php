@@ -101,10 +101,10 @@
 
                                         @if (auth()->user()->hasRole('admin') || auth()->user()->hasRole('supplier'))
                                         <a class="dropdown-item waves-effect waves-light"
-                                        href="{{(auth()->user()->hasRole('admin'))? route('index'): route('order')}}">{{(auth()->user()->hasRole('admin'))? __('AdminPanel'):__('SupplierPanel')}}</a>
+                                        href="{{(auth()->user()->hasRole('admin'))? route('index'): route('order')}}">{{(auth()->user()->hasRole('admin'))? __('main.adminpanel'): __('main.supplierpanel')}}</a>
                                         @endif
                                     <a class="dropdown-item waves-effect waves-light"
-                                        href="{{route('myorder')}}">{{__('MyOrder')}}</a>
+                                        href="{{route('myorder')}}">{{__('main.order')}}</a>
 
                                     <form action="{{ route('logout') }}" method="POST">
                                         @csrf
@@ -354,7 +354,7 @@
 
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4" ">
                     <h6 class="text-uppercase font-weight-bold">
-                        <strong>Useful links</strong>
+                        <strong>{{__('main.usefullinks')}}</strong>
                     </h6>
                     <hr class="blue mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
                     <p>

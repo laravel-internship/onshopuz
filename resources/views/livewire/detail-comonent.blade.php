@@ -91,11 +91,11 @@
                             </span>
                         </h3>
 
-                        <p class="ml-xl-0 ml-4">{{ $product->about }}
-                        </p>
-                        <p class="ml-xl-0 ml-4">
+                        {{-- <p class="ml-xl-0 ml-4">{{ $product->about }}
+                        </p> --}}
+                        {{-- <p class="ml-xl-0 ml-4">
                             <strong>Data: </strong>{{ $product->data }}
-                        </p>
+                        </p> --}}
                         {{-- quantity start --}}
                                 <div>
                                     <span class="qty" style="margin-left: 20px">{{$quantity}}</span>
@@ -127,7 +127,7 @@
                                     <div class="col-md-12 text-center text-md-left text-md-right">
                                         <a wire:click.prevent="addToCart()">
                                             <button class="btn btn-primary btn-rounded">
-                                                <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> Add to cart
+                                                <i class="fas fa-cart-plus mr-2" aria-hidden="true"></i> {{__('main.addtocart')}}
                                             </button></a>
                                     </div>
                                 </div>
@@ -143,7 +143,7 @@
         <!-- Section: product details -->
 
         <h4 class="h4-responsive dark-grey-text font-weight-bold mb-5 text-center">
-            <strong>Compare iPad models</strong>
+            <strong>{{__('main.compareipadmodels')}}</strong>
         </h4>
 
         <!--Table-->
@@ -155,16 +155,16 @@
                         <tr>
 
                             <th>
-                                <strong>category</strong>
+                                <strong>{{__('main.category')}}</strong>
                             </th>
                             <th>
-                                <strong>price</strong>
+                                <strong>{{__('main.price')}}</strong>
                             </th>
                             <th>
-                                <strong>quantity</strong>
+                                <strong>{{__('main.quantity')}}</strong>
                             </th>
                             <th>
-                                <strong>description</strong>
+                                <strong>{{__('main.description')}}</strong>
                             </th>
                         </tr>
                     </thead>
@@ -189,7 +189,7 @@
 
         <hr>
         <h4 class="h4-responsive dark-grey-text font-weight-bold my-5 text-center">
-            <strong>Product Reviews</strong>
+            <strong>{{__('main.productreviews')}}</strong>
         </h4>
         <hr class="mb-5">
 
@@ -239,7 +239,7 @@
                 @endforeach
             @else
                 <div>
-                    <h4>No reviews</h4>
+                    <h4>{{__('main.noreviews')}}</h4>
                 </div>
             @endif
         </div>
@@ -252,11 +252,11 @@
 
         <hr>
         <h4 class="h4-responsive dark-grey-text font-weight-bold my-5 text-center">
-            <strong>Related Products</strong>
+            <strong>{{__('main.relatedproducts')}}</strong>
         </h4>
         <hr class="mb-5">
 
-        <p class="text-center w-responsive mx-auto mb-5 dark-grey-text">{{ __('validation.boolean') }}</p>
+        {{-- <p class="text-center w-responsive mx-auto mb-5 dark-grey-text">{{ __('validation.boolean') }}</p> --}}
 
         <!--Carousel Wrapper-->
         <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
@@ -315,7 +315,7 @@
                                                     <a href="" class="dark-grey-text">{{ $rel->name }}</a>
                                                 </strong>
                                             </h5>
-                                            <span class="badge badge-danger mb-2">bestseller</span>
+                                            <span class="badge badge-danger mb-2">{{__('main.bestsel')}}</span>
                                             <!-- Rating -->
                                             <ul class="rating">
                                                 <li>

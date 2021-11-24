@@ -10,7 +10,7 @@
                 <div class="row">
                     <div class="col-md-6 col-lg-12 mb-5">
                         <!-- Panel -->
-                        <h5 class="font-weight-bold dark-grey-text"><strong>Order By</strong></h5>
+                        <h5 class="font-weight-bold dark-grey-text"><strong>{{__('main.orderby')}}</strong></h5>
                             <div class="divider"></div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="orderBy"  wire:model="orderBy" value="default" id="flexRadioDefault1"/>
@@ -36,7 +36,7 @@
 
                     <!-- Filter by category-->
                     <div class="col-md-6 col-lg-12 mb-5">
-                        <h5 class="font-weight-bold dark-grey-text"><strong>Category</strong></h3>
+                        <h5 class="font-weight-bold dark-grey-text"><strong>{{__('main.category')}}</strong></h3>
                             <div class="divider"></div>
 
                             <!--Radio group-->
@@ -66,7 +66,7 @@
 
                     <!-- Filter by price  -->
                     <div class="col-md-6 col-lg-12 mb-5">
-                        <h5 class="font-weight-bold dark-grey-text"><strong>Price</strong></h3>
+                        <h5 class="font-weight-bold dark-grey-text"><strong>{{__('main.price')}}</strong></h3>
                             <div class="divider"></div>
 
                             <form class="range-field mt-3">
@@ -94,9 +94,9 @@
                     </div>
                     <!-- /Filter by price -->
 
-                    <!-- Filter by rating -->
+                    {{-- <!-- Filter by rating -->
                     <div class="col-md-6 col-lg-12 mb-5">
-                        <h5 class="font-weight-bold dark-grey-text"><strong>Rating</strong></h3>
+                        <h5 class="font-weight-bold dark-grey-text"><strong>{{__('main.rating')}}</strong></h3>
                             <div class="divider"></div>
                             <div class="row ml-1">
                                 <!-- Rating -->
@@ -143,7 +143,7 @@
 
                             </div>
                     </div>
-                    <!-- Filter by rating -->
+                    <!-- Filter by rating --> --}}
                 </div>
                 <!-- /Grid row -->
             </div>
@@ -249,7 +249,7 @@
 
                             <!--First-->
                             <li class="page-item clearfix d-none d-md-block"><a
-                                    class="page-link waves-effect waves-effect" wire:click="resetPage">First</a></li>
+                                    class="page-link waves-effect waves-effect" wire:click="resetPage">{{ __('main.first')}}</a></li>
 
                             <!--Arrow left-->
                             <li class="page-item ">
@@ -279,7 +279,7 @@
 
                             <!--First-->
                             <li class="page-item clearfix d-none d-md-block"><a
-                                    class="page-link waves-effect waves-effect" wire:click="gotoPage({{$products->lastPage()}})">Last</a></li>
+                                    class="page-link waves-effect waves-effect" wire:click="gotoPage({{$products->lastPage()}})">{{ __('main.last')}}</a></li>
 
                         </ul>
                     </nav>

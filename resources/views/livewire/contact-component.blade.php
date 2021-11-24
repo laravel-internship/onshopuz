@@ -38,7 +38,7 @@
                         <div class="card-body form">
 
                           <!-- Header -->
-                          <h3 class="mt-4"><i class="fas fa-envelope pr-2"></i>Write to us:</h3>
+                          <h3 class="mt-4"><i class="fas fa-envelope pr-2"></i>{{__('main.writetous')}}</h3>
 
                           <!-- Grid row -->
                           <div class="row">
@@ -47,7 +47,7 @@
                             <div class="col-md-6">
                               <div class="md-form mb-0">
                                 <input type="text" id="form-contact-name" class="form-control">
-                                <label for="form-contact-name" class="">Your name</label>
+                                <label for="form-contact-name" class="">{{__('main.yourname')}}</label>
                               </div>
                             </div>
                             <!-- Grid column -->
@@ -56,7 +56,7 @@
                             <div class="col-md-6">
                               <div class="md-form mb-0">
                                 <input type="text" id="form-contact-email" class="form-control">
-                                <label for="form-contact-email" class="">Your email</label>
+                                <label for="form-contact-email" class="">{{__('main.youremail')}}</label>
                               </div>
                             </div>
                             <!-- Grid column -->
@@ -71,7 +71,7 @@
                             <div class="col-md-6">
                               <div class="md-form mb-0">
                                 <input type="text" id="form-contact-phone" class="form-control">
-                                <label for="form-contact-phone" class="">Your phone</label>
+                                <label for="form-contact-phone" class="">{{__('main.yourphone')}}</label>
                               </div>
                             </div>
                             <!-- Grid column -->
@@ -80,7 +80,7 @@
                             <div class="col-md-6">
                               <div class="md-form mb-0">
                                 <input type="text" id="form-contact-company" class="form-control">
-                                <label for="form-contact-company" class="">Your company</label>
+                                <label for="form-contact-company" class="">{{__('main.yourcompany')}}</label>
                               </div>
                             </div>
                             <!-- Grid column -->
@@ -95,7 +95,7 @@
                             <div class="col-md-12">
                               <div class="md-form mb-0">
                                 <textarea type="text" id="form-contact-message" class="form-control md-textarea" rows="3"></textarea>
-                                <label for="form-contact-message">Your message</label>
+                                <label for="form-contact-message">{{__('main.yourmessage')}}</label>
                                 <a class="btn-floating btn-lg blue">
                                   <i class="far fa-paper-plane"></i>
                                 </a>
@@ -178,12 +178,12 @@
 
 
 
-          <button class="btn btn-primary btn-rounded btn-sm">Checkout</button>
+          <button class="btn btn-primary btn-rounded btn-sm">{{__('main.checkout')}}</button>
 
         </div>
         <!--Footer-->
         <div class="modal-footer">
-          <button type="button" class="btn btn-grey btn-rounded btn-sm" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-grey btn-rounded btn-sm" data-dismiss="modal">{{__('main.close')}}</button>
         </div>
       </div>
       <!--/.Content-->
