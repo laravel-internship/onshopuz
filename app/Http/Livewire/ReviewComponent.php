@@ -34,7 +34,7 @@ class ReviewComponent extends Component
             return redirect()->route('home');
         }
         else{
-            return redirect()->route('login');
+            return redirect()->route('logo');
         }
     }
     public function render()
