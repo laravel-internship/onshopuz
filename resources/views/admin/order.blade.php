@@ -60,7 +60,7 @@
                                     <td>{{ $item->date }}</td>
                                     <td>{{ $item->delivery_price }}</td>
                                     <td>{{ $item->payment_type }}</td>
-                                    <td>{{ $item->status }}</td>
+                                    <td style="font-weight: 700;font-size: 25px;color:{{ ($item->status == 0)? 'red' :(($item->status == 1 )?  'yellow' : (($item->status == 2 )?  'green' :'' )) }};">{{ $status[$item->status][0] }}</td>
 
                                     <td>
                                         <div>

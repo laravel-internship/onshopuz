@@ -26,7 +26,7 @@ class SocialiteController extends Controller
         $user = Socialite::driver('google')->stateless()->user();
         // dd($user);
         $user = $this->service->create($user);
-
+        $user->assignRole('user');
         if (!Auth::login($user, true)) {
             return redirect()->route('login');
         }

@@ -54,7 +54,7 @@ class DetailComonent extends Component
         $images = explode(',', $this->product->images);
         $products =$this->service->product($this->product);
         $related_pro = $this->service->related($this->product);
-        $order_detail = OrderDetail::with('review', 'review.user')->where('product_id', $this->product->id)->where('r_status', 1)->get();
+        $order_detail = OrderDetail::with('review', 'review.user')->where('product_id', $this->product->id)->where('r_status', 2)->orderBy('user_id','desc')->get();
         if(auth()->check())
             $wishlist =  Wishlists::where('user_id', auth()->user()->id)->where('product_id', $this->product->id)->first();
         return view('livewire.detail-comonent', ['product' => $this->product, 'products' => $products, 'images' => $images, 'related' => $related_pro, 'order_detail' => $order_detail, 'wishlist' => $wishlist])->layout('layouts.base');

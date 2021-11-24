@@ -15,7 +15,11 @@
                 <td>{{ $ordet->product->name }}</td>
                 <td>{{ $ordet->price }}$</td>
                 <td>{{ $ordet->quantity }}</td>
+
+                @if (auth()->user()->hasRole('user'))
+
                 <td><a href="{{ route('review', ['order_detail_id' => $ordet->id])}}">Izoh</a></td>
+                @endif
 
 
 

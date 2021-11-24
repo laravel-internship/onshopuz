@@ -11,8 +11,8 @@ class OrderController extends Controller
     public function index()
     {
         $order = Order::orderby('id','desc')->paginate(\request()->get('perPage', 10));;
-
-        return view('admin.order', ['order' => $order]);
+        $status = [0=>['Start'],1 => ['Process'], 2 => ['Finish']];
+        return view('admin.order', ['order' => $order,'status'=>$status]);
     }
 
 
