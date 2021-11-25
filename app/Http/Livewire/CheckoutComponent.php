@@ -32,6 +32,11 @@ class CheckoutComponent extends Component
         ]);
         return redirect()->route('thankyou', ['order_id' => str_pad($this->order->id, 5, 0, STR_PAD_LEFT)]);
     }
+    public function cancel()
+    {
+        session()->flash('message', 'order cancellation');
+        return redirect()->route('home');
+    }
     public function render()
     {
         $order = Order::find(auth()->user()->id);

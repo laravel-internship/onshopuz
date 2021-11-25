@@ -72,6 +72,9 @@
                 <!--Grid column-->
 
                 <input type="submit" class="btn btn-primary btn-rounded" value="Save" wire:click="update()">
+
+                <input type="submit" class="btn btn-primary btn-rounded" value="Cancel" wire:click="cancel()">
+            
             </div>
         </form>
 

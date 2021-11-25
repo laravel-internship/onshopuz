@@ -46,8 +46,8 @@
                             <!-- Grid column -->
                             <div class="col-md-6">
                               <div class="md-form mb-0">
-                                <input type="text" id="form-contact-name" class="form-control">
-                                <label for="form-contact-name" class="">{{__('main.yourname')}}</label>
+                                <input type="text" id="form-contact-name" class="form-control" wire:model="yourname" placeholder="{{__('main.yourname')}}">
+
                               </div>
                             </div>
                             <!-- Grid column -->
@@ -55,32 +55,8 @@
                             <!-- Grid column -->
                             <div class="col-md-6">
                               <div class="md-form mb-0">
-                                <input type="text" id="form-contact-email" class="form-control">
-                                <label for="form-contact-email" class="">{{__('main.youremail')}}</label>
-                              </div>
-                            </div>
-                            <!-- Grid column -->
+                                <input type="text" id="form-contact-email" class="form-control" wire:model="youremail" placeholder="{{__('main.youremail')}}">
 
-                          </div>
-                          <!-- Grid row -->
-
-                          <!-- Grid row -->
-                          <div class="row">
-
-                            <!-- Grid column -->
-                            <div class="col-md-6">
-                              <div class="md-form mb-0">
-                                <input type="text" id="form-contact-phone" class="form-control">
-                                <label for="form-contact-phone" class="">{{__('main.yourphone')}}</label>
-                              </div>
-                            </div>
-                            <!-- Grid column -->
-
-                            <!-- Grid column -->
-                            <div class="col-md-6">
-                              <div class="md-form mb-0">
-                                <input type="text" id="form-contact-company" class="form-control">
-                                <label for="form-contact-company" class="">{{__('main.yourcompany')}}</label>
                               </div>
                             </div>
                             <!-- Grid column -->
@@ -94,9 +70,26 @@
                             <!-- Grid column -->
                             <div class="col-md-12">
                               <div class="md-form mb-0">
-                                <textarea type="text" id="form-contact-message" class="form-control md-textarea" rows="3"></textarea>
-                                <label for="form-contact-message">{{__('main.yourmessage')}}</label>
-                                <a class="btn-floating btn-lg blue">
+                                <input type="text" id="form-contact-phone" class="form-control"  wire:model="yourphone" placeholder="{{__('main.yourphone')}}">
+
+                              </div>
+                            </div>
+                            <!-- Grid column -->
+
+
+
+                          </div>
+                          <!-- Grid row -->
+
+                          <!-- Grid row -->
+                          <div class="row">
+
+                            <!-- Grid column -->
+                            <div class="col-md-12">
+                              <div class="md-form mb-0">
+                                <textarea type="text" id="form-contact-message" class="form-control md-textarea" rows="3"  wire:model="yourmessage" placeholder="{{__('main.yourmessage')}}"></textarea>
+
+                                <a class="btn-floating btn-lg blue" wire:click="text()">
                                   <i class="far fa-paper-plane"></i>
                                 </a>
                               </div>

@@ -203,7 +203,7 @@
                         <div class="row mb-5">
                             <!--Image column-->
                             <div class="col-sm-2 col-12 mb-3">
-                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img (8).jpg" alt="sample image"
+                                <img src="{{asset('assets/img/user.png')}}" alt="sample image"
                                     class="avatar rounded-circle z-depth-1-half">
                             </div>
                             <!--/.Image column-->

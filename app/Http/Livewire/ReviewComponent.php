@@ -29,7 +29,7 @@ class ReviewComponent extends Component
                 'order_detail_id' => $this->order_detail_id
             ]);
         }
-        $order_detail= OrderDetail::find($this->order_detail_id); 
+        $order_detail= OrderDetail::find($this->order_detail_id);
 
         if($order_detail->r_status!=2){
 
