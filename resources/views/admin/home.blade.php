@@ -17,7 +17,7 @@
               <div class="admin-up">
                 <i class="far fa-money-bill-alt primary-color"></i>
                 <div class="data">
-                  <p>SALES</p>
+                  <p>Total amount</p>
                   <h4 class="font-weight-bold dark-grey-text">{{$order}}$</h4>
                 </div>
               </div>
