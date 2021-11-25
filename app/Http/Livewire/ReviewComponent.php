@@ -19,22 +19,28 @@ class ReviewComponent extends Component
 
     public function store()
     {
-        Review::create([
-            'user_id' => auth()->user()->id,
-            'rating' => $this->rating,
-            'comment' => $this->comment,
-            'order_detail_id' => $this->order_detail_id
-        ]);
-        $order_detail= OrderDetail::find($this->order_detail_id);
+        $yes=Review::where('user_id',auth()->user()->id)->first();
+
+        if(!$yes){
+            Review::create([
+                'user_id' => auth()->user()->id,
+                'rating' => $this->rating,
+                'comment' => $this->comment,
+                'order_detail_id' => $this->order_detail_id
+            ]);
+        }
+        $order_detail= OrderDetail::find($this->order_detail_id); 
+
         if($order_detail->r_status!=2){
 
             $order_detail->update([
-                'r_status' => 2
+                'r_status' => 1
             ]);
             return redirect()->route('home');
         }
         else{
-            return redirect()->route('logo');
+            session()->flash('message', 'the second comment cannot be left');
+            return redirect()->route('home');
         }
     }
     public function render()

@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->decimal('all_price');
             $table->string('date')->nullable();
             $table->decimal('delivery_price');
-            $table->integer('status')->default(1)->nullable();
+            $table->integer('status')->default(0)->nullable();
             $table->string('payment_type')->nullable();
             $table->integer('user_id');
             $table->timestamps();

@@ -28,7 +28,7 @@ class CheckoutComponent extends Component
             'last_name' => $this->last_name,
             'address' => $this->address,
             'payment_type' => $this->payment_type,
-            'status' => 2
+            'status' => 1
         ]);
         return redirect()->route('thankyou', ['order_id' => str_pad($this->order->id, 5, 0, STR_PAD_LEFT)]);
     }
