@@ -86,7 +86,7 @@
                         <!--Email validation-->
                         <div class="md-form">
                             <input type="text" id="form6" class="form-control" name="model"
-                                value="{{ !empty($data) ? $data[0]: old('model') }}">
+                                value="{{ !empty($data[0]) ? $data[0]: old('model') }}">
                             <label for="form6" data-success="right">Model</label>
                             <span data-error="wrong" style="color: red;">{{ $errors->first('model') }}</span><br>
                         </div>
@@ -100,7 +100,7 @@
                         <!--Password validation-->
                         <div class="md-form">
                             <input type="color" id="form7" class="form-control" name="color"
-                                value="{{ !empty($data) ? $data[1] : old('color') }}">
+                                value="{{ !empty($data[1]) ? $data[1] : old('color') }}">
                             <label for="form7" data-success="right">Color</label>
                             <span data-error="wrong" style="color: red;">{{ $errors->first('color') }}</span><br>
                         </div>

@@ -14,7 +14,7 @@ class MyOrderComponent extends Component
             $order = Order::with('orderdetail')->where('user_id', auth()->user()->id)->orderBy('id','desc')->get();
         }
         else{
-            $order = Order::with('orderdetail')->orderBy('id','desc')->get();
+            $order = Order::with('orderdetail')->whereDate('created_at', \Carbon\Carbon::today())->orderBy('id','desc')->get();
         }
         $status = [0=>['Start'],1 => ['Process'],  2 => ['Finish']];
         // dd($status[1]);

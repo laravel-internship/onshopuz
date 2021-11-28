@@ -199,6 +199,9 @@
             @if (sizeof($order_detail) > 0)
                 @foreach ($order_detail as $item)
                     <!--First row-->
+                    {{-- @php
+                        dd($item->review)
+                    @endphp --}}
                     @if ($item->review)
                         <div class="row mb-5">
                             <!--Image column-->
