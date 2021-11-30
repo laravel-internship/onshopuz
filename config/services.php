@@ -35,4 +35,11 @@ return [
         'redirect' => 'http://127.0.0.1:8000/google/callback',
     ],
 
+    'payme' => [
+        'id' => env('PAYME_ID', '61a6243cd25c350e100856fe'),
+        'key' => env('PAYME_KEY', 'BvihvzxMFB9Gd2XsIWjdFkA5fm8ir3kUR44N'),
+        'endpoint_url'=>env('ENPOINT_URL', 'https://checkout.test.paycom.uz/api')
+
+    ]
+
 ];

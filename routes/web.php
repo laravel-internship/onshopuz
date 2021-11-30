@@ -12,6 +12,7 @@ use App\Http\Livewire\DetailComonent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\MyOrderComponent;
 use App\Http\Livewire\OrderDatilComponent;
+use App\Http\Livewire\PaymeComponent;
 use App\Http\Livewire\ReviewComponent;
 use App\Http\Livewire\ShopComponent;
 use App\Http\Livewire\ThankyouComponent;
@@ -53,6 +54,7 @@ Route::group(
         Route::get('/review/{order_detail_id}', ReviewComponent::class)->name('review');
         Route::get('myorder/', MyOrderComponent::class)->name('myorder')->middleware('authcheck');
         Route::get('orderdatil/{order_id}', OrderDatilComponent::class)->name('orderdatil')->middleware(['authcheck','UserRole']);
+        Route::get('payme/', PaymeComponent::class)->name('payme')->middleware(['authcheck','UserRole']);
         Route::get('wishlist/',WishlistComponent::class)->name('wishlist')->middleware(['authcheck']);
 
         Route::get('/google/redirect', [SocialiteController::class, 'redirect'])->name('google.redirect');

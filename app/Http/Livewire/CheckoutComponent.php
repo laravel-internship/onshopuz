@@ -30,7 +30,12 @@ class CheckoutComponent extends Component
             'payment_type' => $this->payment_type,
             'status' => 1
         ]);
-        return redirect()->route('thankyou', ['order_id' => str_pad($this->order->id, 5, 0, STR_PAD_LEFT)]);
+        if($this->payment_type=='naqd'){
+
+            return redirect()->route('thankyou', ['order_id' => str_pad($this->order->id, 5, 0, STR_PAD_LEFT)]);
+        }else{
+            return redirect()->route('payme');
+        }
     }
     public function cancel()
     {

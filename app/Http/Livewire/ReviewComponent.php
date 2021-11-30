@@ -22,7 +22,7 @@ class ReviewComponent extends Component
         $yes=Review::where('user_id',auth()->user()->id)->first();
 
         if(!$yes){
-            Review::create([
+          $review=  Review::create([
                 'user_id' => auth()->user()->id,
                 'rating' => $this->rating,
                 'comment' => $this->comment,
@@ -31,7 +31,7 @@ class ReviewComponent extends Component
         }
         $order_detail= OrderDetail::find($this->order_detail_id);
 
-        if($order_detail->r_status!=2){
+        if($order_detail->r_status!=1){
 
             $order_detail->update([
                 'r_status' => 1
