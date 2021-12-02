@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SocialiteController;
 use App\Http\Controllers\UserController;
@@ -54,8 +55,13 @@ Route::group(
         Route::get('/review/{order_detail_id}', ReviewComponent::class)->name('review');
         Route::get('myorder/', MyOrderComponent::class)->name('myorder')->middleware('authcheck');
         Route::get('orderdatil/{order_id}', OrderDatilComponent::class)->name('orderdatil')->middleware(['authcheck','UserRole']);
-        Route::get('payme/', PaymeComponent::class)->name('payme')->middleware(['authcheck','UserRole']);
         Route::get('wishlist/',WishlistComponent::class)->name('wishlist')->middleware(['authcheck']);
+
+        Route::get('payme/{order_id?}', [PaymeController::class, 'index'])->name('payme')->middleware(['authcheck','UserRole']);
+            Route::any('payme/go', [PaymeController::class, 'cardsCreate'])->name('cardsCreate')->middleware(['authcheck','UserRole']);
+            Route::any('viewVerify/{token}', [PaymeController::class, 'viewVerify'])->name('viewVerify');
+            Route::any('cardsVerify', [PaymeController::class, 'cardsVerify'])->name('cardsVerify');
+
 
         Route::get('/google/redirect', [SocialiteController::class, 'redirect'])->name('google.redirect');
         Route::get('/google/callback', [SocialiteController::class, 'callback']);

@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class PaymeHistory extends Model
 {
     use HasFactory;
+
+    protected $fillable=[
+        'id',
+        'token',
+        'number',
+        'expire',
+        'payment_id',
+        'status'
+    ];
 }

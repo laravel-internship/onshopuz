@@ -34,7 +34,8 @@ class CheckoutComponent extends Component
 
             return redirect()->route('thankyou', ['order_id' => str_pad($this->order->id, 5, 0, STR_PAD_LEFT)]);
         }else{
-            return redirect()->route('payme');
+
+            return redirect()->route('payme',['order_id'=>$this->order->id]);
         }
     }
     public function cancel()

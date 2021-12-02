@@ -15,6 +15,11 @@ class CreatePaymeHistoriesTable extends Migration
     {
         Schema::create('payme_histories', function (Blueprint $table) {
             $table->id();
+            $table->longText('token')->nullable();
+            $table->text('number')->nullable();
+            $table->string('expire')->nullable();
+            $table->string('payment_id')->nullable();
+            $table->integer('status')->nullable();
             $table->timestamps();
         });
     }

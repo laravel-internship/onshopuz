@@ -1,0 +1,259 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Order;
+use App\Models\PaymeHistory;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+
+class PaymeController extends Controller
+{
+    protected $payme;
+    protected $amount;
+    protected $order_id;
+    public function __construct()
+    {
+        $this->payme = config('services.payme');
+    }
+
+    public function index($order_id)
+    {
+        $order = Order::find($order_id);
+        $this->order_id=$order->order_id;
+        $this->amount=$order->all_price;
+
+
+        return view('payme.payme');
+    }
+    public function cardsCreate(Request $request)
+    {
+        $params = $request->validate([
+            'number' => 'required',
+            'expire' => 'required',
+        ]);
+        $number = str_replace(' ', '', $params['number']);
+        $number = str_replace('-', '', $number);
+        $expire = str_replace('-', '', $params['expire']);
+        $expire = str_replace('/', '', $expire);
+        $expire = str_replace('.', '', $expire);
+
+        $response = Http::withHeaders([
+            'X-Auth' => $this->payme['id'],
+            'Host' => 'checkout.test.paycom.uz',
+            'Cache-Control' => 'no-cache'
+        ])->post($this->payme['endpoint_url'], [
+            "id" => 123,
+            "method" => "cards.create",
+            "params" => [
+                "card" => ["number" => $number, "expire" => $expire],
+                "save" => true
+            ]
+
+        ]);
+
+
+        $result = json_decode($response->getBody(), true);
+
+        if ($result['result']) {
+            PaymeHistory::create([
+                'token' => $result['result']['card']['token'],
+                'number' => base64_encode($params['number']),
+                'expire' => $params['expire']
+            ]);
+            session(['number' => $params['number']]);
+            if ($res = $this->getVerifyCode($result['result']['card']['token'])) {
+
+                return $this->verifyCodeView($result['result']['card']['token'], $res['phone']);
+            }
+        } else {
+            session()->flash('error', $result['error']['message']);
+            return redirect()->route('payme');
+        }
+    }
+
+    public function getVerifyCode($token)
+    {
+        $response = Http::withHeaders([
+            'X-Auth' => $this->payme['id'],
+            'Host' => 'checkout.test.paycom.uz',
+            'Cache-Control' => 'no-cache'
+        ])->post($this->payme['endpoint_url'], [
+            "id" => 123,
+            "method" => "cards.get_verify_code",
+            "params" => [
+                "token" => $token
+            ]
+        ]);
+        $result = json_decode($response->getBody(), true);
+
+        if ($result['result']) {
+            return $result['result'];
+        } else {
+            session()->flash('error', $result['error']['message']);
+            return redirect()->route('payme');
+        }
+    }
+
+    public function verifyCodeView($token, $phone)
+    {
+        session(['token' => $token]);
+
+        return view('payme.code', ['phone' => $phone]);
+    }
+
+    public function cardsVerify(Request $request)
+    {
+
+        $params = $request->validate([
+            'code' => 'required'
+        ]);
+        $response = Http::withHeaders([
+            'X-Auth' => $this->payme['id'],
+            'Host' => 'checkout.test.paycom.uz',
+            'Cache-Control' => 'no-cache'
+        ])->post($this->payme['endpoint_url'], [
+            "id" => 123,
+            "method" => "cards.verify",
+            "params" => [
+                "token" => session('token'),
+                'code' => $params['code']
+            ]
+        ]);
+        $result = json_decode($response->getBody(), true);
+        if ($result['result']) {
+            if ($result['result']['card']['verify']) {
+                dd($this->reciptsCreate());
+                return view('payme.payme', ['chek' => $this->reciptsCreate()]);
+            } else {
+                session()->flash('error', $result['error']['message']);
+                return redirect()->route('paymego');
+            }
+        } else {
+            session()->flash('error', $result['error']['message']);
+            return redirect()->route('payme');
+        }
+    }
+
+
+    public function reciptsCreate()
+    {
+
+        $response = Http::withHeaders([
+            'X-Auth' => $this->payme['id'] . ':' . $this->payme['key'],
+            'Host' => 'checkout.test.paycom.uz',
+            'Cache-Control' => 'no-cache'
+        ])->post($this->payme['endpoint_url'], [
+            "id" => 123,
+            "method" => "receipts.create",
+            "params" => [
+                "amount" => $this->amount * 100,
+                'account' => [
+                    "order_id" => $this->order_id
+                ]
+            ]
+        ]);
+        $result = json_decode($response->getBody(), true);
+
+        if ($result['result']) {
+            if (session('number')) {
+
+                $history = PaymeHistory::where('number', base64_encode(session('number')))->orderBy('id', 'desc')->first()
+                    ->update([
+                        'payment_id' => $result['result']['receipt']['_id']
+                    ]);
+
+                return $this->receiptsPay($result['result']['receipt']['_id']);
+            }
+        } else {
+            session()->flash('error', $result['error']['message']);
+            return redirect()->route('payme');
+        }
+    }
+
+
+    public function receiptsPay($payment_id)
+    {
+
+        $response = Http::withHeaders([
+            'X-Auth' => $this->payme['id'] . ':' . $this->payme['key'],
+            'Host' => 'checkout.test.paycom.uz',
+            'Cache-Control' => 'no-cache'
+        ])->post($this->payme['endpoint_url'], [
+            "id" => 123,
+            "method" => "receipts.pay",
+            "params" => [
+                "token" => session('token'),
+                "id" => $payment_id
+            ]
+        ]);
+        $result = json_decode($response->getBody(), true);
+
+        if ($result['result']) {
+            if ($result['result']['receipt']['pay_time'] != 0) {
+                if ($this->receiptsCheck($payment_id) == 4) {
+                    return $this->receiptsGet($payment_id);
+                } else   if ($this->receiptsCheck($payment_id) >= 1 && $this->receiptsCheck($payment_id) <= 3) {
+                    return session()->flash('message', 'wainting');
+                } else {
+                    return session()->flash('message', 'canceling');
+                }
+            }
+        } else {
+            session()->flash('error', $result['error']['message']);
+            return redirect()->route('payme');
+        }
+    }
+
+
+
+
+    public function receiptsCheck($payment_id)
+    {
+        $response = Http::withHeaders([
+            'X-Auth' => $this->payme['id'] . ':' . $this->payme['key'],
+            'Host' => 'checkout.test.paycom.uz',
+            'Cache-Control' => 'no-cache'
+        ])->post($this->payme['endpoint_url'], [
+            "id" => 123,
+            "method" => "receipts.check",
+            "params" => [
+                "id" => $payment_id
+            ]
+        ]);
+        $result = json_decode($response->getBody(), true);
+
+        if ($result['result']) {
+
+            return $result['result']['state'];
+        } else {
+            session()->flash('error', $result['error']['message']);
+            return redirect()->route('payme');
+        }
+    }
+
+    public function receiptsGet($payment_id)
+    {
+
+        $response = Http::withHeaders([
+            'X-Auth' => $this->payme['id'] . ':' . $this->payme['key'],
+            'Host' => 'checkout.test.paycom.uz',
+            'Cache-Control' => 'no-cache'
+        ])->post($this->payme['endpoint_url'], [
+            "id" => 123,
+            "method" => "receipts.get",
+            "params" => [
+                "id" => $payment_id
+            ]
+        ]);
+        $result = json_decode($response->getBody(), true);
+
+        if ($result['result']) {
+            session()->flash('message', 'Successfuly payed');
+            return $result['result'];
+        } else {
+            session()->flash('error', $result['error']['message']);
+            return redirect()->route('payme');
+        }
+    }
+}

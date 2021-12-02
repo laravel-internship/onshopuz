@@ -183,6 +183,7 @@
                                         <strong>{{ $item->price }}$</strong>
                                     </span>
                                     <span class="float-right">
+                                        <img src="{{asset('assets/img/yurak.png')}}" alt=""width="25px" height="25px" style="margin-left: 10px;cursor: pointer;" wire:click.prevent="wishlist({{$item->id}})">
                                         <a class="" data-toggle="tooltip" data-placement="top"
                                             title="Add to Cart" wire:click.prevent="addToCart({{ $item->id }})">
                                             <i class="fas fa-shopping-cart ml-3"></i>

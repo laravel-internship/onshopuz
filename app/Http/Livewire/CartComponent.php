@@ -84,4 +84,9 @@ class CartComponent extends Component
         return redirect()->route('checkout', ['order_id' => $order->id]);
 
     }
+    public function wishlist($id)
+    {
+        $this->service->list($id);
+        $this->emitTo('wishlist-count-component', 'count');
+    }
 }
