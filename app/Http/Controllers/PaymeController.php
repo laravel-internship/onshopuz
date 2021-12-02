@@ -19,11 +19,7 @@ class PaymeController extends Controller
 
     public function index($order_id)
     {
-        $order = Order::find($order_id);
-        $this->order_id=$order->order_id;
-        $this->amount=$order->all_price;
-
-
+        session(['order_id' => $order_id]);
         return view('payme.payme');
     }
     public function cardsCreate(Request $request)
@@ -123,7 +119,6 @@ class PaymeController extends Controller
         $result = json_decode($response->getBody(), true);
         if ($result['result']) {
             if ($result['result']['card']['verify']) {
-                dd($this->reciptsCreate());
                 return view('payme.payme', ['chek' => $this->reciptsCreate()]);
             } else {
                 session()->flash('error', $result['error']['message']);
@@ -138,6 +133,7 @@ class PaymeController extends Controller
 
     public function reciptsCreate()
     {
+        $order = Order::find(session('order_id'));
 
         $response = Http::withHeaders([
             'X-Auth' => $this->payme['id'] . ':' . $this->payme['key'],
@@ -147,23 +143,23 @@ class PaymeController extends Controller
             "id" => 123,
             "method" => "receipts.create",
             "params" => [
-                "amount" => $this->amount * 100,
+                "amount" => $order->all_price * 10000,
                 'account' => [
-                    "order_id" => $this->order_id
+                    "order_id" => $order->id
                 ]
             ]
         ]);
-        $result = json_decode($response->getBody(), true);
 
+        $result = json_decode($response->getBody(), true);
         if ($result['result']) {
             if (session('number')) {
 
-                $history = PaymeHistory::where('number', base64_encode(session('number')))->orderBy('id', 'desc')->first()
-                    ->update([
+                $history = PaymeHistory::where('number', base64_encode(session('number')))->orderBy('id', 'desc')->first();
+
+                    $history->update([
                         'payment_id' => $result['result']['receipt']['_id']
                     ]);
-
-                return $this->receiptsPay($result['result']['receipt']['_id']);
+                return $this->receiptsPay($result['result']['receipt']['_id'], $history->token);
             }
         } else {
             session()->flash('error', $result['error']['message']);
@@ -172,9 +168,8 @@ class PaymeController extends Controller
     }
 
 
-    public function receiptsPay($payment_id)
+    public function receiptsPay($payment_id, $token)
     {
-
         $response = Http::withHeaders([
             'X-Auth' => $this->payme['id'] . ':' . $this->payme['key'],
             'Host' => 'checkout.test.paycom.uz',
@@ -183,12 +178,11 @@ class PaymeController extends Controller
             "id" => 123,
             "method" => "receipts.pay",
             "params" => [
-                "token" => session('token'),
+                "token" => $token,
                 "id" => $payment_id
             ]
         ]);
         $result = json_decode($response->getBody(), true);
-
         if ($result['result']) {
             if ($result['result']['receipt']['pay_time'] != 0) {
                 if ($this->receiptsCheck($payment_id) == 4) {
