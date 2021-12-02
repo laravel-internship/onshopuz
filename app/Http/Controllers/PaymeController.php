@@ -119,10 +119,10 @@ class PaymeController extends Controller
         $result = json_decode($response->getBody(), true);
         if ($result['result']) {
             if ($result['result']['card']['verify']) {
-                return view('payme.payme', ['chek' => $this->reciptsCreate()]);
+                return redirect()->route('home', ['chek' => $this->reciptsCreate()]);
             } else {
                 session()->flash('error', $result['error']['message']);
-                return redirect()->route('paymego');
+                return redirect()->route('payme');
             }
         } else {
             session()->flash('error', $result['error']['message']);
@@ -183,6 +183,7 @@ class PaymeController extends Controller
             ]
         ]);
         $result = json_decode($response->getBody(), true);
+
         if ($result['result']) {
             if ($result['result']['receipt']['pay_time'] != 0) {
                 if ($this->receiptsCheck($payment_id) == 4) {

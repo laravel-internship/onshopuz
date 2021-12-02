@@ -36,7 +36,7 @@ return [
     ],
 
     'payme' => [
-        'id' => env('PAYME_ID', '61a6243cd25c350e100856fe'),
+        'id' => env('PAYME_ID', '60e546db20e377bb07d19343'),
         'key' => env('PAYME_KEY', 'BvihvzxMFB9Gd2XsIWjdFkA5fm8ir3kUR44N'),
         'endpoint_url'=>env('ENPOINT_URL', 'https://checkout.test.paycom.uz/api')
 
