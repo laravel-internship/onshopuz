@@ -16,7 +16,7 @@ class MyOrderComponent extends Component
         else{
             $order = Order::with('orderdetail')->whereDate('created_at', \Carbon\Carbon::today())->orderBy('id','desc')->get();
         }
-        $status = [0=>['Start'],1 => ['Process'],  2 => ['Finish']];
+        $status = [0=>['Start'],1 => ['Process'],  2 => ['Finish'],3 => ['Rejected']];
         // dd($status[1]);
         return view('livewire.my-order-component', ['order' => $order, 'status' => $status])->layout('layouts.base');
     }

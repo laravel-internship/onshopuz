@@ -157,7 +157,8 @@ class PaymeController extends Controller
                 $history = PaymeHistory::where('number', base64_encode(session('number')))->orderBy('id', 'desc')->first();
 
                     $history->update([
-                        'payment_id' => $result['result']['receipt']['_id']
+                        'payment_id' => $result['result']['receipt']['_id'],
+                        'status' => $result['result']['receipt']['state']
                     ]);
                 return $this->receiptsPay($result['result']['receipt']['_id'], $history->token);
             }
@@ -187,6 +188,12 @@ class PaymeController extends Controller
         if ($result['result']) {
             if ($result['result']['receipt']['pay_time'] != 0) {
                 if ($this->receiptsCheck($payment_id) == 4) {
+                    $history = PaymeHistory::where('number', base64_encode(session('number')))->orderBy('id', 'desc')->first();
+
+                    $history->update([
+                        'status' => $result['result']['receipt']['state']
+                    ]);
+
                     return $this->receiptsGet($payment_id);
                 } else   if ($this->receiptsCheck($payment_id) >= 1 && $this->receiptsCheck($payment_id) <= 3) {
                     return session()->flash('message', 'wainting');
@@ -244,6 +251,7 @@ class PaymeController extends Controller
         $result = json_decode($response->getBody(), true);
 
         if ($result['result']) {
+            // dd($result['result']);
             session()->flash('message', 'Successfuly payed');
             return $result['result'];
         } else {

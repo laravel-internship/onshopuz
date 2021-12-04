@@ -40,6 +40,9 @@ class CheckoutComponent extends Component
     }
     public function cancel()
     {
+        $this->order->update([
+            'status' => 3
+        ]);
         session()->flash('message', 'order cancellation');
         return redirect()->route('home');
     }
