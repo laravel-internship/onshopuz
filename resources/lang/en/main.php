@@ -62,5 +62,11 @@ return [
     'products'=>'Products',
     'usefullinks'=>'USEFUL LINKS',
     'adminpanel'=>'Admin Panel',
-    'supplierpanel'=>'Supplier Panel'
+    'supplierpanel'=>'Supplier Panel',
+    'batafsil'=>'Read more',
+    'izoh'=>'Comment',
+    'bqq'=>'Your order has been accepted',
+    'sbr'=>'Your order number'
+
+
 ];

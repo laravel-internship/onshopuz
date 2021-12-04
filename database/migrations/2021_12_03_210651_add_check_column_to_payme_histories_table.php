@@ -14,9 +14,14 @@ class AddCheckColumnToPaymeHistoriesTable extends Migration
     public function up()
     {
         Schema::table('payme_histories', function (Blueprint $table) {
+            $table->string('name_shop')->nullable(); ///sayt
+            $table->string('organization')->nullable();
             $table->integer('order_id')->nullable();
             $table->dateTime('pay_time')->nullable();
-            $table->dateTime('mer')->nullable();
+            $table->bigInteger('merchanId')->nullable();
+            $table->bigInteger('terminalId')->nullable();
+            $table->integer('ckeckId')->nullable();
+            $table->integer('all_price')->nullable();
         });
     }
 

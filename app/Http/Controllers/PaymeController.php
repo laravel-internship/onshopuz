@@ -22,6 +22,16 @@ class PaymeController extends Controller
         session(['order_id' => $order_id]);
         return view('payme.payme');
     }
+
+    public function reset()
+    {
+        $order = Order::find(session('order_id'));
+        $order->update([
+            'status' => 3
+        ]);
+        session()->flash('message', 'order cancellation');
+        return redirect()->route('home');
+    }
     public function cardsCreate(Request $request)
     {
         $params = $request->validate([
@@ -158,7 +168,8 @@ class PaymeController extends Controller
 
                     $history->update([
                         'payment_id' => $result['result']['receipt']['_id'],
-                        'status' => $result['result']['receipt']['state']
+                        'status' => $result['result']['receipt']['state'],
+                        'order_id'=>$order->id
                     ]);
                 return $this->receiptsPay($result['result']['receipt']['_id'], $history->token);
             }
@@ -252,6 +263,18 @@ class PaymeController extends Controller
 
         if ($result['result']) {
             // dd($result['result']);
+            $history = PaymeHistory::where('number', base64_encode(session('number')))->orderBy('id', 'desc')->first();
+
+            $history->update([
+                'name_shop' => $result['result']['receipt']['merchant']['name'],
+                'organization' => $result['result']['receipt']['merchant']['organization'],
+                'pay_time' => \Carbon\Carbon::createFromTimestamp($result['result']['receipt']['pay_time'])->toDateTimeString(),
+                'merchanId' => $result['result']['receipt']['merchant']['epos']['merchantId'],
+                'terminalId' => $result['result']['receipt']['merchant']['epos']['terminalId'],
+                'checkId' => $result['result']['receipt']['account'][0]['value'],
+                'all_price' => $result['result']['receipt']['amount']
+
+            ]);
             session()->flash('message', 'Successfuly payed');
             return $result['result'];
         } else {

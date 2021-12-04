@@ -58,9 +58,10 @@ Route::group(
         Route::get('wishlist/',WishlistComponent::class)->name('wishlist')->middleware(['authcheck']);
 
         Route::get('payme/{order_id?}', [PaymeController::class, 'index'])->name('payme')->middleware(['authcheck','UserRole']);
+        Route::post('payme/reset', [PaymeController::class, 'reset'])->name('pay.reset')->middleware(['authcheck','UserRole']);
             Route::any('payme/go', [PaymeController::class, 'cardsCreate'])->name('cardsCreate')->middleware(['authcheck','UserRole']);
-            Route::any('viewVerify/{token}', [PaymeController::class, 'viewVerify'])->name('viewVerify');
-            Route::any('cardsVerify', [PaymeController::class, 'cardsVerify'])->name('cardsVerify');
+            // Route::any('viewVerify/{token}', [PaymeController::class, 'viewVerify'])->name('viewVerify');
+            Route::any('cardsVerify', [PaymeController::class, 'cardsVerify'])->name('cardsVerify')->middleware(['authcheck','UserRole']);
 
 
         Route::get('/google/redirect', [SocialiteController::class, 'redirect'])->name('google.redirect');

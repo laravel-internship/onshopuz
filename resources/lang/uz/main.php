@@ -64,5 +64,9 @@ return [
    'products'=>'Mahsulotlar',
    'usefullinks'=>'FOYDALI HALOQALAR',
    'adminpanel'=>'Administrator paneli',
-   'supplierpanel'=>'Yetkazib beruvchi paneli'
+   'supplierpanel'=>'Yetkazib beruvchi paneli',
+   'batafsil'=>'Batafsil',
+   'izoh'=>'Izoh',
+   'bqq'=>'Buyurtmangiz qabul qilindi',
+   'sbr'=>'Siznig buyurtma raqamingiz'
 ];

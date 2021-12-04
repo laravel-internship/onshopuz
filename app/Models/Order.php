@@ -33,6 +33,11 @@ class Order extends Model
         return $this->belongsTo(User::class,'user_id','id');
     }
 
+    public function paymehistory()
+    {
+        return $this->hasMany(PaymeHistory::class,'order_id','id');
+    }
+
 
 
 

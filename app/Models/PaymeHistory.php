@@ -9,12 +9,25 @@ class PaymeHistory extends Model
 {
     use HasFactory;
 
-    protected $fillable=[
+    protected $fillable = [
         'id',
         'token',
         'number',
         'expire',
         'payment_id',
-        'status'
+        'status',
+        'name_shop',
+        'organization',
+        'order_id',
+        'pay_time',
+        'merchanId',
+        'terminalId',
+        'ckeckId',
+        'all_price',
     ];
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class, 'order_id', 'id');
+    }
 }
