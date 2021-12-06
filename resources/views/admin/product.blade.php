@@ -50,6 +50,9 @@
                         <tbody>
                             @foreach ($products as $item)
                                 <tr>
+                                    {{-- @php
+                                        dd($item->image);//storage/assets/products/
+                                    @endphp --}}
                                     <td><img src="{{ asset($item->image) }}" alt="" width="100px"></td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->slug }}</td>

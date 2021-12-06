@@ -28,9 +28,11 @@ return [
 
     'bestsel' => 'bestseller',
     'titleis' => 'This is news title',
-    'bestsels' => 'Best sellers',
-    'topof' => 'Top offers',
+
+    'bestsels' => 'New products',
+    'topof' => 'Quality products',
     'bestrat' => 'Best rated',
+
     'sale' => 'Sale',
     'sale2050' => 'Sale from 20% to 50% on every tablet!',
     'newprod' => 'New  Products',

@@ -18,7 +18,7 @@
 
                 @if (auth()->user()->hasRole('user'))
 
-                <td><a href="{{ route('review', ['order_detail_id' => $ordet->id])}}">{{__'main.izoh'}}</a></td>
+                <td><a href="{{ route('review', ['order_detail_id' => $ordet->id])}}">{{__('main.izoh')}}</a></td>
                 @endif
 
 

@@ -28,7 +28,7 @@
                         </button>
                     </td>
 
-                    <td><a href="{{ route('detail', ['slug' => $item->product->slug]) }}">{{__'main.batafsil'}}</a></td>
+                    <td><a href="{{ route('detail', ['slug' => $item->product->slug]) }}">{{__('main.batafsil')}}</a></td>
 
 
 

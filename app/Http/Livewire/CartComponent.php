@@ -48,6 +48,7 @@ class CartComponent extends Component
     {
         $product = Product::find($id);
         $this->service->addcart($product, 1);
+        $this->emitTo('cart-count-component', 'count');
     }
 
     public function render()

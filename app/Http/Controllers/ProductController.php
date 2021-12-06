@@ -18,7 +18,7 @@ class ProductController extends Controller
     $month = [  1=>['January'],	2=>['February'], 3=>['March'], 4=>['April'], 5=>['May'], 6=>['June'], 7=>['July'],
                 8=>['August'], 9=>['September'], 10=>['October'], 11=>['November'],12 =>['December']
              ];
-        $status = [0=>['Start'],1 => ['  Process'], 2 => ['Finish']];
+        $status = [0=>['Start'],1 => ['  Process'], 2 => ['Finish'],3 => ['Rejected']];
         $product = Product::count('id');
         $user = User::whereHas('roles', function($q){$q->where('name', 'user'); })->count('id');
         $ordercount = Order::count('id');

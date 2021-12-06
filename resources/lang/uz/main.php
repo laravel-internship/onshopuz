@@ -30,9 +30,11 @@ return [
 
    'bestsel' =>'bestseller',
    'titleis' =>'Bu yangilik sarlavhasi',
-   'bestsels' =>'Eng yaxshi sotuvchilar',
-   'topof' =>'Eng yaxshi takliflar',
+
+   'bestsels' =>'Yangi mahsulotlar',
+   'topof' =>'Sifatli mahsulotlar',
    'bestrat' =>'Eng yaxshi baholangan',
+
    'sale' =>'Sotish',
    'sale2050' =>'Har bir planshet uchun 20% dan 50% gacha chegirma!',
    'newprod' =>'Yangi mahsulotlar',
