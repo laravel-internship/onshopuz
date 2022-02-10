@@ -36,7 +36,7 @@
                                 <th class="th-lg"><a href="">Phone<i class="fas fa-sort ml-1"></i></a></th>
                                 <th class="th-lg"><a href="">All Price<i class="fas fa-sort ml-1"></i></a></th>
                                 <th class="th-lg"><a href="">Create Data<i class="fas fa-sort ml-1"></i></a></th>
-                                <th class="th-lg"><a href="">End Date<i class="fas fa-sort ml-1"></i></a></th>
+                                <th class="th-lg"><a href="">Finish Date<i class="fas fa-sort ml-1"></i></a></th>
                                 <th class="th-lg"><a href="">Delivery Price<i class="fas fa-sort ml-1"></i></a></th>
                                 <th class="th-lg"><a href="">Payment Type<i class="fas fa-sort ml-1"></i></a></th>
                                 <th class="th-lg"><a href="">Status<i class="fas fa-sort ml-1"></i></a></th>
@@ -55,7 +55,7 @@
                                     <td>{{ $item->last_name.$item->first_name }}</td>
                                     <td>{{ $item->address }}</td>
                                     <td>{{ $item->phone }}</td>
-                                    <td>{{ $item->all_price }}</td>
+                                    <td>{{ $item->all_price }} $</td>
                                     <td>{{ $item->created_at }}</td>
                                     <td>{{ $item->date }}</td>
                                     <td>{{ $item->delivery_price }}</td>

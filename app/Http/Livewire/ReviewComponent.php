@@ -51,7 +51,7 @@ class ReviewComponent extends Component
     }
     public function render()
     {
-        $order_detail = OrderDetail::with('product')->find($this->order_detail_id);
+        $order_detail = OrderDetail::with('product')->orderBy('id','DESC')->find($this->order_detail_id);
         return view('livewire.review-component', ['order_detail' => $order_detail])->layout('layouts.base');
     }
 }

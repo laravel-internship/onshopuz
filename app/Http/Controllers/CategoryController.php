@@ -16,7 +16,7 @@ class CategoryController extends Controller
     }
     public function create()
     {
-        return view('admin.cform',);
+        return view('admin.cform');
     }
     public function store(CstoreRequest $request)
     {

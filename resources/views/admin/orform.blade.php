@@ -27,6 +27,7 @@
                                 <option value="0" {{($order->status==0)? 'selected':''}} >Start</option>
                                 <option value="1" {{($order->status==1)? 'selected':''}}>Process</option>
                                 <option value="2"{{($order->status==2)? 'selected':''}}>Finish</option>
+                                <option value="2"{{($order->status==3)? 'selected':''}}>Rejected</option>
 
 
                         </select>
