@@ -318,7 +318,7 @@
                             <i class="fab fa-linkedin-in white-text"> </i>
                         </a>
                         <!--Instagram-->
-                        <a class="ins-ic px-2">
+                        <a class="ins-ic px-2" href="https://www.instagram.com/khaydarov_a1405/">
                             <i class="fab fa-instagram white-text"> </i>
                         </a>
                     </div>
